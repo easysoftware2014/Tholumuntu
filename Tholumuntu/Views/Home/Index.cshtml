@@ -1,31 +1,112 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <h2 style="text-align: center; font-family: courier,arial,helvetica;">We're saying, Character matters most</h2>
+            <br />
+            <!-- Default form register -->
+            <form class="text-center" action="#" id="signupForm">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                <p class="h4 mb-4">Sign up</p>
+
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" id="defaultRegisterFormFirstName" required="required" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" id="defaultRegisterFormLastName" required="required" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+
+                <!-- E-mail -->
+                <input type="email" id="defaultRegisterFormEmail" required="required" class="form-control mb-4" placeholder="E-mail">
+
+                <!-- Password -->
+                <input type="password" id="defaultRegisterFormPassword" required="required" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    At least 8 characters and 1 digit
+                </small>
+
+                <!-- Phone number -->
+                <input type="text" id="defaultRegisterPhonePassword" required="required" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Optional - for two step authentication
+                </small>
+
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="submit">Sign Up</button>
+
+                <hr>
+
+                <!-- Terms of service -->
+                <p>
+                By clicking
+                <em>Sign up</em> you agree to our
+                <a href="" target="_blank">terms of service</a>
+
+            </form>
+            <!-- Default form register -->
+        </div>
     </div>
 </div>
+<script src="../../Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSignUp").click(function () {
+            var isValid = $("#signupForm").valid();
+
+
+            if (isValid) {
+                var name = $("#defaultRegisterFormFirstName").val();
+                var surname = $("#defaultRegisterFormLastName").val();
+                var email = $("#defaultRegisterFormEmail").val();
+                var password = $("#defaultRegisterFormPassword").val();
+                var contactNumber = $("#defaultRegisterPhonePassword").val();
+                console.log(
+                    "firstName:" + name,
+                    "surname: " + surname,
+                    "email: " + email,
+                    "password: " + password,
+                    "contact: " + contactNumber);
+
+                var uploadData = { "firstName": name, "surname": surname, "email": email, "password": password, "contact": contactNumber };
+
+                $.ajax({
+                    type: "POST",
+                    url: "home/register",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (data) {
+                        if (data) {
+                            clearControls();
+                            alert("success");
+                        }
+                        else
+                            alert("failed to add the user :( ");
+                    },
+                    error: function () {
+                        alert("error occured");
+                    }
+                });
+            }
+        });
+
+        function clearControls() {
+
+        $("#defaultRegisterFormFirstName").val('');
+        $("#defaultRegisterFormLastName").val('');
+        $("#defaultRegisterFormEmail").val('');
+        $("#defaultRegisterFormPassword").val('');
+        $("#defaultRegisterPhonePassword").val('');
+    }
+    })
+</script>
