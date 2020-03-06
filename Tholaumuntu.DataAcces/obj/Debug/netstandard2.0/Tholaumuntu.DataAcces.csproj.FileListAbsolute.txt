@@ -1,0 +1,8 @@
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Debug\netstandard2.0\Tholaumuntu.DataAcces.csprojAssemblyReference.cache
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Debug\netstandard2.0\Tholaumuntu.DataAcces.AssemblyInfoInputs.cache
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Debug\netstandard2.0\Tholaumuntu.DataAcces.AssemblyInfo.cs
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.deps.json
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
