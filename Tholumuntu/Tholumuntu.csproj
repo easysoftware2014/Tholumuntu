@@ -152,6 +152,10 @@
     <Compile Include="Migrations\202003061304581_addPersonalityTypeColumnToProfile.designer.cs">
       <DependentUpon>202003061304581_addPersonalityTypeColumnToProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003071056549_AddProfile.cs" />
+    <Compile Include="Migrations\202003071056549_AddProfile.designer.cs">
+      <DependentUpon>202003071056549_AddProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
@@ -296,10 +300,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
+    <Content Include="Views\Profile\AddProfile.cshtml" />
+    <Content Include="Views\Profile\SetProfile.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003061304581_addPersonalityTypeColumnToProfile.resx">
       <DependentUpon>202003061304581_addPersonalityTypeColumnToProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003071056549_AddProfile.resx">
+      <DependentUpon>202003071056549_AddProfile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

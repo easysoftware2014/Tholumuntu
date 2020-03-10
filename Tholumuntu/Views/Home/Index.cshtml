@@ -41,7 +41,7 @@
                 </small>
 
                 <!-- Sign up button -->
-                <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="submit">Sign Up</button>
+                <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="button">Sign Up</button>
 
                 <hr>
 
@@ -86,9 +86,11 @@
                     dataType: "json",
                     cache: false,
                     success: function (data) {
+                        event.preventDefault();
                         if (data) {
                             clearControls();
-                            alert("success");
+                            console.log("Data: ", data);
+                            location.href = "/profile";
                         }
                         else
                             alert("failed to add the user :( ");
