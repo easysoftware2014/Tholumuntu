@@ -11,7 +11,6 @@ namespace Tholaumuntu.DataAcces.Domain
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
         public string Salt { get; set; }
         public EntityStatus EntityStatus { get; set; }
 

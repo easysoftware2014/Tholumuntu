@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Common;
+using System.Linq;
 using System.Web.Mvc;
 using Tholaumuntu.Repository.Contracts;
 using Tholaumuntu.Repository.Repositories;
@@ -73,6 +74,30 @@ namespace Tholumuntu.Controllers
 
             return Json(new { data = false, JsonRequestBehavior.AllowGet });
 
+        }
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            try
+            {
+
+                var user = _userRepository.GetUserByEmailAndPassword(email, password);
+                var model = new UserModel();
+
+                if (user != null)
+                {
+                    Session["UserId"] = user.Id;
+                    model = new UserModel(user);
+                    return Json(new {data = model, JsonRequestBehavior.AllowGet});
+                }
+                else
+                    return Json(new {data = model});
+            }
+            catch (DbException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

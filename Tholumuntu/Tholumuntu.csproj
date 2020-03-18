@@ -144,6 +144,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Encryption.cs" />
+    <Compile Include="Helpers\EnumExtensions.cs" />
+    <Compile Include="Helpers\ImageConverter.cs" />
+    <Compile Include="Helpers\SendEmail.cs" />
     <Compile Include="Migrations\202003061256581_InitialCreate.cs" />
     <Compile Include="Migrations\202003061256581_InitialCreate.designer.cs">
       <DependentUpon>202003061256581_InitialCreate.cs</DependentUpon>
@@ -157,6 +161,7 @@
       <DependentUpon>202003071056549_AddProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

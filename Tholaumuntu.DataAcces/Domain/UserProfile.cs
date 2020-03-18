@@ -11,6 +11,6 @@ namespace Tholaumuntu.DataAcces.Domain
         public EntityStatus EntityStatus { get; set; }
         public string PersonalityType { get; set; }
         public Byte[] ProfilePicture { get; set; }
-
+        public string Gender { get; set; }
     }
 }

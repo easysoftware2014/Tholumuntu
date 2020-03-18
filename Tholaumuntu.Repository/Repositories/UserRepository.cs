@@ -48,5 +48,18 @@ namespace Tholaumuntu.Repository.Repositories
         {
             return _tholaUmuntuContext.Users.FirstOrDefault(x => x.Id == id);
         }
+
+        public User GetUserByEmailAndPassword(string email, string password)
+        {
+            try
+            {
+                return _tholaUmuntuContext.Users.First(x => x.Email == email && x.Password == password);
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

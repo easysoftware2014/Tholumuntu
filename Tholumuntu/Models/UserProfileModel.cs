@@ -11,8 +11,10 @@ namespace Tholumuntu.Models
         public string Horoscope { get; set; }
         public Byte[] ProfilePicture { get; set; }
         public EntityStatus EntityStatus { get; set; }
+        public string Gender { get; set; }
+        public virtual Address Address { get; set; }
 
-        public UserProfileModel(){}
+        public UserProfileModel() { }
 
         public UserProfileModel(UserProfile model)
         {
@@ -20,8 +22,13 @@ namespace Tholumuntu.Models
             LoveLanguage = model.LoveLanguage;
             Horoscope = model.Horoscope;
             ProfilePicture = model.ProfilePicture;
+            Gender = model.Gender;
         }
 
+        public void SetAddress(Address address)
+        {
+            Address = address;
+        }
         public void SetStatus(EntityStatus status)
         {
             EntityStatus = status;

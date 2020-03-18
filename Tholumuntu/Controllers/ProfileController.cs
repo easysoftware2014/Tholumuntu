@@ -20,7 +20,7 @@ namespace Tholumuntu.Controllers
         public ActionResult Index()
         {
             var id = Convert.ToInt32(Session["UserId"]);
-            var user = new UserModel();
+            var user = new UserModel { ContactNumber = string.Empty, Email = "", Name = "", Surname = "" };
 
             if (id > 0)
             {
@@ -29,7 +29,7 @@ namespace Tholumuntu.Controllers
                 user.Name = currentUser.Name;
                 user.Surname = currentUser.Surname;
                 user.ContactNumber = currentUser.ContactNumber;
-                user.Email = currentUser.Gender;
+                user.Email = currentUser.Email;
 
             }
             var profile = _profileRepository.GetProfile(id);

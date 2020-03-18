@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Tholaumuntu.DataAcces.Domain;
 
 namespace Tholaumuntu.Services.Contracts
@@ -8,5 +9,6 @@ namespace Tholaumuntu.Services.Contracts
         int AddUser(User user);
         IList<User> GetAllUsers();
         User GetUserById(int id);
+        User GetUserByEmailAndPassword(string email, string password);
     }
 }
