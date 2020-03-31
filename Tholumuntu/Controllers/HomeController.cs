@@ -90,8 +90,8 @@ namespace Tholumuntu.Controllers
                     model = new UserModel(user);
                     return Json(new {data = model, JsonRequestBehavior.AllowGet});
                 }
-                else
-                    return Json(new {data = model});
+               
+                return Json(new {data = model});
             }
             catch (DbException e)
             {

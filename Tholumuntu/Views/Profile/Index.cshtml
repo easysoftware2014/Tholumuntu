@@ -13,89 +13,32 @@
     }
 </style>
 
-<div class="row">
-    <div class="col-sm-12">
-        <br />
-    </div>
-</div>
-
 <div class="row profile">
-    <div class="col-md-3">
-        <div class="profile-sidebar">
-            <!-- SIDEBAR USERPIC -->
-            <div class="profile-userpic">
-                <img src="~/Images/time-04.jpg" class="img-responsive" alt="Profile Picture" />
-            </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name">
-                    @Model.User.Name @Model.User.Surname
-                </div>
-                @*<div class="profile-usertitle-job">
-                        Job Title
-
-                    </div>*@
-            </div>
-            <!-- END SIDEBAR USER TITLE -->
-            <!-- SIDEBAR BUTTONS -->
-            <div class="profile-userbuttons">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <input type="file" class="fa-file btn-sm" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-2">
-                        <input type="button" class="btn btn-default btn-sm" disabled="disabled" width="100" value="Change" />
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-            <!-- SIDEBAR MENU -->
-            <div class="profile-usermenu">
-                <ul class="nav">
-                    <li class="active">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
-                            Overview
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-user"></i>
-                            Account Settings
-                        </a>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-log-out"></i>
-                            Log Out
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- END MENU -->
-        </div>
-    </div>
-
-    <div class="col-md-9">
+    <div class="col-md-12">
         <div class="profile-content">
-            <div class="container">
-                <div class="row my-2">
+            <br />
+            <h2 class="mb-4">Profile Setup</h2>
+            <div class="container-fluid">
+                <div class="row my-2" style="margin-left: 70px">
                     <div class="col-lg-8 order-lg-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
                                 <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Edit</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link">Personal Traits</a>
+                                <a href="" data-target="#personal_quiz" data-toggle="tab" class="nav-link">Personal quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Love language</a>
+                                <a href="" data-target="#nameReports" data-toggle="tab" class="nav-link">Name report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" data-target="#horoscope" data-toggle="tab" class="nav-link">Horoscope</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" data-target="#loveLanguage" data-toggle="tab" class="nav-link">Love language</a>
                             </li>
                         </ul>
+                        <br />
                         <div class="tab-content py-4">
                             <div class="tab-pane active" id="edit">
                                 <form role="form">
@@ -165,108 +108,158 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane" id="profile">
-                                <h2 style="font-family: courier,arial,helvetica;">Profile set-up</h2>
+                            <div class="tab-pane" id="personal_quiz">
                                 <br />
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table class="table table-borderless table-hover">
-                                            <tr>
-                                                <th>Trait</th>
-                                                <th>Yes / No</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I love adventure</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="adventure" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="adventure" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am imaginative</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="imaginative" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="imaginative" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am the first to try new things</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="new_things" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="new_things" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am highly self-disciplined</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="disciplined" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="disciplined" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am very organized and always come prepared</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="organized" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="organized" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I like to know the plan rather than be spontaneous</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="spontaneous" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="spontaneous" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am the life of the party.</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="party" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="party" title="No">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I don’t mind being the center of attention.</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="attention" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="attention" title="No">
+                                <form id="profile_traits">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table table-borderless table-hover">
+                                                <tr>
+                                                    <th>Trait</th>
+                                                    <th>yes/no</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I love adventure</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="adventure" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="adventure" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am imaginative</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="imaginative" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="imaginative" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am the first to try new things</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="new_things" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="new_things" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am highly self-disciplined</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="disciplined" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="disciplined" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am very organized and always come prepared</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="organized" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="organized" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I like to know the plan rather than be spontaneous</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="spontaneous" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="spontaneous" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am the life of the party.</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="party" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="party" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I don’t mind being the center of attention.</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="attention" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="attention" title="No">
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4>I am usually the one to start a conversation with someone.</h4>
-                                                </td>
-                                                <td>
-                                                    <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="conversation" title="Yes">
-                                                    <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="conversation" title="No">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>I am usually the one to start a conversation with someone.</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="conversation" title="Yes">
+                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="conversation" title="No">
 
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
                                     </div>
-                                    
-                                </div>
-                                <!--/row-->
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+                                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                                            <input type="button" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </form>
                             </div>
-                            <div class="tab-pane" id="messages">
-                                
+                            <div class="tab-pane" id="nameReports">
+                                <div class="form-group">
+                                    <h2 class="mb-4">Name Reports</h2>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancel">
+                                        <input type="button" id="update-profile-name" class="btn btn-primary" value="Save Changes">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="horoscope">
+                                <div class="form-group">
+                                    <h2 class="mb-4">Horoscope</h2>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancel">
+                                        <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="loveLanguage">
+                                <div class="form-group">
+                                    <label for="love_language">
+                                        Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
+                                    </label>
+                                    <select id="love_language" name="love_language" class="form-control" style="height: 50px">
+                                        <option value="na" selected="">Choose One:</option>
+                                        <option value="Words_of_Affirmation">Words of Affirmation</option>
+                                        <option value="Acts_of_Service">Acts of Service</option>
+                                        <option value="Receiving_Gifts">Receiving Gifts</option>
+                                        <option value="Quality_Time">Quality Time</option>
+                                        <option value="Physical_Touch">Physical Touch</option>
+                                    </select>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancel">
+                                        <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -283,6 +276,8 @@
 
         </div>
     </div>
+
+
 </div>
 
 
