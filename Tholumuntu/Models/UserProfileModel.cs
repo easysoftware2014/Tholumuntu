@@ -13,8 +13,12 @@ namespace Tholumuntu.Models
         public EntityStatus EntityStatus { get; set; }
         public string Gender { get; set; }
         public virtual Address Address { get; set; }
+        public PersonalQuiz Quiz { get; set; }
 
-        public UserProfileModel() { }
+        public UserProfileModel()
+        {
+            Quiz = new PersonalQuiz();
+        }
 
         public UserProfileModel(UserProfile model)
         {

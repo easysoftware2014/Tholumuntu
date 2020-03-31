@@ -1,4 +1,5 @@
-﻿@model Tholumuntu.Models.UserProfileModel
+﻿@using System.Web.UI.WebControls
+@model Tholumuntu.Models.UserProfileModel
 
 @{
     ViewBag.Title = "title";
@@ -23,13 +24,13 @@
                     <div class="col-lg-8 order-lg-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Edit</a>
+                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Details</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" data-target="#personal_quiz" data-toggle="tab" class="nav-link">Personal quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#nameReports" data-toggle="tab" class="nav-link">Name report</a>
+                                <a href="" data-target="#nameReports" data-toggle="tab" hidden="hidden" class="nav-link">Name report</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" data-target="#horoscope" data-toggle="tab" class="nav-link">Horoscope</a>
@@ -102,120 +103,46 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                                            <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
+                                           <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="tab-pane" id="personal_quiz">
-                                <br />
-                                <form id="profile_traits">
+                                @Html.HiddenFor(m => m.User.Id, new {@id="userId"})
+                                <form id="profile_traits" role="form">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <table class="table table-borderless table-hover">
-                                                <tr>
-                                                    <th>Trait</th>
-                                                    <th>yes/no</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I love adventure</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="adventure" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="adventure" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am imaginative</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="imaginative" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="imaginative" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am the first to try new things</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="new_things" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="new_things" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am highly self-disciplined</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="disciplined" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="disciplined" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am very organized and always come prepared</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="organized" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="organized" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I like to know the plan rather than be spontaneous</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="spontaneous" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="spontaneous" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am the life of the party.</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="party" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="party" title="No">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I don’t mind being the center of attention.</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="attention" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="attention" title="No">
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h4>I am usually the one to start a conversation with someone.</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" class="radio-inline" value="Yes" style="margin-top: 12px;" name="conversation" title="Yes">
-                                                        <input type="radio" class="radio-inline" value="No" style="margin-top: 12px;" name="conversation" title="No">
-
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                            <div class="form-group">
+                                                <h2 class="mb-4">Quiz</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="attraction" class="form-control" value="" placeholder="What do you find most attractive in a partner?"/>
+                                            </div>
+                                            <div class="form-group">
+                                               
+                                                <input type="text" id="words" class="form-control" value="" placeholder="Three words that describes you best?"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="choice" id="choice" class="custom-select">
+                                                    <option value="0">If you could choose between the following, what would you choose...</option>
+                                                    <option value="1">Money</option>
+                                                    <option value="2">Love</option>
+                                                    <option value="3">Happiness</option>
+                                                </select>
+                                            </div>
                                         </div>
-
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                                            <input type="button" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
+                                           <input type="button" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
                                     <!--/row-->
                                 </form>
                             </div>
-                            <div class="tab-pane" id="nameReports">
+                            <div class="tab-pane" id="nameReports" hidden="hidden">
                                 <div class="form-group">
                                     <h2 class="mb-4">Name Reports</h2>
                                 </div>
@@ -228,16 +155,31 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="horoscope">
-                                <div class="form-group">
-                                    <h2 class="mb-4">Horoscope</h2>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-9">
-                                        <input type="reset" class="btn btn-secondary" value="Cancel">
-                                        <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="mb-4">Horoscope</h2>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="horoscope" id="drpHoroscope" class="custom-select">
+                                                <option value="0">Select...</option>
+                                                <option value="1">Aries</option>
+                                                <option value="2">Aquarius</option>
+                                                <option value="3">Cancer</option>
+                                                <option value="4">Leo</option>
+                                                <option value="5">Libra</option>
+                                                <option value="6">Gemini</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                                            <div class="col-lg-9">
+                                               <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                               
                             </div>
                             <div class="tab-pane" id="loveLanguage">
                                 <div class="form-group">
@@ -256,8 +198,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-9">
-                                        <input type="reset" class="btn btn-secondary" value="Cancel">
-                                        <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
+                                       <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
                                     </div>
                                 </div>
                             </div>
