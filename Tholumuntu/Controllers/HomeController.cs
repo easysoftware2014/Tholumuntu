@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data.Common;
+using System.Linq;
 using System.Web.Mvc;
-using Tholaumuntu.DataAcces.Contexts;
 using Tholaumuntu.Repository.Contracts;
 using Tholaumuntu.Repository.Repositories;
+using Tholumuntu.Models;
 using Domain = Tholaumuntu.DataAcces.Domain;
 
 namespace Tholumuntu.Controllers
@@ -34,7 +35,7 @@ namespace Tholumuntu.Controllers
             return View();
         }
 
-        public JsonResult Register(string firstName, string surname, string email, string password, string contact)
+        public ActionResult Register(string firstName, string surname, string email, string password, string contact)
         {
             var user = new Domain.User
             {
@@ -55,7 +56,11 @@ namespace Tholumuntu.Controllers
                     var isSaved = _userRepository.AddUser(user);
 
                     if (isSaved == 1)
-                        return Json(new { data = true, JsonRequestBehavior.AllowGet });
+                    {
+                        Session["UserId"] = user.Id;
+                        return Json(new {data = true, JsonRequestBehavior.AllowGet});
+                        //return RedirectToAction("AddProfile", "Profile", new UserProfileModel());
+                    }
 
                     return Json(new { data = false, JsonRequestBehavior.AllowGet });
                 }
@@ -68,6 +73,31 @@ namespace Tholumuntu.Controllers
             }
 
             return Json(new { data = false, JsonRequestBehavior.AllowGet });
+
+        }
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            try
+            {
+
+                var user = _userRepository.GetUserByEmailAndPassword(email, password);
+                var model = new UserModel();
+
+                if (user != null)
+                {
+                    Session["UserId"] = user.Id;
+                    model = new UserModel(user);
+                    return Json(new {data = model, JsonRequestBehavior.AllowGet});
+                }
+               
+                return Json(new {data = model});
+            }
+            catch (DbException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

@@ -7,5 +7,6 @@ namespace Tholaumuntu.DataAcces.Domain
     {
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
+        public int Id { get; set; }
     }
 }

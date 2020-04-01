@@ -1,4 +1,3 @@
-C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csprojAssemblyReference.cache
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll.config
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.pdb
@@ -36,9 +35,11 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Antlr3.Ru
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\System.Net.Http.Formatting.xml
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.xml
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.WebHost.xml
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csprojAssemblyReference.cache
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.InitialCreate.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addPersonalityTypeColumnToProfile.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddProfile.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.GenerateResource.cache
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.CopyComplete
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.pdb
-C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.InitialCreate.resources
-C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.GenerateResource.cache
-C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addPersonalityTypeColumnToProfile.resources

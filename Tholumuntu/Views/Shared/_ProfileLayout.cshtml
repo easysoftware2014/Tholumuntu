@@ -1,107 +1,82 @@
-﻿
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
+    <title>Profile</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <!-- Site Metas -->
-    <title>Tholaumuntu</title>
-    <meta name="keywords" content="dating, love, find partner, online dating, couple, find a date">
-    <meta name="description" content="Online dating site">
-    <meta name="author" content="Ayanda Sawulisi">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Content/style3.css">
     <link rel="stylesheet" href="../../Content/bootstrap.min.css">
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    
-    <link href="~/Content/Profile.css" rel="stylesheet" />
+    <style type="text/css">
+        .non-active {
+            pointer-events: none;
+            cursor: default;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row profile">
-            <div class="col-md-3">
-                <div class="profile-sidebar">
-                    <!-- SIDEBAR USERPIC -->
-                    <div class="profile-userpic">
-                        <img src="" class="img-responsive" alt="">
-                    </div>
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
-                    <div class="profile-usertitle">
-                        <div class="profile-usertitle-name">
-                            Marcus Doe
-                        </div>
-                        <div class="profile-usertitle-job">
-                            Developer
-                        </div>
-                    </div>
-                    <!-- END SIDEBAR USER TITLE -->
-                    <!-- SIDEBAR BUTTONS -->
-                    <div class="profile-userbuttons">
-                        <button type="button" class="btn btn-success btn-sm">Follow</button>
-                        <button type="button" class="btn btn-danger btn-sm">Message</button>
-                    </div>
-                    <!-- END SIDEBAR BUTTONS -->
-                    <!-- SIDEBAR MENU -->
-                    <div class="profile-usermenu">
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                    Overview
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    Account Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                    Tasks
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-flag"></i>
-                                    Help
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- END MENU -->
-                </div>
-            </div>
-            @RenderBody()
-            <div class="col-md-9">
-                <div class="profile-content">
-                    Some user related content goes here...
-                </div>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" style="background-color: #18121E">
+        @*<div style="background-color: white;" class="fixed-top">
+            <a class="navbar-brand" href="#"><img src="../../Images/tholaumuntu.png" height="80" width="200" alt="image" style="margin-left: 40px; margin-top: 10px"></a>
+            <br />
+            <br />
+        </div>*@
+       
+        <div class="custom-menu" >
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            </button>
+        </div>
+        <div class="img bg-wrap text-center py-4" >
+            <div class="user-logo">
+                <div class="img" style="background-image: url(../../Images/pic_1.gif);"></div>
+                <h3>Ayanda Sawulisi</h3>
             </div>
         </div>
-    </div>
-    <center>
-        <strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
-    </center>
-    <br>
-<br>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <ul class="list-unstyled components mb-5">
+            <li class="active">
+                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+            </li>
+            @*<li>
+                    <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+                </li>*@
+            <li>
+                <a href="#"><span class="fa fa-users mr-3"></span> Explore</a>
+            </li>
+            <li>
+                <a href="#" class="non-active"><span class="fa fa-envelope-o mr-3"></span> Chat</a>
+            </li>
+            <li>
+                <a href="/home"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+            </li>
+        </ul>
+        <div>
 
+        </div>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5" style="background-color: #f4f4f4; background-image: url(../../Images/slider-03.jpg);max-width: 100%; max-height: 100%; display: block; background-attachment: fixed">
+        @RenderBody()
+    </div>
+</div>
+
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="../../Scripts/popper.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/main.js"></script>
 </body>
 </html>
-
-<!------ Include the above in your HEAD tag ---------->
-<!--
-User Profile Sidebar by keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
--->
-
-
