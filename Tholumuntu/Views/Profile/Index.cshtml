@@ -1,4 +1,5 @@
-﻿@model Tholumuntu.Models.UserProfileModel
+﻿@using System.Web.UI.WebControls
+@model Tholumuntu.Models.UserProfileModel
 
 @{
     ViewBag.Title = "title";
@@ -6,91 +7,39 @@
 
 }
 <script src="../../Scripts/jquery.min.js"></script>
-
-
-<div class="row">
-    <div class="col-sm-12">
-        <br />
-    </div>
-</div>
+<style type="text/css">
+    .table-padding-left {
+        margin-left: 20px;
+        margin-top: -5px;
+    }
+</style>
 
 <div class="row profile">
-    <div class="col-md-3">
-        <div class="profile-sidebar">
-            <!-- SIDEBAR USERPIC -->
-            <div class="profile-userpic">
-                <img src="~/Images/time-04.jpg" class="img-responsive" alt="Profile Picture" />
-            </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name">
-                    @Model.User.Name @Model.User.Surname
-                </div>
-                @*<div class="profile-usertitle-job">
-                        Job Title
-
-                    </div>*@
-            </div>
-            <!-- END SIDEBAR USER TITLE -->
-            <!-- SIDEBAR BUTTONS -->
-            <div class="profile-userbuttons">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <input type="file" class="fa-file btn-sm" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-2">
-                        <input type="button" class="btn btn-default btn-sm" disabled="disabled" width="100" value="Change" />
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-            <!-- SIDEBAR MENU -->
-            <div class="profile-usermenu">
-                <ul class="nav">
-                    <li class="active">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
-                            Overview
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-user"></i>
-                            Account Settings
-                        </a>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-log-out"></i>
-                            Log Out
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- END MENU -->
-        </div>
-    </div>
-
-    <div class="col-md-9">
+    <div class="col-md-12">
         <div class="profile-content">
-            <div class="container">
-                <div class="row my-2">
+            <br />
+            <h2 class="mb-4">Profile Setup</h2>
+            <div class="container-fluid">
+                <div class="row my-2" style="margin-left: 70px">
                     <div class="col-lg-8 order-lg-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Edit</a>
+                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Details</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link">Profile</a>
+                                <a href="" data-target="#personal_quiz" data-toggle="tab" class="nav-link">Personal quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                                <a href="" data-target="#nameReports" data-toggle="tab" hidden="hidden" class="nav-link">Name report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" data-target="#horoscope" data-toggle="tab" class="nav-link">Horoscope</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" data-target="#loveLanguage" data-toggle="tab" class="nav-link">Love language</a>
                             </li>
                         </ul>
+                        <br />
                         <div class="tab-content py-4">
                             <div class="tab-pane active" id="edit">
                                 <form role="form">
@@ -123,8 +72,8 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label>Female</label><br />
-                                                <input class="radio-inline" type="radio" name="gender" checked="checked" value="Female">
-                                                
+                                                <input class="radio-inline" type="radio" name="gender" value="Female">
+
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -150,145 +99,126 @@
                                             <input class="form-control" type="text" value="" placeholder="Postal Code">
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="janeuser">
+                                           <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="password" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="password" value="">
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="personal_quiz">
+                                @Html.HiddenFor(m => m.User.Id, new {@id="userId"})
+                                <form id="profile_traits" role="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h2 class="mb-4">Quiz</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="attraction" class="form-control" value="" placeholder="What do you find most attractive in a partner?"/>
+                                            </div>
+                                            <div class="form-group">
+                                               
+                                                <input type="text" id="words" class="form-control" value="" placeholder="Three words that describes you best?"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="choice" id="choice" class="custom-select">
+                                                    <option value="0">If you could choose between the following, what would you choose...</option>
+                                                    <option value="1">Money</option>
+                                                    <option value="2">Love</option>
+                                                    <option value="3">Happiness</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                                            <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
+                                           <input type="button" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
+                                    <!--/row-->
                                 </form>
                             </div>
-                            <div class="tab-pane" id="profile">
-                                <h5 class="mb-3">User Profile</h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>About</h6>
-                                        <p>
-                                            Web Designer, UI/UX Engineer
-                                        </p>
-                                        <h6>Hobbies</h6>
-                                        <p>
-                                            Indie music, skiing and hiking. I love the great outdoors.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Recent badges</h6>
-                                        <a href="#" class="badge badge-dark badge-pill">html5</a>
-                                        <a href="#" class="badge badge-dark badge-pill">react</a>
-                                        <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                                        <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                                        <a href="#" class="badge badge-dark badge-pill">css3</a>
-                                        <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                                        <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                                        <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
-                                        <hr>
-                                        <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                                        <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                                        <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                                        <table class="table table-sm table-hover table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <div class="tab-pane" id="nameReports" hidden="hidden">
+                                <div class="form-group">
+                                    <h2 class="mb-4">Name Reports</h2>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancel">
+                                        <input type="button" id="update-profile-name" class="btn btn-primary" value="Save Changes">
                                     </div>
                                 </div>
-                                <!--/row-->
                             </div>
-                            <div class="tab-pane" id="messages">
-                                <div class="alert alert-info alert-dismissable">
-                                    <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                            <div class="tab-pane" id="horoscope">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="mb-4">Horoscope</h2>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="horoscope" id="drpHoroscope" class="custom-select">
+                                                <option value="0">Select...</option>
+                                                <option value="1">Aries</option>
+                                                <option value="2">Aquarius</option>
+                                                <option value="3">Cancer</option>
+                                                <option value="4">Leo</option>
+                                                <option value="5">Libra</option>
+                                                <option value="6">Gemini</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                                            <div class="col-lg-9">
+                                               <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <table class="table table-hover table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                               
+                            </div>
+                            <div class="tab-pane" id="loveLanguage">
+                                <div class="form-group">
+                                    <label for="love_language">
+                                        Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
+                                    </label>
+                                    <select id="love_language" name="love_language" class="form-control" style="height: 50px">
+                                        <option value="na" selected="">Choose One:</option>
+                                        <option value="Words_of_Affirmation">Words of Affirmation</option>
+                                        <option value="Acts_of_Service">Acts of Service</option>
+                                        <option value="Receiving_Gifts">Receiving Gifts</option>
+                                        <option value="Quality_Time">Quality Time</option>
+                                        <option value="Physical_Touch">Physical Touch</option>
+                                    </select>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                       <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     @*<div class="col-lg-4 order-lg-1 text-center">
-                        <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-                        <h6 class="mt-2">Upload a different photo</h6>
-                        <label class="custom-file">
-                            <input type="file" id="file" class="custom-file-input">
-                            <span class="custom-file-control">Choose file</span>
-                        </label>
-                    </div>*@
+                            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                            <h6 class="mt-2">Upload a different photo</h6>
+                            <label class="custom-file">
+                                <input type="file" id="file" class="custom-file-input">
+                                <span class="custom-file-control">Choose file</span>
+                            </label>
+                        </div>*@
                 </div>
             </div>
 
         </div>
     </div>
+
+
 </div>
 
 

@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\PersonalQuizModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +184,8 @@
     <Content Include="Content\responsive.css" />
     <Content Include="Content\responsiveslides.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\style2.css" />
+    <Content Include="Content\style3.css" />
     <Content Include="Content\timeline.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -195,6 +198,7 @@
     <Content Include="Images\about-img-02.jpg" />
     <Content Include="Images\apple-touch-icon.png" />
     <Content Include="Images\bg_1.gif" />
+    <Content Include="Images\bg_1.jpg" />
     <Content Include="Images\bg_2.gif" />
     <Content Include="Images\bg_3.gif" />
     <Content Include="Images\body_bg.gif" />
@@ -283,6 +287,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\responsiveslides.min.js" />
     <Content Include="Scripts\slider-index.js" />
