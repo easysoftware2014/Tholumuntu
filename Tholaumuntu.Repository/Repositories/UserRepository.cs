@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
 using Tholaumuntu.DataAcces.Contexts;
@@ -35,14 +36,11 @@ namespace Tholaumuntu.Repository.Repositories
             
         }
 
-        public IList<User> GetAllUsers()
+        public IList<User> GetAllUsers()    
         {
             try
             {
-                using (_tholaUmuntuContext)
-                {
-                    return _tholaUmuntuContext.Users.ToList();
-                }
+                return _tholaUmuntuContext.Users.ToList();
             }
             catch (DbEntityValidationException e)
             {
@@ -80,14 +78,14 @@ namespace Tholaumuntu.Repository.Repositories
                     if (userToUpdate != null)
                     {
                         userToUpdate = user;
-                        _tholaUmuntuContext.Entry(userToUpdate).State = EntityState.Modified;
+                        _tholaUmuntuContext.Users.AddOrUpdate(userToUpdate);
                         return _tholaUmuntuContext.SaveChanges() > 0;
                     }
                 }
             }
             catch (DbEntityValidationException e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.EntityValidationErrors.Select(x=>x.ValidationErrors.Select(y=>y.ErrorMessage)));
                 return false;
             }
 

@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var emailCached = ViewBag.EmailCache != null ? ViewBag.EmailCache as List<string> : new List<string>();
+}
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center; font-family: courier,arial,helvetica;margin-left: 100px"><span class="fa-sign-in">Tholaumuntu</span> Login</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtEmail" placeholder="Email" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="txtPassword" placeholder="Password" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <span>Remember me: <input type="checkbox" style="margin-top: 5px" class="checkbox" placeholder="Remember me" /></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn badge-light btn-outline-success" id="btnLoginSubmit" title="Login" value="Login"/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <img src="../../Images/tholaumuntu.png" height="150" alt="image" style="margin-left: 115px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br/>
+            <h2 style="text-align: center; font-family: courier, arial, helvetica;">We're saying, Character matters most</h2>
+            <br/>
+            <!-- Default form register -->
+            <form class="text-center" action="#" id="signupForm">
+
+                <p class="h4 mb-4">Sign up</p>
+
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" id="defaultRegisterFormFirstName" required="required" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" id="defaultRegisterFormLastName" required="required" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+
+                <!-- E-mail -->
+                <input type="email" id="defaultRegisterFormEmail" required="required" class="form-control mb-4" placeholder="E-mail">
+                <small id="defaultRegisterFormEmailError" class="form-text text-muted mb-4" style="display: none;color: red">
+                    Email already taken
+                </small>
+                <!-- Password -->
+                <input type="password" id="defaultRegisterFormPassword" required="required" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    At least 8 characters and 1 digit
+                </small>
+
+                <!-- Phone number -->
+                <input type="text" id="defaultRegisterPhonePassword" required="required" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Optional - for two step authentication
+                </small>
+
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="button">Sign Up</button>
+                <button class="btn btn-success my-4 btn-block" id="btnLogin" type="button" data-toggle="modal" data-target="#myModal">Sign in</button>
+
+                <hr>
+
+                <!-- Terms of service -->
+                <p>
+                By clicking
+                <em>Sign up</em> you agree to our
+                <a href="" target="_blank">terms of service</a>
+
+            </form>
+            <!-- Default form register -->
+        </div>
+    </div>
+
+
+</div>
+<script src="../../Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //need to do an ajax call rather for security reasons!!!!!
+        var array = @Html.Raw(Json.Encode(@emailCached));
+
+        function isEmailUnique(email) {
+            let isUnique = true;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] === email) {
+                    isUnique = false;
+                }
+            }
+            return isUnique;
+        }
+        $("#btnSignUp").click(function () {
+            var email = $("#defaultRegisterFormEmail").val();
+
+            if (!isEmailUnique(email)) {
+                $("#defaultRegisterFormEmail").css("border-color", "red");
+                $("#defaultRegisterFormEmailError").css("display", "block");
+                return;
+            }
+            var isValid = $("#signupForm").valid();
+
+
+            if (isValid) {
+                var name = $("#defaultRegisterFormFirstName").val();
+                var surname = $("#defaultRegisterFormLastName").val();
+               
+                var password = $("#defaultRegisterFormPassword").val();
+                var contactNumber = $("#defaultRegisterPhonePassword").val();
+                console.log(
+                    "firstName:" + name,
+                    "surname: " + surname,
+                    "email: " + email,
+                    "password: " + password,
+                    "contact: " + contactNumber);
+
+                var uploadData = { "firstName": name, "surname": surname, "email": email, "password": password, "contact": contactNumber };
+
+                $.ajax({
+                    type: "POST",
+                    url: "home/register",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (data) {
+                        event.preventDefault();
+                        if (data) {
+                            clearControls();
+                            console.log("Data: ", data);
+                            location.href = "/profile";
+                        }
+                        else
+                            alert("failed to add the user :( ");
+                    },
+                    error: function () {
+                        alert("error occured");
+                    }
+                });
+            }
+        });
+        $("#btnLoginSubmit").click(function () {
+            var isValid = $("#loginForm").valid();
+
+            var email = $("#txtEmail").val();
+            var password = $("#txtPassword").val();
+
+            var uploadData = { "email": email, "password": password };
+
+            $.ajax({
+                type: "POST",
+                url: "home/login",
+                data: JSON.stringify(uploadData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+
+                    event.preventDefault();
+                    console.log("Data: ", data);
+
+                    if (data.data.Id !== 0) {
+                        clearControls();
+                        
+                        location.href = "/profile";
+                    }
+                    else
+                        alert("email or password is incorrect, please try again.");
+                },
+                error: function () {
+                    alert("error occured");
+                }
+            });
+
+        });
+        function clearControls() {
+
+        $("#defaultRegisterFormFirstName").val('');
+        $("#defaultRegisterFormLastName").val('');
+        $("#defaultRegisterFormEmail").val('');
+        $("#defaultRegisterFormPassword").val('');
+        $("#defaultRegisterPhonePassword").val('');
+    }
+    })
+</script>

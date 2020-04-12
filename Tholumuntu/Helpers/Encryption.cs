@@ -50,5 +50,15 @@ namespace Tholumuntu.Helpers
 
             return originalPass;
         }
+
+        public static string Salt(string input)
+        {
+            var manage = new SHA512Managed();
+            var inputBytes = Encoding.Unicode.GetBytes(input);
+            var byteArray = manage.ComputeHash(inputBytes);
+
+            return Convert.ToBase64String(byteArray);
+
+        }
     }
 }

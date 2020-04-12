@@ -18,9 +18,20 @@
     <div class="col-md-12">
         <div class="profile-content">
             <br />
-            <h2 class="mb-4">Profile Setup</h2>
+            <h2 class="mb-4" style="font-family: comic sans ms;">Profile Setup</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <h7 style="font-family: comic sans ms; font-style: italic">
+                            Set up your profile so we can help you find your perfect match. <br />
+                            Your honesty and openness will help us help you find you a perfect partner.
+                        </h7>
+                    </div>
+                </div>
+            </div>
+            <br />
             <div class="container-fluid">
-                <div class="row my-2" style="margin-left: 70px">
+                <div class="row my-2">
                     <div class="col-lg-8 order-lg-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
@@ -30,13 +41,13 @@
                                 <a href="" data-target="#personal_quiz" data-toggle="tab" class="nav-link">Personal quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#nameReports" data-toggle="tab" hidden="hidden" class="nav-link">Name report</a>
+                                <a href="" data-target="#nameReports" style="display: none" data-toggle="tab" hidden="hidden" class="nav-link">Name report</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#horoscope" data-toggle="tab" class="nav-link">Horoscope</a>
+                                <a href="" data-target="#horoscope" data-toggle="tab" style="display: none" class="nav-link">Horoscope</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#loveLanguage" data-toggle="tab" class="nav-link">Love language</a>
+                                <a href="" data-target="#loveLanguage" style="display: none" data-toggle="tab" class="nav-link">Love language</a>
                             </li>
                         </ul>
                         <br />
@@ -46,25 +57,25 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">First name</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="@Model.User.Name">
+                                            <input class="form-control" id="txtName" type="text" value="@Model.User.Name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="@Model.User.Surname">
+                                            <input class="form-control" id="txtSurname" type="text" value="@Model.User.Surname">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="email" value="@Model.User.Email">
+                                            <input class="form-control" id="txtEmail" type="email" readonly="readonly" value="@Model.User.Email">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Contact number</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="@Model.User.ContactNumber">
+                                            <input class="form-control" id="txtContactNumber" type="text" value="@Model.User.ContactNumber">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -73,7 +84,6 @@
                                             <div class="form-group">
                                                 <label>Female</label><br />
                                                 <input class="radio-inline" type="radio" name="gender" value="Female">
-
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -83,64 +93,121 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" placeholder="Street">
+                                        <div class="col-lg-4">
+                                            <input class="form-control" type="text" id="txtCity" value="@Model.User.Street" placeholder="City">
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <input class="form-control" type="text" id="txtState" value="@Model.User.State" placeholder="State">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-3">
-                                            <input class="form-control" type="text" value="" placeholder="City">
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <input class="form-control" type="text" value="" placeholder="State">
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <input class="form-control" type="text" value="" placeholder="Postal Code">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                           <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
+                                            <input type="button" id="update-profile" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="tab-pane" id="personal_quiz">
-                                @Html.HiddenFor(m => m.User.Id, new {@id="userId"})
-                                <form id="profile_traits" role="form">
+                                @using (Html.BeginForm("AddPersonalQuizToProfile", "Profile", null, FormMethod.Post, new { @id = "medical-assign-form", @class = "form", @Required = "required" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(m => m.User.Id, new { @id = "userId" })
+                                    @Html.HiddenFor(m => m.Quiz.Id, new { @id = "quizId" })
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <h2 class="mb-4">Quiz</h2>
+                                                <div class="form-group">
+                                                    <h7 style="font-family: comic sans ms; font-style: italic">
+                                                        This quiz lets your suitors know who you are and what you look for in a potential lover.
+                                                        <br />
+                                                    </h7>
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="attraction" class="form-control" value="" placeholder="What do you find most attractive in a partner?"/>
+                                                <br />
+                                                <label for="attraction">What do you find most attractive in a partner?</label>
+                                                @*<input type="text" id="attraction" class="form-control" value="@Model.Quiz.AttractiveInPartner" />*@
+                                                @Html.TextBoxFor(x => x.Quiz.AttractiveInPartner, new { @id = "attraction", @class = "form-control" })
                                             </div>
                                             <div class="form-group">
-                                               
-                                                <input type="text" id="words" class="form-control" value="" placeholder="Three words that describes you best?"/>
+                                                <label for="words">Three words that describes you best?</label>
+                                                @*<input type="text" id="words" class="form-control" value="@Model.Quiz.WordsThatDescribesMe" />*@
+                                                @Html.TextBoxFor(x => x.Quiz.WordsThatDescribesMe, new { @id = "words", @class = "form-control" })
                                             </div>
                                             <div class="form-group">
-                                                <select name="choice" id="choice" class="custom-select">
-                                                    <option value="0">If you could choose between the following, what would you choose...</option>
+                                                <label for="choice">If you could choose between the following, what would you choose</label>
+                                                @*@Html.DropDownListFor(x => x.LoveLanguage, new SelectList(Model.LoveLanguageList, "Value","Text"), "Select...",new {@id="choice", @class="custom-select"})*@
+                                                @Html.DropDownListFor(x => x.Quiz.Choice, Model.ChoiceItemList,"Select...", new { @id = "choice", @class = "custom-select" })
+                                                @*<select name="choice" id="choice" class="custom-select">
+                                                    <option value="0" selected="selected">Select...</option>
                                                     <option value="1">Money</option>
                                                     <option value="2">Love</option>
                                                     <option value="3">Happiness</option>
-                                                </select>
+                                                </select>*@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
-                                           <input type="button" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <h2 class="mb-4">Horoscope</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <h2></h2>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...",new {@id="drpHoroscope", @class="custom-select"})
+                                                @*<select name="horoscope" id="drpHoroscope" class="custom-select">
+                                                    <option value="0">Select...</option>
+                                                    <option value="1">Aries</option>
+                                                    <option value="2">Aquarius</option>
+                                                    <option value="3">Cancer</option>
+                                                    <option value="4">Leo</option>
+                                                    <option value="5">Libra</option>
+                                                    <option value="6">Gemini</option>
+                                                </select>*@
+                                            </div>
+                                            @*<div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                                    <div class="col-lg-9">
+                                                        <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
+                                                    </div>
+                                                </div>*@
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <h2 class="mb-4">Love Language <i class="fa fa-info-circle" title="5 love languages according to Dr. Gary Chapman"></i></h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="love_language">
+                                                    Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
+                                                </label>
+                                                @Html.DropDownListFor( x => x.LoveLanguage, Model.LoveLanguageList, "Select...",new { @id = "love_language", @class = "custom-select" })
+                                                @*<select id="love_language" name="love_language" class="form-control" style="height: 50px">
+                                                    <option value="0" selected="">Choose One:</option>
+                                                    <option value="1">Words of Affirmation</option>
+                                                    <option value="2">Acts of Service</option>
+                                                    <option value="3">Receiving Gifts</option>
+                                                    <option value="4">Quality Time</option>
+                                                    <option value="5">Physical Touch</option>
+                                                </select>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-lg-12">
+                                                <input type="submit" id="update-profile-quiz" class="btn btn-primary" value="Save Changes">
+                                            </div>
                                         </div>
                                     </div>
                                     <!--/row-->
-                                </form>
+                                }
+
                             </div>
                             <div class="tab-pane" id="nameReports" hidden="hidden">
                                 <div class="form-group">
@@ -155,52 +222,30 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="horoscope">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <h2 class="mb-4">Horoscope</h2>
-                                        </div>
-                                        <div class="form-group">
-                                            <select name="horoscope" id="drpHoroscope" class="custom-select">
-                                                <option value="0">Select...</option>
-                                                <option value="1">Aries</option>
-                                                <option value="2">Aquarius</option>
-                                                <option value="3">Cancer</option>
-                                                <option value="4">Leo</option>
-                                                <option value="5">Libra</option>
-                                                <option value="6">Gemini</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                                            <div class="col-lg-9">
-                                               <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
+
                             </div>
                             <div class="tab-pane" id="loveLanguage">
-                                <div class="form-group">
-                                    <label for="love_language">
-                                        Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
-                                    </label>
-                                    <select id="love_language" name="love_language" class="form-control" style="height: 50px">
-                                        <option value="na" selected="">Choose One:</option>
-                                        <option value="Words_of_Affirmation">Words of Affirmation</option>
-                                        <option value="Acts_of_Service">Acts of Service</option>
-                                        <option value="Receiving_Gifts">Receiving Gifts</option>
-                                        <option value="Quality_Time">Quality Time</option>
-                                        <option value="Physical_Touch">Physical Touch</option>
-                                    </select>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-9">
-                                       <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
+                                <form action="" id="love">
+                                    @*<div class="form-group row">
+                                            <label for="love_language">
+                                                Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
+                                            </label>
+                                            <select id="love_language" name="love_language" class="form-control" style="height: 50px">
+                                                <option value="0" selected="">Choose One:</option>
+                                                <option value="1">Words of Affirmation</option>
+                                                <option value="2">Acts of Service</option>
+                                                <option value="3">Receiving Gifts</option>
+                                                <option value="4">Quality Time</option>
+                                                <option value="5">Physical Touch</option>
+                                            </select>
+                                        </div>*@
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+                                            <input type="button" id="update-profile-love" class="btn btn-primary" value="Save Changes">
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -215,10 +260,125 @@
                 </div>
             </div>
 
+
         </div>
     </div>
-
-
 </div>
+<script src="../../Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#choice").val(@Model.SelectedDropdownValue);
+        $("#drpHoroscope").val(@Model.Horoscope);
+        $("#love_language").val(@Model.SelectedDropdownValueForLove);
+
+        $("#update-profile").click(function() {
+            var name = $("#txtName").val();
+            var surname = $("#txtSurname").val();
+            var number = $("#txtContactNumber").val();
+            var city = $("#txtCity").val();
+            var state = $("#txtState").val();
+
+            var uploadData = { "name": name, "surname": surname, "number": number,"city": city,"state": state};
+
+            $.ajax({
+                type: "POST",
+                url: "profile/UpdateProfile",
+                data: JSON.stringify(uploadData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    event.preventDefault();
+                    if (data) {
+                        console.log("Data: ", data);
+                        alert("Details updated successfully");
+                    }
+                    else
+                        alert("failed to to update record, please try again");
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
+        //$("#update-profile-quiz").click(function() {
+        //    var attr = $("#attraction").val();
+        //    var choice = $("#choice").val();
+        //    var word = $("#words").val();
+
+        //    var uploadData = { "wordsThatDescribesMe": word, "choiceBetweenMoneyLoveHappiness": choice, "attractiveInPartner": attr};
+
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "profile/AddPersonalQuizToProfile",
+        //        data: JSON.stringify(uploadData),
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        cache: false,
+        //        success: function (data) {
+        //            event.preventDefault();
+        //            if (data) {
+        //                console.log("Data: ", data);
+        //                alert("Your personal quiz updated successfully");
+        //            }
+        //            else
+        //                alert("failed to add the user :( ");
+        //        },
+        //        error: function (error) {
+        //            alert(error);
+        //        }
+        //    });
+        //});
+        $("#update-profile-horoscope").click(function() {
+            var horoscope = { "horoscope": $("#drpHoroscope").val() };
+
+            $.ajax({
+                type: "POST",
+                url: "profile/AddHoroscopeToProfile",
+                data: JSON.stringify(horoscope),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    event.preventDefault();
+                    if (data) {
+                        console.log("Data: ", data);
+                        alert("Your horoscope updated successfully");
+                    }
+                    else
+                        alert("failed to add the user :( ");
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
+        $("#update-profile-love").click(function() {
+            var love = { "loveLanguage": $("#love_language").val() };
+
+            $.ajax({
+                type: "POST",
+                url: "profile/AddLoveLanguageToProfile",
+                data: JSON.stringify(love),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    event.preventDefault();
+                    if (data) {
+                        console.log("Data: ", data);
+                        alert("Your love language updated successfully");
+                    }
+                    else
+                        alert("failed to add the user :( ");
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
+
+    });
+</script>
 
 

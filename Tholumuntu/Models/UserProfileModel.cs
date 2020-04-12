@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using Tholaumuntu.DataAcces.Domain;
 
 namespace Tholumuntu.Models
@@ -6,18 +8,22 @@ namespace Tholumuntu.Models
     public class UserProfileModel
     {
         public int UserProfId { get; set; }
-        public UserModel User { get; set; }
+        public User User { get; set; }
         public LoveLanguage LoveLanguage { get; set; }
         public string Horoscope { get; set; }
         public Byte[] ProfilePicture { get; set; }
         public EntityStatus EntityStatus { get; set; }
         public string Gender { get; set; }
         public virtual Address Address { get; set; }
-        public PersonalQuiz Quiz { get; set; }
-
+        public PersonalQuizModel Quiz { get; set; }
+        public string SelectedDropdownValue { get; set; }
+        public string SelectedDropdownValueForLove { get; set; }
+        public IList<SelectListItem> LoveLanguageList { get; set; }
+        public IList<SelectListItem> ChoiceItemList { get; set; }
+        public IList<SelectListItem> HoroscopeItemList { get; set; }
         public UserProfileModel()
         {
-            Quiz = new PersonalQuiz();
+            Quiz = new PersonalQuizModel();
         }
 
         public UserProfileModel(UserProfile model)
@@ -27,6 +33,8 @@ namespace Tholumuntu.Models
             Horoscope = model.Horoscope;
             ProfilePicture = model.ProfilePicture;
             Gender = model.Gender;
+            //Quiz = model.Quiz;
+            
         }
 
         public void SetAddress(Address address)
@@ -36,6 +44,11 @@ namespace Tholumuntu.Models
         public void SetStatus(EntityStatus status)
         {
             EntityStatus = status;
+        }
+
+        public void SetUser(User user)
+        {
+            User = user;
         }
     }
 }

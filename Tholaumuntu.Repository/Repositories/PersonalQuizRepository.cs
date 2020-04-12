@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using Tholaumuntu.DataAcces.Contexts;
 using Tholaumuntu.DataAcces.Domain;
@@ -45,7 +46,7 @@ namespace Tholaumuntu.Repository.Repositories
                     if (result != null)
                     {
                         result = quiz;
-                        _tholaUmuntuContext.Entry(result).State = EntityState.Modified;
+                        _tholaUmuntuContext.PersonalQuizzes.AddOrUpdate(result);
                         return _tholaUmuntuContext.SaveChanges() > 0;
                     }
                 }
@@ -66,6 +67,22 @@ namespace Tholaumuntu.Repository.Repositories
                 using (_tholaUmuntuContext)
                 {
                     return _tholaUmuntuContext.PersonalQuizzes.ToList();
+                }
+            }
+            catch (DbException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        public PersonalQuiz GetQuizByUserId(int userId)
+        {
+            try
+            {
+                using (_tholaUmuntuContext)
+                {
+                    return _tholaUmuntuContext.PersonalQuizzes.SingleOrDefault(x=>x.UserId == userId);
                 }
             }
             catch (DbException e)
