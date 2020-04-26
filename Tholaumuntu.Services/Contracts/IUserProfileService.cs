@@ -8,5 +8,6 @@ namespace Tholaumuntu.Services.Contracts
         void UpdateUserProfile(UserProfile profile);
         void DeleteProfile(UserProfile profile);
         UserProfile GetProfile(int id);
+        UserProfile GetProfileByUserId(int userId);
     }
 }

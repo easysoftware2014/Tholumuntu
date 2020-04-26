@@ -7,5 +7,7 @@ namespace Tholumuntu
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<PersonalQuiz> PersonalQuizzes { get; set; }
+
     }
 }

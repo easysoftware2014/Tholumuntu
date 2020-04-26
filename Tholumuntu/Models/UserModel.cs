@@ -11,6 +11,8 @@ namespace Tholumuntu.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string ContactNumber { get; set; }
+        public string Street { get; set; }
+        public string State { get; set; }
 
         public UserModel(){}
         public UserModel(User user)
@@ -20,6 +22,14 @@ namespace Tholumuntu.Models
             Surname = user.Surname;
             ContactNumber = user.ContactNumber;
             Email = user.Email;
+            Street = user.Street;
+            State = user.State;
+            Password = user.Password;
+        }
+
+        public void UpdatePassword(string password)
+        {
+            Password = password;
         }
     }
 }

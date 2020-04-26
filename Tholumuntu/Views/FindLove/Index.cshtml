@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Find love";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+    var fullName = ViewBag.FullName;
+}
+
+<script src="../../Scripts/jquery.min.js"></script>
+
+<div class="container-fluid">
+    <br />
+    <h2>Find love</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header bg-light text-dark">Preferred Partner(s)</div>
+                <div class="card-body">Content</div>
+                <div class="card-footer">Footer</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">Get Tholaumuntu to find you a partner?</div>
+                <div class="card-body">Content</div>
+                <div class="card-footer">Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../Scripts/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#username").text("@fullName");
+    });
+</script>
+

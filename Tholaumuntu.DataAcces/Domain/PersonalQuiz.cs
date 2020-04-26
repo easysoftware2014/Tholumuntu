@@ -2,7 +2,7 @@
 {
     public class PersonalQuiz : Entity
     {
-        public virtual User User { get; set; }
+        public virtual int UserId { get; set; }
         public string WordsThatDescribesMe { get; set; }
         public Choice ChoiceBetweenMoneyLoveHappiness { get; set; }
         public string AttractiveInPartner { get; set; }

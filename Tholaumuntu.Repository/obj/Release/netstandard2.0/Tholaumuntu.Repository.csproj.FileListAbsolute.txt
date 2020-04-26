@@ -1,0 +1,11 @@
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.deps.json
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csprojAssemblyReference.cache
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.AssemblyInfoInputs.cache
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.AssemblyInfo.cs
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.pdb

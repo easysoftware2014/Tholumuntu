@@ -1,8 +1,9 @@
 ﻿namespace Tholaumuntu.DataAcces.Domain
 {
-    public enum Choice  
+    public enum Choice
     {
-        Money,
+        Money = 1,
         Love,
-        Happiness}
+        Happiness
+    }
 }
