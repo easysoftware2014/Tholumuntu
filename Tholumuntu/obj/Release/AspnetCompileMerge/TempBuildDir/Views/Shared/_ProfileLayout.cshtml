@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Content/style3.css">
+    <link rel="stylesheet" href="../../Content/bootstrap.min.css">
+    <style type="text/css">
+        .non-active {
+            pointer-events: none;
+            cursor: default;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" style="background-color: #18121E">
+        @*<div style="background-color: white;" class="fixed-top">
+                    <a class="navbar-brand" href="#"><img src="../../Images/tholaumuntu.png" height="80" width="200" alt="image" style="margin-left: 40px; margin-top: 10px"></a>
+                    <br />
+                    <br />
+                </div>*@
+
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            </button>
+        </div>
+        <div class="img bg-wrap text-center py-4">
+            <div class="user-logo">
+                <div class="img" id="user_prof_pic" style="background-image: url(../../Images/pic_1.gif);"></div>
+                <h3 id="username"> Ayanda Sawulisi</h3>
+            </div>
+        </div>
+        <ul class="list-unstyled components mb-5">
+            <li class="active">
+                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+            </li>
+            @*<li>
+                        <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+                    </li>*@
+            <li>
+                <a href="#"><span class="fa fa-heart mr-3"></span> Find love</a>
+            </li>
+            <li>
+                @*<a href="/chat/letschat" ><span class="fa fa-envelope-o mr-3"></span> Chat</a>*@
+                <a href="#" class="non-active"><span class="fa fa-envelope-o mr-3"></span> Chat</a>
+            </li>
+            <li>
+                <a href="/home"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+            </li>
+        </ul>
+        <nav class="navbar" style="position: fixed; text-align: center; bottom:0">
+            Developed by: <a href="https://ongayenaconsulting.co.za/" target="_blank">&nbsp; Ongayena Consulting</a>
+        </nav>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5" style="background-image: radial-gradient(rosybrown, white, pink);max-width: 100%; max-height: 100%; display: block; background-attachment: fixed">
+        @RenderBody()
+    </div>
+
+</div>
+        @*<script src="../../Scripts/jquery.min.js"></script>*@
+        <script src="../../Scripts/popper.js"></script>
+        <script src="../../Scripts/bootstrap.min.js"></script>
+        <script src="../../Scripts/main.js"></script>
+</body>
+</html>

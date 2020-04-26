@@ -75,5 +75,18 @@ namespace Tholaumuntu.Repository.Repositories
                 throw;
             }
         }
+
+        public UserProfile GetProfileByUserId(int userId)
+        {
+            try
+            {
+                return _tholaUmuntuContext.UserProfiles.SingleOrDefault(x => x.UserId == userId);
+            }
+            catch (DbException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Tholaumuntu.DataAcces.Domain;
-using Tholaumuntu.Repository.Contracts;
+﻿using Tholaumuntu.DataAcces.Domain;
 using Tholaumuntu.Repository.Repositories;
 using Tholaumuntu.Services.Contracts;
 
@@ -33,6 +31,11 @@ namespace Tholaumuntu.Services.Services
         public UserProfile GetProfile(int id)
         {
             return _profileRepository.GetProfile(id);
+        }
+
+        public UserProfile GetProfileByUserId(int userId)
+        {
+            return _profileRepository.GetProfileByUserId(userId);
         }
     }
 }

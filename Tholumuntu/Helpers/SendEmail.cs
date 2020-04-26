@@ -12,60 +12,81 @@ namespace Tholumuntu.Helpers
         {
             var pass = ConfigurationManager.AppSettings["EmailPassword"];
             var webUrl = ConfigurationManager.AppSettings["website_url"];
-
-            var template = SetUp(tempPass, path, name);
-
+            var siteUrl = ConfigurationManager.AppSettings["live_website_url"];
             var sender = ConfigurationManager.AppSettings["sender"];
-            var mail = new MailMessage(sender, emailAddress);
+            var link = $"Please click <a href='{webUrl}home/emailverification?username={emailAddress}&confirm_id={tempPass}'>here</a> to confirm your email";
 
-            mail.To.Add(emailAddress);
-            mail.From = new MailAddress(sender, "Tholumuntu Administrator");
-            mail.Subject = "User Registration";
-            mail.Body = template;
-            // mail.Body = string.Format("Please be advised that you have been added as a user to Insedlu System Website. Click here {0} <br/> to reset your password", link);
-            mail.IsBodyHtml = true;
-
-            using (var smtp = new SmtpClient())
+            using (var smtpClient = new SmtpClient())
             {
-                smtp.EnableSsl = true;
+                var credentials = new NetworkCredential(sender, pass);
 
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = new NetworkCredential(sender, pass);
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(mail);
+                using (var message = new MailMessage())
+                {
+                    var fromAddress = new MailAddress(sender);
 
+                    smtpClient.Host = "mail.tholaumuntu-dev.co.za";
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = credentials;
+
+                    message.From = fromAddress;
+                    message.Subject = "User email verification";
+                    // Set IsBodyHtml to true means you can send HTML email.
+                    message.IsBodyHtml = true;
+                    message.Body = $"Please be advised that you have been added as a user to #Tholumuntu System Website.<br/> {link} ";
+                    message.To.Add(emailAddress);
+
+                    try
+                    {
+                        smtpClient.Send(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        //Error, could not send the message
+                        Console.Write(ex.Message);
+                    }
+                }
             }
 
         }
-        public static void SendUserEmail(string emailAddress, string tempPass)
+        public static void SendUserEmail(string emailAddress, string password)
         {
             var pass = ConfigurationManager.AppSettings["EmailPassword"];
             var webUrl = ConfigurationManager.AppSettings["website_url"];
             var siteUrl = ConfigurationManager.AppSettings["live_website_url"];
-            var sender = "ayandapatrick@gmail.com";
-            var mail = new MailMessage(sender, emailAddress);
-            var link = string.Format("<a href='{0}resetpassword.aspx?temppass={1}'>Reset</a>", siteUrl, tempPass);
-            mail.To.Add(emailAddress);
-            mail.From = new MailAddress(sender, "Tholumuntu Administrator");
-            mail.Subject = "User Registration";
-            mail.Body = string.Format("Please be advised that you have been added as a user to #Tholumuntu System Website. Click here {0} <br/> to reset your password", link);
-            mail.IsBodyHtml = true;
+            var sender = ConfigurationManager.AppSettings["sender"];
+            var link = $"Please click <a href='{webUrl}home/emailverification?username={emailAddress}&confirm_id={password}'>here</a> to confirm your email";
 
-            using (var smtp = new SmtpClient())
+            using (var smtpClient = new SmtpClient())
             {
-                smtp.EnableSsl = true;
+                var credentials = new NetworkCredential(sender, pass);
 
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = new NetworkCredential(sender, pass);
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(mail);
+                using (var message = new MailMessage())
+                {
+                    var fromAddress = new MailAddress(sender);
 
+                    smtpClient.Host = "smtp.gmail.com";
+                    smtpClient.Port = 587;
+                    //smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = credentials;
+                    smtpClient.EnableSsl = true;
+
+                    message.From = fromAddress;
+                    message.Subject = "User email verification";
+                    message.IsBodyHtml = true;
+                    message.Body = $"Please be advised that you have been added as a user to #Tholumuntu System Website.<br/> {link} ";
+                    message.To.Add(emailAddress);
+
+                    try
+                    {
+                        smtpClient.Send(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        //Error, could not send the message
+                        Console.Write(ex.Message);
+                    }
+                }
             }
-
         }
         private static string SetUp(string tempPass, string tempPath, string name)
         {

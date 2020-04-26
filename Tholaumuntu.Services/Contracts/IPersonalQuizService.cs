@@ -8,5 +8,6 @@ namespace Tholaumuntu.Services.Contracts
         int Add(PersonalQuiz quiz);
         bool Update(PersonalQuiz quiz);
         IList<PersonalQuiz> AllQuizzes();
+        PersonalQuiz GetQuizByUserId(int userId);
     }
 }

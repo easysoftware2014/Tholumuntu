@@ -28,5 +28,10 @@ namespace Tholaumuntu.Services.Services
         {
             return _quizRepository.AllQuizzes();
         }
+
+        public PersonalQuiz GetQuizByUserId(int userId)
+        {
+            return _quizRepository.GetQuizByUserId(userId);
+        }
     }
 }
