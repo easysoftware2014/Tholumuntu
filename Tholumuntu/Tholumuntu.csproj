@@ -181,6 +181,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\FindLoveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SweetController.cs" />
@@ -239,6 +240,7 @@
     <Content Include="Content\custom.css" />
     <Content Include="Content\flaticon.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\layout.css" />
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\pogo-slider.min.css" />
@@ -355,6 +357,7 @@
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.pogo-slider.min.js" />
@@ -399,6 +402,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Chat\LetsChat.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
+    <Content Include="Views\FindLove\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

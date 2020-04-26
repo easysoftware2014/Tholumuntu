@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Common;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using Tholaumuntu.DataAcces.Domain;
@@ -27,44 +28,45 @@ namespace Tholumuntu.Controllers
         {
             var id = Convert.ToInt32(Session["UserId"]);
             Id = id;
-            var user = new User { ContactNumber = string.Empty, Email = "", Name = "", Surname = "" };
-            var choices = Enum.GetValues(typeof(Choice)).Cast<Choice>();
-            var loveLanguages = Enum.GetValues(typeof(LoveLanguage)).Cast<LoveLanguage>();
-            var horoscopes = Enum.GetValues(typeof(Horoscope)).Cast<Horoscope>();
-
-            var horoscopeList = horoscopes.Select(
-                item => new SelectListItem
-                {
-                    Selected = false,
-                    Text = item.GetEnumDescription(),
-                    Value = ((int)item).ToString()
-                }).ToList();
-
-            var loveLanguageList = loveLanguages.Select(
-                item => new SelectListItem
-                {
-                    Selected = false,
-                    Text = item.GetEnumDescription(),
-                    Value = ((int)item).ToString()
-                }).ToList();
-
-            var choiceItems = choices.Select(
-                item => new SelectListItem
-                {
-                    Selected = false,
-                    Text = item.GetEnumDescription(),
-                    Value = ((int)item).ToString()
-                }).ToList();
-
-            var model = new UserProfileModel
-            {
-                LoveLanguageList = loveLanguageList,
-                ChoiceItemList = choiceItems,
-                HoroscopeItemList = horoscopeList
-            };
 
             if (id > 0)
             {
+                var user = new User { ContactNumber = string.Empty, Email = "", Name = "", Surname = "" };
+                var choices = Enum.GetValues(typeof(Choice)).Cast<Choice>();
+                var loveLanguages = Enum.GetValues(typeof(LoveLanguage)).Cast<LoveLanguage>();
+                var horoscopes = Enum.GetValues(typeof(Horoscope)).Cast<Horoscope>();
+
+                var horoscopeList = horoscopes.Select(
+                    item => new SelectListItem
+                    {
+                        Selected = false,
+                        Text = item.GetEnumDescription(),
+                        Value = ((int)item).ToString()
+                    }).ToList();
+
+                var loveLanguageList = loveLanguages.Select(
+                    item => new SelectListItem
+                    {
+                        Selected = false,
+                        Text = item.GetEnumDescription(),
+                        Value = ((int)item).ToString()
+                    }).ToList();
+
+                var choiceItems = choices.Select(
+                    item => new SelectListItem
+                    {
+                        Selected = false,
+                        Text = item.GetEnumDescription(),
+                        Value = ((int)item).ToString()
+                    }).ToList();
+
+                var model = new UserProfileModel
+                {
+                    LoveLanguageList = loveLanguageList,
+                    ChoiceItemList = choiceItems,
+                    HoroscopeItemList = horoscopeList
+                };
+
                 var currentUser = _userRepository.GetUserById(id);
                 user.Id = currentUser.Id;
                 user.Name = currentUser.Name;
@@ -75,8 +77,14 @@ namespace Tholumuntu.Controllers
                 var userProfile = _profileRepository.GetProfileByUserId(currentUser.Id);
 
                 model.Horoscope = userProfile != null ? userProfile.Horoscope : string.Empty;
+                model.Gender = userProfile?.Gender;
+
                 if (userProfile != null)
+                {
                     model.SelectedDropdownValueForLove = GetSelectedValueForLove(userProfile.LoveLanguage);
+                    model.GetFullName(currentUser);
+                    Session["FullName"] = model.FullName;
+                }
 
                 if (quiz != null)
                 {
@@ -85,13 +93,41 @@ namespace Tholumuntu.Controllers
                 }
 
                 model.SetUser(currentUser);
-            }
-            else
-            {
-                model.User = user;
+
+                return View(model);
             }
 
-            return View(model);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public string FullName()
+        {
+            var id = Convert.ToInt32(Session["UserId"]);
+            var currentUser = _userRepository.GetUserById(id);
+
+            return currentUser.Name + " " + currentUser.Surname;
+        }
+        public FileContentResult ProfilePhoto()
+        {
+            var id = Convert.ToInt32(Session["UserId"]);
+            var currentUser = _userRepository.GetUserById(id);
+            var userProfile = _profileRepository.GetProfileByUserId(currentUser.Id);
+
+            if (userProfile != null && userProfile.ProfilePicture != null)
+                return new FileContentResult(userProfile.ProfilePicture, "image/jpeg");
+            else
+            {
+                var fileName = HttpContext.Server.MapPath(@"~/Images/heart.gif");
+
+                byte[] imageData = null;
+                var fileInfo = new FileInfo(fileName);
+                var imageFileLength = fileInfo.Length;
+                var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                var br = new BinaryReader(fs);
+                imageData = br.ReadBytes((int)imageFileLength);
+
+                return File(imageData, "image/png");
+            }
         }
         private string GetSelectedValueForLove(LoveLanguage loveLanguage)
         {
@@ -150,12 +186,40 @@ namespace Tholumuntu.Controllers
             return View(" ");
         }
         [HttpPost]
-        public ActionResult UpdateProfile(string name, string surname, string number, string city, string state)
+        public ActionResult UpdateProfile(string name, string surname, string number,
+                                          string city, string state, string gender, string _profile, string imgType)
         {
             try
             {
-                var user = _userRepository.GetUserById(Convert.ToInt32(Session["UserId"]));
+                var imgString = string.Empty;
+                byte[] image = null;
 
+                switch (imgType)
+                {
+                    case "image/jpeg":
+                        imgString = _profile.Substring(23);
+                        image = Convert.FromBase64String(imgString);
+                        break;
+                    case "image/png":
+                        imgString = _profile.Substring(22);
+                        image = Convert.FromBase64String(imgString);
+                        break;
+                    case "image/gif":
+                        imgString = _profile.Substring(22);
+                        image = Convert.FromBase64String(imgString);
+                        break;
+                }
+
+                var user = _userRepository.GetUserById(Convert.ToInt32(Session["UserId"]));
+                var profile = _profileRepository.GetProfileByUserId(user.Id);
+
+                if (profile != null)
+                {
+                    profile.Gender = gender;
+                    profile.ProfilePicture = image;
+
+                    _profileRepository.UpdateUserProfile(profile);
+                }
                 if (user != null)
                 {
                     user.Name = name;
@@ -218,7 +282,7 @@ namespace Tholumuntu.Controllers
                 {
                     quiz.Id = model.Quiz.Id;
 
-                   if(_personalQuizRepository.Update(quiz))
+                    if (_personalQuizRepository.Update(quiz))
                         transactionPassed = true;
                 }
                 else
@@ -233,13 +297,18 @@ namespace Tholumuntu.Controllers
                 {
                     var profile = _profileRepository.GetProfileByUserId(Id);
                     profile.QuizId = quiz.Id;
+                    profile.Horoscope = model.Horoscope;
+                    profile.LoveLanguage = model.LoveLanguage;
 
                     _profileRepository.UpdateUserProfile(profile);
+                    ViewBag.Success = true;
 
-                    return Json(new { Succes = true, JsonRequestBehavior.AllowGet });
+                    return RedirectToAction("Index");
                 }
 
-                return Json(new { Succes = false, JsonRequestBehavior.AllowGet });
+                ViewBag.Success = false;
+
+                return RedirectToAction("Index");
             }
             catch (DbException e)
             {
@@ -248,6 +317,8 @@ namespace Tholumuntu.Controllers
             }
             catch (Exception e)
             {
+                ViewBag.Error = e.Message;
+                return View("Index");
                 return Json(new { Error = e.Message, JsonRequestBehavior.AllowGet });
             }
         }

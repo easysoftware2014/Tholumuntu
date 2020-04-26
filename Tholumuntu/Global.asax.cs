@@ -1,3 +1,4 @@
+using System;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
@@ -18,6 +19,13 @@ namespace Tholumuntu
             // code first migration
             Database.SetInitializer(
                 new DropCreateDatabaseIfModelChanges<TholaUmuntuContext>());
+        }
+
+        protected void Application_BeginRequest()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
         }
     }
 }

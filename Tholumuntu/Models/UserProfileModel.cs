@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Web.Mvc;
 using Tholaumuntu.DataAcces.Domain;
 
@@ -21,6 +22,8 @@ namespace Tholumuntu.Models
         public IList<SelectListItem> LoveLanguageList { get; set; }
         public IList<SelectListItem> ChoiceItemList { get; set; }
         public IList<SelectListItem> HoroscopeItemList { get; set; }
+        public Image Image { get; set; }
+        public string FullName { get; set; }
         public UserProfileModel()
         {
             Quiz = new PersonalQuizModel();
@@ -49,6 +52,11 @@ namespace Tholumuntu.Models
         public void SetUser(User user)
         {
             User = user;
+        }
+
+        public string GetFullName(User user)
+        {
+            return FullName = user.Name + " " + user.Surname;
         }
     }
 }

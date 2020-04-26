@@ -23,6 +23,11 @@ namespace Tholaumuntu.DataAcces.Domain
         Cancer,
         Leo,
         Libra,
-        Gemini
+        Gemini,
+        Taurus,
+        Virgo,
+        Scorpio,
+        Capricorn,
+        Pisces
     }
 }

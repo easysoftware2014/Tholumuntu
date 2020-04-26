@@ -17,66 +17,81 @@
             text-decoration: none;
             color: black;
         }
+        .imageContainer > img:hover {
+            height: 300px;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
 
 <div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar" style="background-color: #18121E">
+    <nav id="sidebar" style="background-image: radial-gradient(lightblue 10%, peachpuff 15%, rosybrown 60%);">
         @*<div style="background-color: white;" class="fixed-top">
-            <a class="navbar-brand" href="#"><img src="../../Images/tholaumuntu.png" height="80" width="200" alt="image" style="margin-left: 40px; margin-top: 10px"></a>
-            <br />
-            <br />
-        </div>*@
-       
-        <div class="custom-menu" >
+                    <a class="navbar-brand" href="#"><img src="../../Images/tholaumuntu.png" height="80" width="200" alt="image" style="margin-left: 40px; margin-top: 10px"></a>
+                    <br />
+                    <br />
+                </div>*@
+
+        <div class="custom-menu">
             <button type="button" id="sidebarCollapse" class="btn btn-primary">
             </button>
         </div>
-        <div class="img bg-wrap text-center py-4" >
-            <div class="user-logo">
-                <div class="img" style="background-image: url(../../Images/pic_1.gif);"></div>
-                <h3>Ayanda Sawulisi</h3>
+        <div class="img bg-wrap text-center py-4" style="background-image: radial-gradient(red, white, pink); margin-top: -20px">
+            <div class="imageContainer">
+                <img src="@Url.Action("ProfilePhoto","Profile")" height="300" width="300"/>
+                @*<div class="img" id="user_prof_pic" style="background-image: url(../../Images/pic_1.gif);"></div>*@
+            <br />
+                <h5 id="username" style="margin-top: 8px; margin-bottom: -10px;" class="text-capitalize">user full name</h5>
             </div>
         </div>
         <ul class="list-unstyled components mb-5">
             <li class="active">
-                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="/profile"><span class="fa fa-user-plus mr-3"></span> Profile</a>
             </li>
             @*<li>
-                    <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
-                </li>*@
+                        <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+                    </li>*@
             <li>
-                <a href="#"><span class="fa fa-users mr-3"></span> Explore</a>
+                <a href="/findlove" class="text-dark"><span class="fa fa-heart mr-3" style="color: red"></span> Find love</a>
             </li>
             <li>
-                <a href="/chat" ><span class="fa fa-envelope-o mr-3"></span> Chat</a>
+                @*<a href="/chat/letschat" ><span class="fa fa-envelope-o mr-3"></span> Chat</a>*@
+                <a href="#" class="non-active"><span class="fa fa-envelope-o mr-3"></span> Chat</a>
             </li>
             <li>
-                <a href="/home"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+                <a href="/home/logout" class="text-dark"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
             </li>
         </ul>
-        <div>
-
-        </div>
+        @*<nav class="navbar" style="position: fixed; text-align: center; bottom:0">
+            Developed by: <a href="https://ongayenaconsulting.co.za/" target="_blank">&nbsp; Ongayena Consulting</a>
+        </nav>*@
 
     </nav>
 
     <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5 pt-5" style="background-image: radial-gradient(rosybrown, white, pink);max-width: 100%; max-height: 100%; display: block; background-attachment: fixed">
+    <div id="content" class="p-4 p-md-5 pt-5" style="background-image: radial-gradient(rosybrown, white, pink);max-width: 100%; max-height: 100%; display: block; background-attachment: fixed;">
         @RenderBody()
     </div>
-</div>
 
-    <script src="../../Scripts/jquery.min.js"></script>
-    <script src="../../Scripts/popper.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../../Scripts/main.js"></script>
+</div>
+        @*<script src="../../Scripts/jquery.min.js"></script>*@
+        <script src="../../Scripts/popper.js"></script>
+        <script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/main.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#imgClicked").click(function() {
+
+        });
+    });
+</script>
 </body>
 </html>

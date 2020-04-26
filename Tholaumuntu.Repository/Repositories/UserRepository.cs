@@ -51,7 +51,7 @@ namespace Tholaumuntu.Repository.Repositories
 
         public User GetUserById(int id)
         {
-            return _tholaUmuntuContext.Users.FirstOrDefault(x => x.Id == id);
+            return _tholaUmuntuContext.Users.SingleOrDefault(x => x.Id == id);
         }
 
         public User GetUserByEmailAndPassword(string email, string password)

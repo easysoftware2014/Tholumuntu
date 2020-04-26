@@ -4,9 +4,9 @@ using System.IO;
 
 namespace Tholumuntu.Helpers
 {
-    public class ImageConverter
+    public static class ImageConverter
     {
-        public byte[] ImageToByteArray(Stream stream)
+        public static byte[] ImageToByteArray(Stream stream)
         {
             var ms = new MemoryStream();
 
@@ -19,7 +19,7 @@ namespace Tholumuntu.Helpers
 
         }
 
-        public byte[] ReadToEnd(Stream stream)
+        public static byte[] ReadToEnd(Stream stream)
         {
             long originalPosition = 0;
 
@@ -72,7 +72,7 @@ namespace Tholumuntu.Helpers
             }
         }
 
-        public Image ByteArrayToImage(byte[] byteArrayIn)
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
         {
             var ms = new MemoryStream(byteArrayIn);
             var returnImage = Image.FromStream(ms);

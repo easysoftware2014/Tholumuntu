@@ -1,14 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var url = Convert.ToString(ViewBag.URL);
     var emailCached = ViewBag.EmailCache != null ? ViewBag.EmailCache as List<string> : new List<string>();
 }
 
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -28,11 +28,11 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <input type="button" class="btn badge-light btn-outline-success" id="btnLoginSubmit" title="Login" value="Login"/>
+                <input type="button" class="btn badge-light btn-outline-success" id="btnLoginSubmit" title="Login" value="Login" />
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-      
+
     </div>
 </div>
 <div class="container">
@@ -43,9 +43,13 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <br/>
+            <br />
+            <h7 style="font-family: comic sans ms; font-style: italic;text-align: center">#TholaUmuntu is a new South African blind dating company that matches potentials according to a trusted name report, horoscope and the 5 love languages by <b>Gary Chapman</b>.</h7>
+        </div>
+        <div class="col-md-12">
+            <br />
             <h2 style="text-align: center; font-family: courier, arial, helvetica;">We're saying, Character matters most</h2>
-            <br/>
+            <br />
             <!-- Default form register -->
             <form class="text-center" action="#" id="signupForm">
 
@@ -64,7 +68,7 @@
 
                 <!-- E-mail -->
                 <input type="email" id="defaultRegisterFormEmail" required="required" class="form-control mb-4" placeholder="E-mail">
-                <small id="defaultRegisterFormEmailError" class="form-text text-muted mb-4" style="display: none;color: red">
+                <small id="defaultRegisterFormEmailError" class="form-text text-muted mb-4" style="display: none; color: red">
                     Email already taken
                 </small>
                 <!-- Password -->
@@ -87,9 +91,9 @@
 
                 <!-- Terms of service -->
                 <p>
-                By clicking
-                <em>Sign up</em> you agree to our
-                <a href="" target="_blank">terms of service</a>
+                    By clicking
+                    <em>Sign up</em> you agree to our
+                    <a href="" target="_blank">terms of service</a>
 
             </form>
             <!-- Default form register -->
@@ -127,7 +131,7 @@
             if (isValid) {
                 var name = $("#defaultRegisterFormFirstName").val();
                 var surname = $("#defaultRegisterFormLastName").val();
-               
+
                 var password = $("#defaultRegisterFormPassword").val();
                 var contactNumber = $("#defaultRegisterPhonePassword").val();
                 console.log(
@@ -137,29 +141,37 @@
                     "password: " + password,
                     "contact: " + contactNumber);
 
-                var uploadData = { "firstName": name, "surname": surname, "email": email, "password": password, "contact": contactNumber };
+                if (true) {
+                    var uploadData = {
+                        "firstName": name,
+                        "surname": surname,
+                        "email": email,
+                        "password": password,
+                        "contact": contactNumber
+                    };
 
-                $.ajax({
-                    type: "POST",
-                    url: "home/register",
-                    data: JSON.stringify(uploadData),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    cache: false,
-                    success: function (data) {
-                        event.preventDefault();
-                        if (data) {
-                            clearControls();
-                            console.log("Data: ", data);
-                            location.href = "/profile";
+                    $.ajax({
+                        type: "POST",
+                        url: "home/register",
+                        data: JSON.stringify(uploadData),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        success: function(data) {
+                            event.preventDefault();
+                            if (data) {
+                                clearControls();
+                                console.log("Data: ", data);
+                                //location.href = "/profile";
+                            } else
+                                alert("failed to add the user :( ");
+                        },
+                        error: function() {
+                            alert("error occured");
                         }
-                        else
-                            alert("failed to add the user :( ");
-                    },
-                    error: function () {
-                        alert("error occured");
-                    }
-                });
+                    });
+                } else
+                    alert("Mobile number is not valid");
             }
         });
         $("#btnLoginSubmit").click(function () {
@@ -184,7 +196,7 @@
 
                     if (data.data.Id !== 0) {
                         clearControls();
-                        
+
                         location.href = "/profile";
                     }
                     else
@@ -203,6 +215,29 @@
         $("#defaultRegisterFormEmail").val('');
         $("#defaultRegisterFormPassword").val('');
         $("#defaultRegisterPhonePassword").val('');
-    }
+        }
+
+        function verifyPhoneNumber(number) {
+
+            console.log('@url');
+            console.log(number);
+            // verify phone number via AJAX call
+            $.ajax({
+                url: '@url'+ number,
+                dataType: 'jsonp',
+                success: function(json) {
+
+                    // Access and use your preferred validation result objects
+                    return (json.valid);
+                    console.log(json.country_code);
+                    console.log(json.carrier);
+
+                },
+                error: function () {
+                    return (json.valid);
+                    alert("error");
+                }
+            });
+        }
     })
 </script>

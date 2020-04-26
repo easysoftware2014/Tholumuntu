@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Common;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Tholaumuntu.Repository.Contracts;
 using Tholaumuntu.Repository.Repositories;
@@ -38,6 +39,14 @@ namespace Tholumuntu.Controllers
             return View();
         }
 
+        public ActionResult LogOut()
+        {
+            Session.RemoveAll();
+            Session.Clear();
+            Session.Abandon();
+
+            return RedirectToAction("Index");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
