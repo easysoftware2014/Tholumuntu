@@ -13,11 +13,12 @@
     <h2>Find love</h2>
     <br/>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="display: none">
             <div class="card ">
-                <div class="card-header bg-light text-dark">Preferred Partner(s)</div>
-                <div class="card-body">Content</div>
-                <div class="card-footer">Footer</div>
+                <div class="card-header bg-light text-dark">Recommended Partner(s)</div>
+                <div class="card-body">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -25,9 +26,26 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header bg-danger text-white">Get Tholaumuntu to find you a partner?</div>
-                <div class="card-body">Content</div>
-                <div class="card-footer">Footer</div>
+                <div class="card-header bg-white text-dark"><h6>We'd love to hear from you, fill in your details below and we'll get back to you ASAP</h6></div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <h4>Subject</h4>
+                        <select name="subject" class="form-control" required="required" id="subject">
+                            <option selected="selected" value="0">Choose one...</option>
+                            <option value="1">General Inquiry</option>
+                            <option value="2">MatchMe Registration</option>
+                            <option value="3">Upcoming Events</option>
+                            <option value="4">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Message</h4>
+                        <textarea name="message" id="message" style="height: 150px;width: 100%" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" id="btnSendMessage" value="Send" class="btn btn-block btn-group-sm btn-success"/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -38,6 +56,33 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#username").text("@fullName");
+
+        $("#btnSendMessage").click(function() {
+            let message = $.trim($("#message").val());
+            let subject = $('#subject option:selected').html();
+            console.log(subject);
+            var uploadData = { "subject": subject, "message": message };
+
+            $.ajax({
+                type: "POST",
+                url: "/findlove/sendmessage",
+                data: JSON.stringify(uploadData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (isSent) {
+                    if (isSent === 'true') {
+                        alert("Message sent successfully");
+                    } else {
+                        alert("All fields are required");
+                    }
+                },
+                error: function(error) {
+                    alert("error happened, please try again later", error);
+                }
+        });
+
+        });
     });
 </script>
 

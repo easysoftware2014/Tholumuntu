@@ -303,7 +303,7 @@ namespace Tholumuntu.Controllers
                     _profileRepository.UpdateUserProfile(profile);
                     ViewBag.Success = true;
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","FindLove");
                 }
 
                 ViewBag.Success = false;

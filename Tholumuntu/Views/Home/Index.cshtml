@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <form id="loginForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtEmail" placeholder="Email" required="required" />
+                        <input type="email" class="form-control" id="txtEmail" placeholder="Email" required="required" />
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="txtPassword" placeholder="Password" required="required" />
@@ -46,7 +46,7 @@
             <div class="modal-body">
                 <form id="forgotPassForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtForgotEmail" placeholder="Email" required="required" />
+                        <input type="email" class="form-control" id="txtForgotEmail" placeholder="Email" required="required" />
                     </div>
                 </form>
             </div>
@@ -58,12 +58,9 @@
 
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <br/>
-            <img src="../../Images/tholaumuntu.png" height="150" alt="image">
-        </div>
+<div class="container-fluid">
+    <div style="text-align: center">
+        <img src="../../Images/tholaumuntu.png" height="150" alt="image">
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -75,17 +72,19 @@
             <h2 style="text-align: center; font-family: courier, arial, helvetica;">We're saying, Character matters most</h2>
             <br />
 
+            <p class="" style="display: none" id="forgot_email_sent">Email sent, please check your email</p>
+
             <form class="text-center" action="#" id="signInForm">
                 <p class="h4 mb-4">Sign In</p>
                 <input type="email" id="loginEmail" required="required" class="form-control mb-4" placeholder="E-mail">
                 <input type="password" id="loginPassword" required="required" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                 <button class="btn btn-success my-4 btn-block" id="btnSignIn" type="button">Sign in</button>
-                <a class="fa-link" href="#" id="btnForgotPassword" data-toggle="modal" data-target="#forgotPasswordModal">Forgot password</a>
+                <i class="fa-frown-o" aria-hidden="true"></i> <a class="fa-link" href="#" id="btnForgotPassword" data-toggle="modal" data-target="#forgotPasswordModal">Forgot password</a>
                 <br />
                 don't have account yet? <a class="fa-link" href="#" id="btnRegister">Register</a>
             </form>
 
-                <!-- Default form register -->
+            <!-- Default form register -->
             <form class="text-center" action="#" id="signupForm" style="display: none">
 
                 <p class="h4 mb-4">Sign up</p>
@@ -131,7 +130,7 @@
                     <a href="" target="_blank">terms of service</a>
 
             </form>
-                <!-- Default form register -->
+            <!-- Default form register -->
         </div>
     </div>
 
@@ -153,6 +152,40 @@
             return isUnique;
         }
 
+        $("#btnForgotSubmit").click(function () {
+            var isValid = true;//$("#loginForm").valid();
+
+            if (true) {
+                var email = $("#txtForgotEmail").val();
+
+                var uploadData = { "email": email };
+
+                $.ajax({
+                    type: "POST",
+                    url: "home/forgotpassword",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (emailSent) {
+
+                        event.preventDefault();
+                        console.log("Data: ", data);
+
+                        if (emailSent === "true") {
+                            clearControls();
+                            $("#forgotPasswordModal").hide();
+                            //location.href = "/profile";
+                        }
+                        else
+                            alert("problem sending email");
+                    },
+                    error: function () {
+                        alert("email or password incorrect, please try again.");
+                    }
+                });
+            }
+        });
         $("#btnRegister").click(function() {
             $("#signupForm").attr("style", "display: block;");
             $("#signInForm").attr("style", "display: none;");
@@ -180,7 +213,7 @@
 
                 var password = $("#defaultRegisterFormPassword").val();
                 var contactNumber = $("#defaultRegisterPhonePassword").val();
-                
+
                 //check cell phone number???
                 if (true) {
                     var uploadData = {

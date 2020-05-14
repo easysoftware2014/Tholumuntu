@@ -77,25 +77,25 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">First name</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" id="txtName" type="text" value="@Model.User.Name">
+                                            <input class="form-control" id="txtName" required="required" type="text" value="@Model.User.Name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" id="txtSurname" type="text" value="@Model.User.Surname">
+                                            <input class="form-control" id="txtSurname" required="required" type="text" value="@Model.User.Surname">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" id="txtEmail" type="email" readonly="readonly" value="@Model.User.Email">
+                                            <input class="form-control" id="txtEmail" required="required" type="email" readonly="readonly" value="@Model.User.Email">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Contact number</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" id="txtContactNumber" type="text" value="@Model.User.ContactNumber">
+                                            <input class="form-control" id="txtContactNumber" required="required" type="text" value="@Model.User.ContactNumber">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -134,10 +134,10 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Address</label>
                                         <div class="col-lg-4">
-                                            <input class="form-control" type="text" id="txtCity" value="@Model.User.Street" placeholder="City">
+                                            <input class="form-control" required="required" type="text" id="txtCity" value="@Model.User.Street" placeholder="City">
                                         </div>
                                         <div class="col-lg-5">
-                                            <input class="form-control" type="text" id="txtState" value="@Model.User.State" placeholder="State">
+                                            <input class="form-control" required="required" type="text" id="txtState" value="@Model.User.State" placeholder="State">
                                         </div>
                                     </div>
                                     <br />
@@ -178,24 +178,16 @@
                                             <div class="form-group">
                                                 <br />
                                                 <label for="attraction">What do you find most attractive in a partner?</label>
-                                                @*<input type="text" id="attraction" class="form-control" value="@Model.Quiz.AttractiveInPartner" />*@
-                                                @Html.TextBoxFor(x => x.Quiz.AttractiveInPartner, new { @id = "attraction", @class = "form-control" })
+                                                @Html.TextBoxFor(x => x.Quiz.AttractiveInPartner, new { @id = "attraction", @class = "form-control", @required="required" })
                                             </div>
                                             <div class="form-group">
                                                 <label for="words">Three words that describes you best?</label>
-                                                @*<input type="text" id="words" class="form-control" value="@Model.Quiz.WordsThatDescribesMe" />*@
-                                                @Html.TextBoxFor(x => x.Quiz.WordsThatDescribesMe, new { @id = "words", @class = "form-control" })
+                                                @Html.TextBoxFor(x => x.Quiz.WordsThatDescribesMe, new { @id = "words", @class = "form-control", @required="required" })
                                             </div>
                                             <div class="form-group">
                                                 <label for="choice">If you could choose between the following, what would you choose</label>
-                                                @*@Html.DropDownListFor(x => x.LoveLanguage, new SelectList(Model.LoveLanguageList, "Value","Text"), "Select...",new {@id="choice", @class="custom-select"})*@
-                                                @Html.DropDownListFor(x => x.Quiz.Choice, Model.ChoiceItemList, "Select...", new { @id = "choice", @class = "custom-select" })
-                                                @*<select name="choice" id="choice" class="custom-select">
-                                                        <option value="0" selected="selected">Select...</option>
-                                                        <option value="1">Money</option>
-                                                        <option value="2">Love</option>
-                                                        <option value="3">Happiness</option>
-                                                    </select>*@
+                                                @Html.DropDownListFor(x => x.Quiz.Choice, Model.ChoiceItemList, "Select...", new { @id = "choice", @class = "custom-select", @required="required" })
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -208,23 +200,9 @@
                                                 <h2></h2>
                                             </div>
                                             <div class="form-group">
-                                                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...", new { @id = "drpHoroscope", @class = "custom-select" })
-                                                @*<select name="horoscope" id="drpHoroscope" class="custom-select">
-                                                        <option value="0">Select...</option>
-                                                        <option value="1">Aries</option>
-                                                        <option value="2">Aquarius</option>
-                                                        <option value="3">Cancer</option>
-                                                        <option value="4">Leo</option>
-                                                        <option value="5">Libra</option>
-                                                        <option value="6">Gemini</option>
-                                                    </select>*@
+                                                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...", new { @id = "drpHoroscope", @class = "custom-select", @required="required" })
+                                               
                                             </div>
-                                            @*<div class="form-group row">
-                                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                                    <div class="col-lg-9">
-                                                        <input type="button" id="update-profile-horoscope" class="btn btn-primary" value="Save Changes">
-                                                    </div>
-                                                </div>*@
                                         </div>
                                     </div>
                                     <div class="row">
@@ -236,15 +214,8 @@
                                                 <label for="love_language">
                                                     Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
                                                 </label>
-                                                @Html.DropDownListFor(x => x.LoveLanguage, Model.LoveLanguageList, "Select...", new { @id = "love_language", @class = "custom-select" })
-                                                @*<select id="love_language" name="love_language" class="form-control" style="height: 50px">
-                                                        <option value="0" selected="">Choose One:</option>
-                                                        <option value="1">Words of Affirmation</option>
-                                                        <option value="2">Acts of Service</option>
-                                                        <option value="3">Receiving Gifts</option>
-                                                        <option value="4">Quality Time</option>
-                                                        <option value="5">Physical Touch</option>
-                                                    </select>*@
+                                                @Html.DropDownListFor(x => x.LoveLanguage, Model.LoveLanguageList, "Select...", new { @id = "love_language", @class = "custom-select", @required="required" })
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -299,18 +270,8 @@
                             </div>
                         </div>
                     </div>
-                    @*<div class="col-lg-4 order-lg-1 text-center">
-                            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-                            <h6 class="mt-2">Upload a different photo</h6>
-                            <label class="custom-file">
-                                <input type="file" id="file" class="custom-file-input">
-                                <span class="custom-file-control">Choose file</span>
-                            </label>
-                        </div>*@
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
@@ -328,14 +289,10 @@
         reader.readAsDataURL(file);
     }
     $(document).ready(function () {
-        //console.log($("#username").innerText);
-        $("#username").text("@Model.FullName");// = "Hi";
+        $("#username").text("@Model.FullName");
         $("#choice").val(@Model.SelectedDropdownValue);
         $("#drpHoroscope").val(@Model.Horoscope);
         $("#love_language").val(@Model.SelectedDropdownValueForLove);
-
-        @*if (@isSuccess)
-            alert("Your personal quiz updated successfully");*@
 
         $("#update-profile").click(function() {
             var name = $("#txtName").val();
@@ -366,10 +323,10 @@
 
                         $("#edit").removeClass("active");
                         $("#details_update").removeClass("active");
-                        alert("Details updated successfully");
+
                     }
                     else
-                        alert("failed to to update record, please try again");
+                        alert("failed to to update details, please try again");
                 },
                 error: function (error) {
                     alert(error);
