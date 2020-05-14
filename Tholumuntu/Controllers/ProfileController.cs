@@ -211,7 +211,7 @@ namespace Tholumuntu.Controllers
                 }
 
                 var user = _userRepository.GetUserById(Convert.ToInt32(Session["UserId"]));
-                var profile = _profileRepository.GetProfileByUserId(user.Id);
+                var profile = _profileRepository.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
 
                 if (profile != null)
                 {

@@ -88,6 +88,46 @@ namespace Tholumuntu.Helpers
                 }
             }
         }
+
+        public static bool SendMessageToAdmin(string subject, string messageBody, string userEmailAddress, string contactNumber, string fullName)
+        {
+            var pass = ConfigurationManager.AppSettings["EmailPassword"];
+            var toEmailAddress = "ayandapatrick@gmail.com";//ConfigurationManager.AppSettings["MatchMe"];
+            var sender = ConfigurationManager.AppSettings["sender"];
+
+            using (var smtpClient = new SmtpClient())
+            {
+                var credentials = new NetworkCredential(sender, pass);
+
+                using (var message = new MailMessage())
+                {
+                    var fromAddress = new MailAddress(sender);
+
+                    smtpClient.Host = "smtp.gmail.com";
+                    smtpClient.Port = 587;
+                    smtpClient.Credentials = credentials;
+                    smtpClient.EnableSsl = true;
+
+                    message.From = fromAddress;
+                    message.Subject = subject;
+                    message.IsBodyHtml = true;
+                    message.Body = $"Dear Tholaumuntu, <br/><br/> <b>{subject}</b> Request. The details are as follow, <br/><br/>Full name: {fullName} <br/> Email address: {userEmailAddress} <br/> Contact number: {contactNumber} <br/> Message: {messageBody} <br/><br/> Message generated from the <b>Tholaumuntu Web Application </b>";
+                    message.To.Add(toEmailAddress);
+
+                    try
+                    {
+                        smtpClient.Send(message);
+
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write(ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
         private static string SetUp(string tempPass, string tempPath, string name)
         {
             var appConfig = ConfigurationManager.AppSettings["email_templates_path"];
