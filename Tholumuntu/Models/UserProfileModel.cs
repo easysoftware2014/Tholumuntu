@@ -24,6 +24,11 @@ namespace Tholumuntu.Models
         public IList<SelectListItem> HoroscopeItemList { get; set; }
         public Image Image { get; set; }
         public string FullName { get; set; }
+        public string PersonalInterest { get; set; }
+        public string DescribeYourSelf { get; set; }
+        public string HowFriendsDescribeYou { get; set; }
+        public string FavoriteQuote { get; set; }
+
         public UserProfileModel()
         {
             Quiz = new PersonalQuizModel();

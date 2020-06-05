@@ -151,7 +151,7 @@
             }
             return isUnique;
         }
-
+        $('#loginEmail').focus();
         $("#btnForgotSubmit").click(function () {
             var isValid = true;//$("#loginForm").valid();
 
@@ -189,6 +189,8 @@
         $("#btnRegister").click(function() {
             $("#signupForm").attr("style", "display: block;");
             $("#signInForm").attr("style", "display: none;");
+            $('#defaultRegisterFormFirstName').focus();
+
         });
 
         $("#btnLogin").click(function() {

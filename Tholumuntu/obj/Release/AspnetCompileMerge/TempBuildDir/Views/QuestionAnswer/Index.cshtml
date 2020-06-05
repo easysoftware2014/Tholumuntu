@@ -1,0 +1,391 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Questionnaire";
+    Layout = "~/Views/Shared/_WizardLayout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        font-weight: bolder;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2 style="margin-left: 5px;text-align: left">Questionnaire</h2>
+    </div>
+</div>
+<form action="" id="wizard">
+    <!-- SECTION 1 -->
+    <h4></h4>
+    <section>
+        @*<h3>Personality check</h3>*@
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label">Occupation</label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio1" value="yes">
+                    <label class="form-check-label" for="inlineRadio1">I have a full job</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio2" value="yes">
+                    <label class="form-check-label" for="inlineRadio2">I have a part-time job</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio3" value="yes">
+                    <label class="form-check-label" for="inlineRadio3">Hustler</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio4" value="yes">
+                    <label class="form-check-label" for="inlineRadio4">Unemployed but looking</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label">I prefer...</label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="prefer" id="netflix" value="netflix">
+                    <label class="form-check-label" for="netflix">Netflix and Chill</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="prefer" id="going_out" value="goingOut">
+                    <label class="form-check-label" for="going_out">Going out with my partner</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="prefer" id="variety" value="variety">
+                    <label class="form-check-label" for="variety">Variety</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="prefer" id="routine" value="routine">
+                    <label class="form-check-label" for="routine">Routine</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label"> Do you smoke</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="smoke" id="smoke" value="yes">
+                    <label class="form-check-label" for="smoke">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="smoke" id="no_smoke" value="no">
+                    <label class="form-check-label" for="no_smoke">No</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label"> I am</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="iam" id="organized" value="organized">
+                    <label class="form-check-label" for="organized">Organized</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="iam" id="spontaneous" value="spontaneous">
+                    <label class="form-check-label" for="spontaneous">Spontaneous</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label"> I consider myself an..</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="consider" id="introvert" value="introvert">
+                    <label class="form-check-label" for="introvert">Introvert</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="consider" id="extrovert" value="extrovert">
+                    <label class="form-check-label" for="extrovert">Extrovert</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="consider" id="ambivert" value="ambivert">
+                    <label class="form-check-label" for="ambivert">Ambivert</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label"> I am guilty of...</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="guilty" id="overthinking" value="overthinking">
+                    <label class="form-check-label" for="overthinking">Overthinking</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="guilty" id="rashdecision" value="rashdecision">
+                    <label class="form-check-label" for="rashdecision">Making rash decisions</label>
+                </div>
+            </div>
+            <br />
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label"> Ethnicity</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="black" value="yes">
+                    <label class="form-check-label" for="black">Black</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="caucasian" value="yes">
+                    <label class="form-check-label" for="caucasian">Caucasian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="asia" value="yes">
+                    <label class="form-check-label" for="asia">Asian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="indian" value="yes">
+                    <label class="form-check-label" for="indian">Indian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="colored" value="yes">
+                    <label class="form-check-label" for="colored">Colored or mixed race</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnicity" id="other" value="yes">
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label"> What is your religion or belief</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="belief" id="christian" value="yes">
+                    <label class="form-check-label" for="christian">Christian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="belief" id="muslim" value="yes">
+                    <label class="form-check-label" for="muslim">Muslim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="belief" id="hindi" value="yes">
+                    <label class="form-check-label" for="hindi">Hindi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="belief" id="other_religion" value="yes">
+                    <label class="form-check-label" for="other_religion">Other</label>
+                </div>
+            </div>
+            <br />
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <h4></h4>
+    <section>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label">What is your personal preference</label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="personal_preference" id="smart" value="smart">
+                    <label class="form-check-label" for="smart">Smart</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="personal_preference" id="beautiful" value="beautiful">
+                    <label class="form-check-label" for="beautiful">Beautiful</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label">What do you value the most</label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="value_most" id="love" value="love">
+                    <label class="form-check-label" for="love">Love</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="value_most" id="respect" value="respect">
+                    <label class="form-check-label" for="respect">Respect</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label">What is your ideal date?</label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="idealdate" id="participate" value="yes">
+                    <label class="form-check-label" for="participate">Participating in a shared outdoor activity</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="idealdate" id="ideal_netflix" value="yes">
+                    <label class="form-check-label" for="ideal_netflix">Netflix, dine and chill</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label">Would you date someone with a kid or kids from a previous relationship? </label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="relationship" id="have_kids" value="yes">
+                    <label class="form-check-label" for="have_kids">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="relationship" id="no_kids" value="no">
+                    <label class="form-check-label" for="no_kids">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label">Would you date someone with different beliefs? </label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="different_belief" id="belief_yes" value="yes">
+                    <label class="form-check-label" for="belief_yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="different_belief" id="belief_no" value="no">
+                    <label class="form-check-label" for="belief_no">No</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label">Would you date outside your ethnic group? </label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_yes" value="yes">
+                    <label class="form-check-label" for="ethnic_yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_no" value="no">
+                    <label class="form-check-label" for="ethnic_no">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="label">I feel loved and appreciated when... </label><br /><br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="feel_loved" id="dothings" value="yes">
+                    <label class="form-check-label" for="dothings">People do things to help me</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="feel_loved" id="receive_gift" value="no">
+                    <label class="form-check-label" for="receive_gift">When i receive gifts from someone</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label"> Which word describes you best?</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="confident" value="yes">
+                    <label class="form-check-label" for="confident">Confident</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="shy" value="yes">
+                    <label class="form-check-label" for="shy">Shy</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="respectful" value="yes">
+                    <label class="form-check-label" for="respectful">Respectful</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="understanding" value="yes">
+                    <label class="form-check-label" for="understanding">Understanding</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="daredevil" value="yes">
+                    <label class="form-check-label" for="daredevil">Daredevil</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="word" id="cautious" value="yes">
+                    <label class="form-check-label" for="cautious">Cautious</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-holder">
+                <label class="label"> Are you artistic?</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="artistic" id="artYes" value="yes">
+                    <label class="form-check-label" for="artYes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="artistic" id="artNo" value="no">
+                    <label class="form-check-label" for="artNo">No</label>
+                </div>
+            </div>
+            <div class="form-holder">
+                <label class="label"> Do you believe in fate?</label>
+                <br />
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="artistic" id="fateYes" value="yes">
+                    <label class="form-check-label" for="fateYes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="artistic" id="fateNo" value="no">
+                    <label class="form-check-label" for="fateNo">No</label>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+    <h4></h4>
+    <section>
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="label"> Please share your personal interests</label>
+                <br />
+                <div class="form-group">
+                    <br />
+                    <textarea rows="4" cols="30" id="personal_interests"></textarea>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="label"> How would you describe yourself to a person who has never met you</label>
+                <br />
+                <div class="form-group">
+                    <br />
+                    <textarea rows="4" cols="30" id="describe_yourself"></textarea>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="label"> How would your friends describe you?</label>
+                    <br />
+                    <br />
+                    <textarea rows="4" cols="30" id="describe_friends"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="label"> Whats your favorite quote?</label>
+                    <br />
+                    <br />
+                    <textarea rows="4" cols="30" id="favorite_quote"></textarea>
+                </div>
+            </div>
+        </div>
+        <br />
+    </section>
+    <!-- SECTION 4 -->
+    <h4></h4>
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Please add your profile picture</label>
+                    <br />
+                    <br />
+                    <input type="file" name="file" id="file" accept=".jpg,.jpeg,.png" capture="camera" />
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

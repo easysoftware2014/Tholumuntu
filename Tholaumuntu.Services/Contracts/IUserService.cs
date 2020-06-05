@@ -10,5 +10,6 @@ namespace Tholaumuntu.Services.Contracts
         IList<User> GetAllUsers();
         User GetUserById(int id);
         User GetUserByEmailAndPassword(string email, string password);
+        void Update(User user);
     }
 }

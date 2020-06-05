@@ -16,6 +16,7 @@ namespace Tholumuntu.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.ImgData = Session["ImgDataUrl"];
             ViewBag.FullName = Session["FullName"];
 
             return View();

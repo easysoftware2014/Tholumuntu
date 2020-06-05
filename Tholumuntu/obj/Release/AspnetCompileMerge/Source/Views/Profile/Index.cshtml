@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_ProfileLayout.cshtml";
     var fullName = Model.User.Name + " " + Model.User.Surname;
     var isSuccess = ViewBag.Success;
+    var fromProfile = (bool)ViewBag.FromProfile;
 
 }
 <script src="../../Scripts/jquery.min.js"></script>
@@ -14,6 +15,7 @@
         margin-top: -5px;
     }
 </style>
+
 
 <div class="row profile">
     <div class="col-md-12">
@@ -29,6 +31,261 @@
                                 Most relationships fail not because of lack of love but because we feel that we are not being loved
                                 right. The 5 Love Languages by Gary Chapman helps your partner love you the way you want to be loved.
                                 Take the test, you won't regret.
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="fromProfileModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="text-align: center; font-family: courier,arial,helvetica;">Next Step</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="fromProfileForm">
+                                <div class="form-group" style="text-align: center">
+                                    <br />
+                                    <input type="button" class="btn badge-light btn-outline-success" id="btnChatBox" title="click if you want to proceed to chat box and find suitable partner" value="Proceed to Chat box" />
+                                    <input type="button" class="btn badge-light btn-outline-success" id="btnHelpToFind" title="click here if you want TholaUmuntu to help you find a partner" value="Help me find partner" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal fade" id="wizard_modal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="text-align: center; font-family: courier, arial, helvetica; margin-left: 100px"><i class=" fa fa-heart"></i> About Love Language </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="wrapper">
+                                <form action="" id="wizard">
+                                    <!-- SECTION 1 -->
+                                    <h4></h4>
+                                    <section>
+                                        <h3>Basic details</h3>
+                                        <div class="form-row">
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-account"></i>
+                                                <input type="text" class="form-control" placeholder="First Name">
+                                            </div>
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-account"></i>
+                                                <input type="text" class="form-control" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-email"></i>
+                                                <input type="text" class="form-control" placeholder="Email ID">
+                                            </div>
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-account-box-o"></i>
+                                                <input type="text" class="form-control" placeholder="Your User ID">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-map"></i>
+                                                <input type="text" class="form-control" placeholder="Country">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-holder">
+                                                    <i class="zmdi zmdi-pin"></i>
+                                                    <input type="text" class="form-control" placeholder="State">
+                                                </div>
+                                                <div class="form-holder">
+                                                    <i class="zmdi zmdi-pin-drop"></i>
+                                                    <input type="text" class="form-control" placeholder="City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder">
+                                                <i class="zmdi zmdi-smartphone-android"></i>
+                                                <input type="text" class="form-control" placeholder="Phone Number">
+                                            </div>
+                                            <div class="form-holder password">
+                                                <i class="zmdi zmdi-eye"></i>
+                                                <input type="password" class="form-control" placeholder="Reference Coder">
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <!-- SECTION 2 -->
+                                    <h4></h4>
+                                    <section>
+                                        <h3>Password change</h3>
+                                        <div class="form-row">
+                                            <div class="form-holder w-100">
+                                                <input type="password" class="form-control" placeholder="Current Password">
+                                                <i class="zmdi zmdi-lock-open"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder w-100">
+                                                <input type="password" class="form-control" placeholder="Enter the Current Password">
+                                                <i class="zmdi zmdi-lock-open"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder w-100">
+                                                <input type="password" class="form-control" placeholder="New Password">
+                                                <i class="zmdi zmdi-lock-open"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-holder w-100">
+                                                <input type="password" class="form-control" placeholder="Confirm New Password">
+                                                <i class="zmdi zmdi-lock-open"></i>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <!-- SECTION 3 -->
+                                    <h4></h4>
+                                    <section>
+                                        <h3 style="margin-bottom: 16px;">My Cart</h3>
+                                        <table cellspacing="0" class="table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents table" id="shop_table">
+                                            <thead>
+                                            <th>&nbsp;</th>
+                                            <th style="text-align: left;">Product Detail</th>
+                                            <th>Quantity</th>
+                                            <th>Total Price</th>
+                                            <th>&nbsp;</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="product-thumb">
+                                                        <a href="#" class="item-thumb">
+                                                            <img src="../../Content/wizard/images/item-1.jpg" alt="">
+                                                        </a>
+                                                    </td>
+                                                    <td class="product-detail" data-title="Product Detail">
+                                                        <div>
+                                                            <a href="#">Cherry</a>
+                                                            <span>$</span>
+                                                            <span>35</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="product-quantity" data-title="Quantity">
+                                                        <div class="quantity">
+                                                            <span class="plus">+</span>
+                                                            <input type="number" id="quantity_5b4f198d958e1" class="input-text qty text" step="1" min="0" max="" name="cart[5934c1ec0cd31e12bd9084d106bc2e32][qty]" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
+                                                            <span class="minus">-</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="total-price" data-title="Total Price">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>
+                                                            70
+                                                        </span>
+                                                    </td>
+                                                    <td class="product-remove">
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-close-circle-o"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="product-thumb">
+                                                        <a href="#" class="item-thumb">
+                                                            <img src="../../Content/wizard/images/item-2.jpg" alt="">
+                                                        </a>
+                                                    </td>
+                                                    <td class="product-detail" data-title="Product Detail">
+                                                        <div>
+                                                            <a href="#">Mango</a>
+                                                            <span>$</span>
+                                                            <span>2035</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="product-quantity" data-title="Quantity">
+                                                        <div class="quantity">
+                                                            <span class="plus">+</span>
+                                                            <input type="number" id="quantity_5b4f198d958e1" class="input-text qty text" step="1" min="0" max="" name="cart[5934c1ec0cd31e12bd9084d106bc2e32][qty]" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
+                                                            <span class="minus">-</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="total-price" data-title="Total Price">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>
+                                                            20
+                                                        </span>
+                                                    </td>
+                                                    <td class="product-remove">
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-close-circle-o"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
+
+                                    <!-- SECTION 4 -->
+                                    <h4></h4>
+                                    <section>
+                                        <h3>Cart Totals</h3>
+                                        <div class="cart_totals">
+                                            <table cellspacing="0" class="shop_table shop_table_responsive">
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td data-title="Subtotal">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>110.00
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="cart-subtotal shipping">
+                                                    <th>Shipping:</th>
+                                                    <td data-title="Subtotal">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="radio" name="shipping" checked> Free Shipping
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                            <label>
+                                                                <input type="radio" name="shipping"> Local pickup: <span>$</span><span>0.00</span>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                        <span>Calculate shipping</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="cart-subtotal">
+                                                    <th>Service <span>(estimated for Vietnam)</span></th>
+                                                    <td data-title="Subtotal">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>5.60
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="order-total border-0">
+                                                    <th>Total</th>
+                                                    <td data-title="Total">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>64.69
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </section>
+                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -145,7 +402,7 @@
                                         <br />
                                         <label class="col-lg-3 col-form-label form-control-label">Change profile picture</label>
                                         <div class="col-lg-6">
-                                            <input type="file" id="profile_picture" onchange="encodeImageFileAsURL(this)" accept=".png, .jpg, .jpeg, .gif" title="choose picture"/>
+                                            <input type="file" id="profile_picture" onchange="encodeImageFileAsURL(this)" accept=".png, .jpg, .jpeg, .gif" title="choose picture" />
                                         </div>
 
                                     </div>
@@ -178,16 +435,16 @@
                                             <div class="form-group">
                                                 <br />
                                                 <label for="attraction">What do you find most attractive in a partner?</label>
-                                                @Html.TextBoxFor(x => x.Quiz.AttractiveInPartner, new { @id = "attraction", @class = "form-control", @required="required" })
+                                                @Html.TextBoxFor(x => x.Quiz.AttractiveInPartner, new { @id = "attraction", @class = "form-control", @required = "required" })
                                             </div>
                                             <div class="form-group">
                                                 <label for="words">Three words that describes you best?</label>
-                                                @Html.TextBoxFor(x => x.Quiz.WordsThatDescribesMe, new { @id = "words", @class = "form-control", @required="required" })
+                                                @Html.TextBoxFor(x => x.Quiz.WordsThatDescribesMe, new { @id = "words", @class = "form-control", @required = "required" })
                                             </div>
                                             <div class="form-group">
                                                 <label for="choice">If you could choose between the following, what would you choose</label>
-                                                @Html.DropDownListFor(x => x.Quiz.Choice, Model.ChoiceItemList, "Select...", new { @id = "choice", @class = "custom-select", @required="required" })
-                                                
+                                                @Html.DropDownListFor(x => x.Quiz.Choice, Model.ChoiceItemList, "Select...", new { @id = "choice", @class = "custom-select", @required = "required" })
+
                                             </div>
                                         </div>
                                     </div>
@@ -200,8 +457,8 @@
                                                 <h2></h2>
                                             </div>
                                             <div class="form-group">
-                                                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...", new { @id = "drpHoroscope", @class = "custom-select", @required="required" })
-                                               
+                                                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...", new { @id = "drpHoroscope", @class = "custom-select", @required = "required" })
+
                                             </div>
                                         </div>
                                     </div>
@@ -214,8 +471,8 @@
                                                 <label for="love_language">
                                                     Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
                                                 </label>
-                                                @Html.DropDownListFor(x => x.LoveLanguage, Model.LoveLanguageList, "Select...", new { @id = "love_language", @class = "custom-select", @required="required" })
-                                               
+                                                @Html.DropDownListFor(x => x.LoveLanguage, Model.LoveLanguageList, "Select...", new { @id = "love_language", @class = "custom-select", @required = "required" })
+
                                             </div>
                                         </div>
                                     </div>
@@ -283,8 +540,6 @@
         var reader = new FileReader();
         reader.onloadend = function () {
             localStorage["imgByteArray"] = reader.result;
-            console.log('RESULT: ', reader.result);
-            console.log(localStorage["fileType"]);
         }
         reader.readAsDataURL(file);
     }
@@ -294,6 +549,19 @@
         $("#drpHoroscope").val(@Model.Horoscope);
         $("#love_language").val(@Model.SelectedDropdownValueForLove);
 
+        $("#wizard_modal").modal('show');
+
+        if ('@fromProfile' === 'True') {
+            $("#fromProfileModal").modal('show');
+        }
+
+        $("#btnChatBox").click(function() {
+            location.href = "/chat/letschat";
+        });
+        $("#btnHelpToFind").click(function() {
+            location.href = "/findlove";
+        });
+
         $("#update-profile").click(function() {
             var name = $("#txtName").val();
             var surname = $("#txtSurname").val();
@@ -301,10 +569,10 @@
             var city = $("#txtCity").val();
             var state = $("#txtState").val();
             var gender = $("input[type='radio']:checked").val();
-            
+
             var byteArray = localStorage["imgByteArray"];
             var imageType = localStorage["fileType"];
-            
+
             var uploadData = { "name": name, "surname": surname, "number": number,"city": city,"state": state, "gender": gender, "_profile": byteArray, "imgType" : imageType};
 
             $.ajax({
@@ -317,7 +585,6 @@
                 success: function (data) {
                     event.preventDefault();
                     if (data) {
-                        console.log("Data: ", data);
                         $("#personal_quiz").addClass("active");
                         $("#persona_link").addClass("active");
 

@@ -11,42 +11,36 @@
 <div class="container-fluid">
     <br />
     <h2>Find love</h2>
-    <br/>
+    <h6>We'd love to hear from you, fill in your details below and we'll get back to you ASAP</h6>
+    
+    <br />
     <div class="row">
-        <div class="col-md-12" style="display: none">
-            <div class="card ">
-                <div class="card-header bg-light text-dark">Recommended Partner(s)</div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <br />
+                <h5>Subject</h5>
+                <select name="subject" class="form-control" required="required" id="subject">
+                    <option selected="selected" value="0">Choose one...</option>
+                    <option value="1">General Inquiry</option>
+                    <option value="2">MatchMe Registration</option>
+                    <option value="3">Upcoming Events</option>
+                    <option value="4">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h5>Message</h5>
+                <textarea name="message" id="message" style="height: 150px;width: 100%" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" id="btnSendMessage" value="Send message" class="btn btn-block btn-group-sm btn-success" />
+                <a href="#" id="goChatRoom" class="btn btn-block btn-group-sm btn-info" style="text-align: center;">Go to chat room</a>
+            </div>
+            @*<div class="card">
+                <div class="card-header bg-white text-dark"></div>
                 <div class="card-body">
                     
                 </div>
-            </div>
-        </div>
-    </div>
-    <br/>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header bg-white text-dark"><h6>We'd love to hear from you, fill in your details below and we'll get back to you ASAP</h6></div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <h4>Subject</h4>
-                        <select name="subject" class="form-control" required="required" id="subject">
-                            <option selected="selected" value="0">Choose one...</option>
-                            <option value="1">General Inquiry</option>
-                            <option value="2">MatchMe Registration</option>
-                            <option value="3">Upcoming Events</option>
-                            <option value="4">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <h4>Message</h4>
-                        <textarea name="message" id="message" style="height: 150px;width: 100%" rows="9" cols="25" required="required" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="button" id="btnSendMessage" value="Send" class="btn btn-block btn-group-sm btn-success"/>
-                    </div>
-                </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
@@ -56,7 +50,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#username").text("@fullName");
-
+        $("#goChatRoom").click(function() {
+            location.href = "/chat/letschat";
+        });
         $("#btnSendMessage").click(function() {
             let message = $.trim($("#message").val());
             let subject = $('#subject option:selected').html();

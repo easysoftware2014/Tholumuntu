@@ -32,6 +32,11 @@ namespace Tholaumuntu.Services.Services
         {
             return _userRepository.GetUserByEmailAndPassword(email, password);
         }
+
+        public void Update(User user)
+        {
+            _userRepository.Update(user);
+        }
     }
 
 }
