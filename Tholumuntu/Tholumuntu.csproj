@@ -184,6 +184,7 @@
     <Compile Include="Controllers\FindLoveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\QuestionAnswerController.cs" />
     <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,9 +223,15 @@
     <Compile Include="Migrations\202004111026566_changingProfileQuizObjectToId.designer.cs">
       <DependentUpon>202004111026566_changingProfileQuizObjectToId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005291304298_AddingQuestionAndUserAnswerTables.cs" />
+    <Compile Include="Migrations\202005291304298_AddingQuestionAndUserAnswerTables.designer.cs">
+      <DependentUpon>202005291304298_AddingQuestionAndUserAnswerTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\PersonalQuizModel.cs" />
+    <Compile Include="Models\QuestionAnswerModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -237,6 +244,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chatapp.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\flaticon.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -259,6 +267,29 @@
     <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Content\timeline.css" />
     <Content Include="Content\uff.jpg" />
+    <Content Include="Content\wizard\css\style.css" />
+    <Content Include="Content\wizard\fonts\lato\OFL.txt" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\wizard\images\form-wizard-bg.jpg" />
+    <Content Include="Content\wizard\images\item-1.jpg" />
+    <Content Include="Content\wizard\images\item-2.jpg" />
+    <Content Include="Content\wizard\images\step-1-active.png" />
+    <Content Include="Content\wizard\images\step-1.png" />
+    <Content Include="Content\wizard\images\step-2-active.png" />
+    <Content Include="Content\wizard\images\step-2.png" />
+    <Content Include="Content\wizard\images\step-3-active.png" />
+    <Content Include="Content\wizard\images\step-3.png" />
+    <Content Include="Content\wizard\images\step-4-active.png" />
+    <Content Include="Content\wizard\images\step-4.png" />
+    <Content Include="Content\wizard\images\step-arrow.png" />
+    <Content Include="Content\wizard\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\wizard\js\jquery.steps.js" />
+    <Content Include="Content\wizard\js\main.js" />
+    <Content Include="Content\wizard\vendor\date-picker\css\datepicker.min.css" />
+    <Content Include="Content\wizard\vendor\date-picker\js\datepicker.en.js" />
+    <Content Include="Content\wizard\vendor\date-picker\js\datepicker.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -353,6 +384,22 @@
     <Content Include="Content\sweetalert\sweet-alert-animations.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\wizard\css\style.css.map" />
+    <Content Include="Content\wizard\css\style.scss" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Black.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-BlackItalic.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Bold.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-BoldItalic.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Hairline.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-HairlineItalic.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Italic.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Light.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-LightItalic.ttf" />
+    <Content Include="Content\wizard\fonts\lato\Lato-Regular.ttf" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\wizard\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -403,9 +450,12 @@
     <Content Include="Views\Chat\LetsChat.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\FindLove\Index.cshtml" />
+    <Content Include="Views\Shared\_WizardLayout.cshtml" />
+    <Content Include="Views\QuestionAnswer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\ProfilePictures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -431,6 +481,10 @@
       <Project>{51025C6E-155C-488F-8F36-AF7A3024C016}</Project>
       <Name>Tholaumuntu.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tholaumuntu.Services\Tholaumuntu.Services.csproj">
+      <Project>{E9672B78-3353-459F-A084-44BF227C61E6}</Project>
+      <Name>Tholaumuntu.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003061256581_InitialCreate.resx">
@@ -453,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004111026566_changingProfileQuizObjectToId.resx">
       <DependentUpon>202004111026566_changingProfileQuizObjectToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291304298_AddingQuestionAndUserAnswerTables.resx">
+      <DependentUpon>202005291304298_AddingQuestionAndUserAnswerTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

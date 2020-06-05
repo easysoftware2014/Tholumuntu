@@ -13,6 +13,7 @@ namespace Tholumuntu.Models
         public string ContactNumber { get; set; }
         public string Street { get; set; }
         public string State { get; set; }
+        public string FullName { get; set; }
 
         public UserModel(){}
         public UserModel(User user)
@@ -26,7 +27,10 @@ namespace Tholumuntu.Models
             State = user.State;
             Password = user.Password;
         }
-
+        public string GetFullName(string name, string surname)
+        {
+            return FullName = name + " " + surname;
+        }
         public void UpdatePassword(string password)
         {
             Password = password;

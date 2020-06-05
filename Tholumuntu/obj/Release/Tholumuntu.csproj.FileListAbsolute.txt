@@ -120,3 +120,4 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.xml
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Release\Tholumuntu.Migrations.addEmailVerified.resources
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Release\Tholumuntu.Migrations.changingProfileQuizObjectToId.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Release\Tholumuntu.Migrations.AddingQuestionAndUserAnswerTables.resources

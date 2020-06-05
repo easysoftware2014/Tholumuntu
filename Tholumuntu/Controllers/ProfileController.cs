@@ -2,10 +2,12 @@
 using System.Data.Common;
 using System.IO;
 using System.Linq;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using Tholaumuntu.DataAcces.Domain;
 using Tholaumuntu.Repository.Contracts;
 using Tholaumuntu.Repository.Repositories;
+using Tholaumuntu.Services.Services;
 using Tholumuntu.Helpers;
 using Tholumuntu.Models;
 
@@ -13,15 +15,17 @@ namespace Tholumuntu.Controllers
 {
     public class ProfileController : Controller
     {
-        private readonly IUserProfileRepository _profileRepository;
-        private readonly IUserRepository _userRepository;
-        private readonly IPersonalQuizRepository _personalQuizRepository;
+        private readonly UserProfileService _profileService;
+        private readonly UserService _userService;
+        private readonly PersonalQuizService _personalQuizService;
+        private static readonly string Path = HostingEnvironment.MapPath(@"~/Images/ProfilePictures");
+
         public int Id { get; set; }
         public ProfileController()
         {
-            _profileRepository = new UserProfileRepository();
-            _userRepository = new UserRepository();
-            _personalQuizRepository = new PersonalQuizRepository();
+            _profileService = new UserProfileService();
+            _userService = new UserService();
+            _personalQuizService = new PersonalQuizService();
         }
         // GET: Profile
         public ActionResult Index()
@@ -67,14 +71,14 @@ namespace Tholumuntu.Controllers
                     HoroscopeItemList = horoscopeList
                 };
 
-                var currentUser = _userRepository.GetUserById(id);
+                var currentUser = _userService.GetUserById(id);
                 user.Id = currentUser.Id;
                 user.Name = currentUser.Name;
                 user.Surname = currentUser.Surname;
                 user.ContactNumber = currentUser.ContactNumber;
                 user.Email = currentUser.Email;
-                var quiz = _personalQuizRepository.GetQuizByUserId(currentUser.Id);
-                var userProfile = _profileRepository.GetProfileByUserId(currentUser.Id);
+                var quiz = _personalQuizService.GetQuizByUserId(currentUser.Id);
+                var userProfile = _profileService.GetProfileByUserId(currentUser.Id);
 
                 model.Horoscope = userProfile != null ? userProfile.Horoscope : string.Empty;
                 model.Gender = userProfile?.Gender;
@@ -84,6 +88,9 @@ namespace Tholumuntu.Controllers
                     model.SelectedDropdownValueForLove = GetSelectedValueForLove(userProfile.LoveLanguage);
                     model.GetFullName(currentUser);
                     Session["FullName"] = model.FullName;
+
+                    var returnImage = new FileContentResult(userProfile.ProfilePicture, "image/jpeg");
+                    CreateTemporaryFolderToStoreImage(returnImage);
                 }
 
                 if (quiz != null)
@@ -93,6 +100,7 @@ namespace Tholumuntu.Controllers
                 }
 
                 model.SetUser(currentUser);
+                ViewBag.FromProfile = (bool?) TempData["FromProfile"] ?? false;
 
                 return View(model);
             }
@@ -100,18 +108,28 @@ namespace Tholumuntu.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        private void CreateTemporaryFolderToStoreImage(FileContentResult returnImage)
+        {
+            var imgBase64Data = Convert.ToBase64String(returnImage.FileContents);
+            var imgDataUrl = $"data:image/png;base64,{imgBase64Data}";
+
+            ViewBag.ImgData = imgDataUrl;
+            Session["ImgDataUrl"] = imgDataUrl;
+
+        }
+
         public string FullName()
         {
             var id = Convert.ToInt32(Session["UserId"]);
-            var currentUser = _userRepository.GetUserById(id);
+            var currentUser = _userService.GetUserById(id);
 
             return currentUser.Name + " " + currentUser.Surname;
         }
         public FileContentResult ProfilePhoto()
         {
             var id = Convert.ToInt32(Session["UserId"]);
-            var currentUser = _userRepository.GetUserById(id);
-            var userProfile = _profileRepository.GetProfileByUserId(currentUser.Id);
+            var currentUser = _userService.GetUserById(id);
+            var userProfile = _profileService.GetProfileByUserId(currentUser.Id);
 
             if (userProfile != null && userProfile.ProfilePicture != null)
                 return new FileContentResult(userProfile.ProfilePicture, "image/jpeg");
@@ -210,15 +228,24 @@ namespace Tholumuntu.Controllers
                         break;
                 }
 
-                var user = _userRepository.GetUserById(Convert.ToInt32(Session["UserId"]));
-                var profile = _profileRepository.GetProfileByUserId(user.Id);
+                var user = _userService.GetUserById(Convert.ToInt32(Session["UserId"]));
+                var profile = _profileService.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
 
                 if (profile != null)
                 {
                     profile.Gender = gender;
                     profile.ProfilePicture = image;
 
-                    _profileRepository.UpdateUserProfile(profile);
+                    if (profile.ProfilePicture != null)
+                    {
+                        var imgBase64Data = Convert.ToBase64String(profile.ProfilePicture);
+                        var imgDataUrl = $"data:image/png;base64,{imgBase64Data}";
+
+                        ViewBag.ImgData = imgDataUrl;
+                        Session["ImgDataUrl"] = imgDataUrl;
+                    }
+
+                    _profileService.UpdateUserProfile(profile);
                 }
                 if (user != null)
                 {
@@ -229,7 +256,7 @@ namespace Tholumuntu.Controllers
                     user.State = state;
                     user.ModifiedAt = DateTime.Now;
 
-                    _userRepository.Update(user);
+                    _userService.Update(user);
                 }
 
                 return Json(new { success = true, JsonRequestBehavior.AllowGet });
@@ -250,7 +277,7 @@ namespace Tholumuntu.Controllers
         {
             var choice = Choice.Happiness;
             Id = Convert.ToInt32(Session["UserId"]);
-            var currentUser = _userRepository.GetUserById(model.User.Id);
+            var currentUser = _userService.GetUserById(model.User.Id);
 
             switch (Convert.ToInt32(model.Quiz.Choice))
             {
@@ -282,12 +309,12 @@ namespace Tholumuntu.Controllers
                 {
                     quiz.Id = model.Quiz.Id;
 
-                    if (_personalQuizRepository.Update(quiz))
+                    if (_personalQuizService.Update(quiz))
                         transactionPassed = true;
                 }
                 else
                 {
-                    var id = _personalQuizRepository.Add(quiz);
+                    var id = _personalQuizService.Add(quiz);
 
                     if (id > 0)
                         transactionPassed = true;
@@ -295,13 +322,14 @@ namespace Tholumuntu.Controllers
 
                 if (transactionPassed)
                 {
-                    var profile = _profileRepository.GetProfileByUserId(Id);
+                    var profile = _profileService.GetProfileByUserId(Id);
                     profile.QuizId = quiz.Id;
                     profile.Horoscope = model.Horoscope;
                     profile.LoveLanguage = model.LoveLanguage;
 
-                    _profileRepository.UpdateUserProfile(profile);
+                    _profileService.UpdateUserProfile(profile);
                     ViewBag.Success = true;
+                    TempData["FromProfile"] = true;
 
                     return RedirectToAction("Index");
                 }
@@ -327,14 +355,14 @@ namespace Tholumuntu.Controllers
         {
             try
             {
-                var profile = _profileRepository.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
+                var profile = _profileService.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
 
                 if (profile != null)
                 {
                     profile.Horoscope = horoscope;
                     profile.ModifiedAt = DateTime.Now;
 
-                    _profileRepository.UpdateUserProfile(profile);
+                    _profileService.UpdateUserProfile(profile);
                 }
 
                 return Json(new { success = true, JsonRequestBehavior.AllowGet });
@@ -374,11 +402,11 @@ namespace Tholumuntu.Controllers
                         break;
                 }
 
-                var profile = _profileRepository.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
+                var profile = _profileService.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
                 profile.LoveLanguage = love;
                 profile.ModifiedAt = DateTime.Now;
 
-                _profileRepository.UpdateUserProfile(profile);
+                _profileService.UpdateUserProfile(profile);
 
                 return Json(new { success = true, JsonRequestBehavior.AllowGet });
             }

@@ -1,0 +1,109 @@
+$(function() {
+    $("#wizard").steps({
+        headerTag: "h4",
+        bodyTag: "section",
+        transitionEffect: "fade",
+        enableAllSteps: true,
+        transitionEffectSpeed: 300,
+        labels: {
+            next: "Continue",
+            previous: "Back",
+            finish: 'Submit your profile'
+        },
+        onStepChanging: function(event, currentIndex, newIndex) {
+            if (newIndex >= 1) {
+                $('.steps ul li:first-child a img').attr('src', '../../content/content/wizard/images/step-1.png');
+            } else {
+                $('.steps ul li:first-child a img')
+                    .attr('src', '../../content/content/wizard/images/step-1-active.png');
+            }
+
+            if (newIndex === 1) {
+                $('.steps ul li:nth-child(2) a img').attr('src', '../../content/wizard/images/step-2-active.png');
+            } else {
+                $('.steps ul li:nth-child(2) a img').attr('src', '../../content/wizard/images/step-2.png');
+            }
+
+            if (newIndex === 2) {
+                $('.steps ul li:nth-child(3) a img').attr('src', '../../content/wizard/images/step-3-active.png');
+            } else {
+                $('.steps ul li:nth-child(3) a img').attr('src', '../../content/wizard/images/step-3.png');
+            }
+
+            //if (newIndex === 3) {
+            //    $('.steps ul li:nth-child(4) a img').attr('src', '../../content/wizard/images/step-4-active.png');
+            //    $('.actions ul').addClass('step-4');
+            //} else {
+            //    $('.steps ul li:nth-child(4) a img').attr('src', '../../content/content/wizard/images/step-4.png');
+            //    $('.actions ul').removeClass('step-4');
+            //}
+            return true;
+        },
+        onFinished: function (event, currentIndex) {
+            $.ajax({
+                type: "POST",
+                url: "questionanswer/saveanswers",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    event.preventDefault();
+                    alert("Profile Submitted for verification");
+
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+    // Custom Button Jquery Steps
+    $('.forward').click(function() {
+        $("#wizard").steps('next');
+    });
+    $('.backward').click(function() {
+        $("#wizard").steps('previous');
+    });
+    // Click to see password 
+    $('.password i').click(function() {
+        if ($('.password input').attr('type') === 'password') {
+            $(this).next().attr('type', 'text');
+        } else {
+            $('.password input').attr('type', 'password');
+        }
+    });
+    // Create Steps Image
+    //$('.steps ul li:first-child')
+    //    .append('<img src="../../content/wizard/images/step-arrow.png" alt="" class="step-arrow">').find('a')
+    //    .append('<img src="../../content/wizard/images/step-1-active.png" alt=""> ')
+    //    .append('<span class="step-order">Step 01</span>');
+    //$('.steps ul li:nth-child(2')
+    //    .append('<img src="../../content/wizard/images/step-arrow.png" alt="" class="step-arrow">').find('a')
+    //    .append('<img src="../../content/wizard/images/step-2.png" alt="">')
+    //    .append('<span class="step-order">Step 02</span>');
+    //$('.steps ul li:nth-child(3)')
+    //    .append('<img src="../../content/wizard/images/step-arrow.png" alt="" class="step-arrow">').find('a')
+    //    .append('<img src="../../content/wizard/images/step-3.png" alt="">')
+    //    .append('<span class="step-order">Step 03</span>');
+    //$('.steps ul li:last-child a').append('<img src="../../content/wizard/images/step-4.png" alt="">')
+    //    .append('<span class="step-order">Step 04</span>');
+    // Count input 
+    $(".quantity span").on("click",
+        function() {
+
+            var $button = $(this);
+            var oldValue = $button.parent().find("input").val();
+
+            if ($button.hasClass('plus')) {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below zero
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                }
+            }
+            $button.parent().find("input").val(newVal);
+        });
+});

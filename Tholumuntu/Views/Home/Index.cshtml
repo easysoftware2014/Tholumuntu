@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <form id="loginForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtEmail" placeholder="Email" required="required" />
+                        <input type="email" class="form-control" id="txtEmail" placeholder="Email" required="required" />
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="txtPassword" placeholder="Password" required="required" />
@@ -35,12 +35,32 @@
 
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <br/>
-            <img src="../../Images/tholaumuntu.png" height="150" alt="image">
+<div class="modal fade" id="forgotPasswordModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center; font-family: courier,arial,helvetica;margin-left: 100px"><span class="fa-sign-in">Forgot Password</span></h4>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPassForm">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="txtForgotEmail" placeholder="Email" required="required" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn badge-light btn-outline-success" id="btnForgotSubmit" title="Submit" value="Submit" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div style="text-align: center">
+        <img src="../../Images/tholaumuntu.png" height="150" alt="image">
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -51,8 +71,21 @@
             <br />
             <h2 style="text-align: center; font-family: courier, arial, helvetica;">We're saying, Character matters most</h2>
             <br />
+
+            <p class="" style="display: none" id="forgot_email_sent">Email sent, please check your email</p>
+
+            <form class="text-center" action="#" id="signInForm">
+                <p class="h4 mb-4">Sign In</p>
+                <input type="email" id="loginEmail" required="required" class="form-control mb-4" placeholder="E-mail">
+                <input type="password" id="loginPassword" required="required" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                <button class="btn btn-success my-4 btn-block" id="btnSignIn" type="button">Sign in</button>
+                <i class="fa-frown-o" aria-hidden="true"></i> <a class="fa-link" href="#" id="btnForgotPassword" data-toggle="modal" data-target="#forgotPasswordModal">Forgot password</a>
+                <br />
+                don't have account yet? <a class="fa-link" href="#" id="btnRegister">Register</a>
+            </form>
+
             <!-- Default form register -->
-            <form class="text-center" action="#" id="signupForm">
+            <form class="text-center" action="#" id="signupForm" style="display: none">
 
                 <p class="h4 mb-4">Sign up</p>
 
@@ -85,9 +118,9 @@
                 </small>
 
                 <!-- Sign up button -->
-                <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="button">Sign Up</button>
-                <button class="btn btn-success my-4 btn-block" id="btnLogin" type="button" data-toggle="modal" data-target="#myModal">Sign in</button>
-
+                <button class="btn btn-success my-4 btn-block" id="btnSignUp" type="button">Sign Up</button>
+                Have account already? <a class="btn-link" id="btnLogin" href="">Sign in</a>
+                @*data-toggle="modal" data-target="#myModal"*@
                 <hr>
 
                 <!-- Terms of service -->
@@ -118,6 +151,53 @@
             }
             return isUnique;
         }
+        $('#loginEmail').focus();
+        $("#btnForgotSubmit").click(function () {
+            var isValid = true;//$("#loginForm").valid();
+
+            if (true) {
+                var email = $("#txtForgotEmail").val();
+
+                var uploadData = { "email": email };
+
+                $.ajax({
+                    type: "POST",
+                    url: "home/forgotpassword",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (emailSent) {
+
+                        event.preventDefault();
+                        console.log("Data: ", data);
+
+                        if (emailSent === "true") {
+                            clearControls();
+                            $("#forgotPasswordModal").hide();
+                            //location.href = "/profile";
+                        }
+                        else
+                            alert("problem sending email");
+                    },
+                    error: function () {
+                        alert("email or password incorrect, please try again.");
+                    }
+                });
+            }
+        });
+        $("#btnRegister").click(function() {
+            $("#signupForm").attr("style", "display: block;");
+            $("#signInForm").attr("style", "display: none;");
+            $('#defaultRegisterFormFirstName').focus();
+
+        });
+
+        $("#btnLogin").click(function() {
+            $("#signupForm").attr("style", "display: none;");
+            $("#signInForm").attr("style", "display: block;");
+        });
+
         $("#btnSignUp").click(function () {
             var email = $("#defaultRegisterFormEmail").val();
 
@@ -135,13 +215,8 @@
 
                 var password = $("#defaultRegisterFormPassword").val();
                 var contactNumber = $("#defaultRegisterPhonePassword").val();
-                console.log(
-                    "firstName:" + name,
-                    "surname: " + surname,
-                    "email: " + email,
-                    "password: " + password,
-                    "contact: " + contactNumber);
 
+                //check cell phone number???
                 if (true) {
                     var uploadData = {
                         "firstName": name,
@@ -163,12 +238,12 @@
                             if (data) {
                                 clearControls();
                                 console.log("Data: ", data);
-                                //location.href = "/profile";
+                                //need to let user know to check email
                             } else
-                                alert("failed to add the user :( ");
+                                alert("Something wrong happened, please try again...");
                         },
                         error: function() {
-                            alert("error occured");
+                            alert("error occured, please try again");
                         }
                     });
                 } else
@@ -178,37 +253,74 @@
         $("#btnLoginSubmit").click(function () {
             var isValid = $("#loginForm").valid();
 
-            var email = $("#txtEmail").val();
-            var password = $("#txtPassword").val();
+            if (isValid) {
+                var email = $("#txtEmail").val();
+                var password = $("#txtPassword").val();
 
-            var uploadData = { "email": email, "password": password };
+                var uploadData = { "email": email, "password": password };
 
-            $.ajax({
-                type: "POST",
-                url: "home/login",
-                data: JSON.stringify(uploadData),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                cache: false,
-                success: function (data) {
+                $.ajax({
+                    type: "POST",
+                    url: "home/login",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (data) {
 
-                    event.preventDefault();
-                    console.log("Data: ", data);
+                        event.preventDefault();
+                        console.log("Data: ", data);
 
-                    if (data.data.Id !== 0) {
-                        clearControls();
+                        if (data.data.Id !== 0) {
+                            clearControls();
 
-                        location.href = "/profile";
+                            location.href = "/profile";
+                        }
+                        else
+                            alert("email or password is incorrect, please try again.");
+                    },
+                    error: function () {
+                        alert("email or password incorrect, please try again.");
                     }
-                    else
-                        alert("email or password is incorrect, please try again.");
-                },
-                error: function () {
-                    alert("error occured");
-                }
-            });
-
+                });
+            }
         });
+        $("#btnSignIn").click(function () {
+            var isValid = $("#signInForm").valid();
+
+            if (isValid) {
+                var email = $("#loginEmail").val();
+                var password = $("#loginPassword").val();
+
+                var uploadData = { "email": email, "password": password };
+
+                $.ajax({
+                    type: "POST",
+                    url: "home/login",
+                    data: JSON.stringify(uploadData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    cache: false,
+                    success: function (data) {
+
+                        event.preventDefault();
+                        console.log("Data: ", data);
+
+                        if (data.data.Id !== 0) {
+                            clearControls();
+
+                            location.href = "/profile";
+                        }
+                        else
+                            alert("email or password is incorrect, please try again.");
+                    },
+                    error: function () {
+                        alert("email or password incorrect, please try again.");
+                    }
+                });
+            }
+        });
+
         function clearControls() {
 
         $("#defaultRegisterFormFirstName").val('');
@@ -236,7 +348,6 @@
                 },
                 error: function () {
                     return (json.valid);
-                    alert("error");
                 }
             });
         }

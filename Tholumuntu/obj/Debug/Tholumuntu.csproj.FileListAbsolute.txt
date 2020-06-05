@@ -120,3 +120,6 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.xml
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.xml
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddingQuestionAndUserAnswerTables.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.dll
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.pdb

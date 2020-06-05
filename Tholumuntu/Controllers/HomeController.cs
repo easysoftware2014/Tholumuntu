@@ -196,7 +196,7 @@ namespace Tholumuntu.Controllers
                     if(isSuccessful)
                         Session["UserId"] = user.Id;
 
-                    return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index", "QuestionAnswer");
                 }
                 else
                     return RedirectToAction("Index");
