@@ -13,6 +13,7 @@ $(function () {
             finish: 'Submit your profile'
         },
         onStepChanging: function (event, currentIndex, newIndex) {
+            
             if (newIndex >= 1) {
                 $('.steps ul li:first-child a img').attr('src', '../../content/content/wizard/images/step-1.png');
             } else {
@@ -62,7 +63,7 @@ $(function () {
             let ethnicityId = $("#QuestionModel_Ethnicity_Id").val();
             createDictionary(ethnicityId, ethnicity);
 
-            let belief = $("input[name='guilty']:checked").val();
+            let belief = $("input[name='belief']:checked").val();
             let beliefId = $("#QuestionModel_WhatIsYourReligion_Id").val();
             createDictionary(beliefId, belief);
             
@@ -135,7 +136,6 @@ $(function () {
                 success: function (data) {
                     event.preventDefault();
                     alert("Profile Submitted for verification");
-
                 },
                 error: function (error) {
                     alert(error);
@@ -149,6 +149,102 @@ $(function () {
             value: value
         });
     }
+
+    function isEmpty(str) {
+        return (!str || 0 === str.length);
+    }
+
+    var ethnicityVal = localStorage["ethnicity"];
+    if(!isEmpty(ethnicityVal))
+        setAnswers("ethnicity", ethnicityVal);
+
+    var occupation = localStorage["occupation"];
+    if (!isEmpty(occupation))
+        setAnswers("occupation", occupation);
+
+    var religion = localStorage["religion"];
+    if (!isEmpty(religion))
+        setAnswers("belief", religion);
+
+    var word1 = localStorage["word1"];
+    if (!isEmpty(word1))
+        setAnswers("word", word1);
+
+    var word2 = localStorage["word2"];
+    if (!isEmpty(word2))
+        setAnswers("word1", word2);
+
+    var word3 = localStorage["word3"];
+    if (!isEmpty(word3))
+        setAnswers("word2", word3);
+
+    var smoke = localStorage["smoke"];
+    if (!isEmpty(smoke))
+        setAnswers("smoke", smoke);
+
+    var valueMost = localStorage["valuemost"];
+    if (!isEmpty(valueMost))
+        setAnswers("value_most", valueMost);
+
+    var preference = localStorage["personal_preference"];
+    if (!isEmpty(preference))
+        setAnswers("personal_preference", preference);
+
+    var iPrefer = localStorage["prefer"];
+    if (!isEmpty(iPrefer))
+        setAnswers("prefer", iPrefer);
+
+    var loveAndAppreciated = localStorage["love"];
+    if (!isEmpty(loveAndAppreciated))
+        setAnswers("feel_loved", loveAndAppreciated);
+
+    if (!isEmpty(localStorage["artistic"]))
+        setAnswers("artistic", localStorage["artistic"]);
+
+    if (!isEmpty(localStorage["date_different"]))
+    setAnswers("different_belief", localStorage["date_different"]);
+
+    if (!isEmpty(localStorage["fate"]))
+    setAnswers("fate", localStorage["fate"]);
+
+    if (!isEmpty(localStorage["ethnicGroup"]))
+    setAnswers("ethnic_group", localStorage["ethnicGroup"]);
+
+    if (!isEmpty(localStorage["withkids"]))
+    setAnswers("relationship", localStorage["withkids"]);
+
+    if (!isEmpty(localStorage["idealdate"]))
+    setAnswers("idealdate", localStorage["idealdate"]);
+
+    if (!isEmpty(localStorage["iam"]))
+    setAnswers("iam", localStorage["iam"]);
+
+    if (!isEmpty(localStorage["guilty"]))
+    setAnswers("guilty", localStorage["guilty"]);
+
+    if (!isEmpty(localStorage["consider"]))
+    setAnswers("consider", localStorage["consider"]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function setAnswers(name, value) {
+        $("input[name=" + name + "][value=" + value + "]").prop('checked', true);
+    }
+    
     // Custom Button Jquery Steps
     $('.forward').click(function () {
         $("#wizard").steps('next');
@@ -198,4 +294,6 @@ $(function () {
             }
             $button.parent().find("input").val(newVal);
         });
+    
 });
+

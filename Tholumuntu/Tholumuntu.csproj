@@ -424,6 +424,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\responsiveslides.min.js" />
+    <Content Include="Scripts\setAnswers.js" />
     <Content Include="Scripts\slider-index.js" />
     <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Scripts\timeLine.min.js" />
@@ -452,6 +453,7 @@
     <Content Include="Views\FindLove\Index.cshtml" />
     <Content Include="Views\Shared\_WizardLayout.cshtml" />
     <Content Include="Views\QuestionAnswer\Index.cshtml" />
+    <Content Include="Views\QuestionAnswer\UpdateAnswers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

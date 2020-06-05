@@ -21,7 +21,6 @@ namespace Tholumuntu.Models
         public Question DateOutsideEthnicGroup { get; set; }
         public Question WhatIsYourReligion { get; set; }
         public Question DateDifferentBelief { get; set; }
-        public Question WhichDoYouValueMost { get; set; }
         public Question WordDescribeYouBest { get; set; }
         public Question WordDescribeYouBest2 { get; set; }
         public Question WordDescribeYouBest3 { get; set; }
@@ -31,9 +30,41 @@ namespace Tholumuntu.Models
         public Question HowFriendsDescribeYou { get; set; }
         public Question FavoriteQuote { get; set; }
         public Question DoYouBelieveInFate { get; set; }
+        public AnswerModel Answer { get; set; }
 
         public QuestionModel()
         {}
 
+    }
+
+    public class AnswerModel
+    {
+        public string Occupation { get; set; }
+        public string Smoke { get; set; }
+        public string PersonalPreference { get; set; }
+        public string ValueTheMost { get; set; }
+        public string Iam { get; set; }
+        public string Iprefer { get; set; }
+        public string AreYouArtistic { get; set; }
+        public string BelieveInFaith { get; set; }
+        public string IdealDate { get; set; }
+        public string DateSomeoneWithKids { get; set; }
+        public string IconsiderMyself { get; set; }
+        public string IamGuiltyOf { get; set; }
+        public string IfeelLoveAndAppreciated { get; set; }
+        public string Ethnicity { get; set; }
+        public string DateOutsideEthnicGroup { get; set; }
+        public string WhatIsYourReligion { get; set; }
+        public string DateDifferentBelief { get; set; }
+        public string WhichDoYouValueMost { get; set; }
+        public string WordDescribeYouBest { get; set; }
+        public string WordDescribeYouBest2 { get; set; }
+        public string WordDescribeYouBest3 { get; set; }
+        public string DoYouLiveIn { get; set; }
+        public string PersonalInterest { get; set; }
+        public string DescribeYourSelf { get; set; }
+        public string HowFriendsDescribeYou { get; set; }
+        public string FavoriteQuote { get; set; }
+        public string DoYouBelieveInFate { get; set; }
     }
 }

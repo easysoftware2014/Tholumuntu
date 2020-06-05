@@ -28,6 +28,12 @@ namespace Tholumuntu.Controllers
 
         public ActionResult Index()
         {
+            var model = GetQuestionModel();
+            return View(model);
+        }
+
+        private QuestionAnswerModel GetQuestionModel()
+        {
             var choices = Enum.GetValues(typeof(Choice)).Cast<Choice>();
             var loveLanguages = Enum.GetValues(typeof(LoveLanguage)).Cast<LoveLanguage>();
             var horoscopes = Enum.GetValues(typeof(Horoscope)).Cast<Horoscope>();
@@ -59,7 +65,7 @@ namespace Tholumuntu.Controllers
             var questions = _questionRepository.GetAllQuestions();
             var questionModel = new QuestionModel
             {
-                Occupation = questions.Single(x=>x.Id == 1),
+                Occupation = questions.Single(x => x.Id == 1),
                 Smoke = questions.Single(x => x.Id == 3),
                 PersonalPreference = questions.Single(x => x.Id == 4),
                 Iprefer = questions.Single(x => x.Id == 5),
@@ -82,20 +88,21 @@ namespace Tholumuntu.Controllers
                 WordDescribeYouBest3 = questions.Single(x => x.Id == 20),
                 Ethnicity = questions.Single(x => x.Id == 9),
                 AreYouArtistic = questions.Single(x => x.Id == 21),
-                DoYouBelieveInFate = questions.Single(x => x.Id == 22)
-                
+                DoYouBelieveInFate = questions.Single(x => x.Id == 22),
+                Answer = new AnswerModel()
+
             };
             var model = new QuestionAnswerModel
             {
                 ChoiceItemList = choiceItems,
                 HoroscopeItemList = horoscopeList,
                 LoveLanguageList = loveLanguageList,
-                QuestionModel = questionModel
+                QuestionModel = questionModel,
+                
             };
 
-            return View(model);
+            return model;
         }
-
         public ActionResult SaveAnswers(Dictionary<string, string> answers)
         {
             var userId = 1023;//Convert.ToInt32(Session["UserId"]);
@@ -134,6 +141,37 @@ namespace Tholumuntu.Controllers
             }
 
             _answerRepository.Add(listOfAnswers);
+        }
+
+        public ActionResult UpdateAnswers()
+        {
+            var userId = 1023;//Convert.ToInt32(Session["UserId"]);
+            var model = GetQuestionModel();
+
+            var userAnswers = _answerRepository.List(userId);
+
+            model.QuestionModel.Answer.Ethnicity = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Ethnicity.Id)?.Answer;
+            model.QuestionModel.Answer.Occupation = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Occupation.Id)?.Answer;
+            model.QuestionModel.Answer.Smoke = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Smoke.Id)?.Answer;
+            model.QuestionModel.Answer.WhatIsYourReligion = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WhatIsYourReligion.Id)?.Answer;
+            model.QuestionModel.Answer.ValueTheMost = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.ValueTheMost.Id)?.Answer;
+            model.QuestionModel.Answer.AreYouArtistic = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.AreYouArtistic.Id)?.Answer;
+            model.QuestionModel.Answer.IfeelLoveAndAppreciated = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.IfeelLoveAndAppreciated.Id)?.Answer;
+            model.QuestionModel.Answer.Iam = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Iam.Id)?.Answer;
+            model.QuestionModel.Answer.IamGuiltyOf = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.IamGuiltyOf.Id)?.Answer;
+            model.QuestionModel.Answer.IconsiderMyself = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.IconsiderMyself.Id)?.Answer;
+            model.QuestionModel.Answer.IdealDate = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.IdealDate.Id)?.Answer;
+            model.QuestionModel.Answer.Iprefer = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Iprefer.Id)?.Answer;
+            model.QuestionModel.Answer.DoYouBelieveInFate = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.DoYouBelieveInFate.Id)?.Answer;
+            model.QuestionModel.Answer.DateDifferentBelief = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.DateDifferentBelief.Id)?.Answer;
+            model.QuestionModel.Answer.DateOutsideEthnicGroup = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.DateOutsideEthnicGroup.Id)?.Answer;
+            model.QuestionModel.Answer.DateSomeoneWithKids = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.DateSomeoneWithKids.Id)?.Answer;
+            model.QuestionModel.Answer.PersonalPreference = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.PersonalPreference.Id)?.Answer;
+            model.QuestionModel.Answer.WordDescribeYouBest = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest.Id)?.Answer;
+            model.QuestionModel.Answer.WordDescribeYouBest2 = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest2.Id)?.Answer;
+            model.QuestionModel.Answer.WordDescribeYouBest3 = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest3.Id)?.Answer;
+            
+            return View(model);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Tholumuntu.Models
         public LoveLanguage LoveLanguage { get; set; }
         public QuestionModel QuestionModel { get; set; }
 
-
         public QuestionAnswerModel()
         {}
     }

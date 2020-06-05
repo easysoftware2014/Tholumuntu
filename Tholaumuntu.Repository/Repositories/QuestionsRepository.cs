@@ -40,6 +40,7 @@ namespace Tholaumuntu.Repository.Repositories
             {
                 using (_tholaUmuntuContext)
                 {
+                    
                     return _tholaUmuntuContext.Questions.ToList();
                 }
             }
