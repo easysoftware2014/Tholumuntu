@@ -91,5 +91,18 @@ namespace Tholaumuntu.Repository.Repositories
 
             return false;
         }
+
+        public User GetUserByEmail(string email)
+        {
+            try
+            {
+                return _tholaUmuntuContext.Users.FirstOrDefault(x => x.Email == email);
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

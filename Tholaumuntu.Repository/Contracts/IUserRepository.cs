@@ -9,6 +9,7 @@ namespace Tholaumuntu.Repository.Contracts
         IList<User> GetAllUsers();
         User GetUserById(int id);
         User GetUserByEmailAndPassword(string email, string password);
+        User GetUserByEmail(string email);
         bool Update(User user);
     }
 }

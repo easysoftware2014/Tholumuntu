@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,12 +19,15 @@ namespace Tholumuntu.Controllers
         private readonly QuestionService _questionRepository;
         private readonly UserAnswerService _answerRepository;
         private readonly UserService _userService;
+        private readonly UserProfileService _profileService;
+
         public QuestionAnswerController()
         {
             _answerRepository = new UserAnswerService();
             _questionRepository = new QuestionService();
             _userService = new UserService();
-
+            _profileService = new UserProfileService();
+            
         }
 
         public ActionResult Index()
@@ -31,7 +35,31 @@ namespace Tholumuntu.Controllers
             var model = GetQuestionModel();
             return View(model);
         }
+        private LoveLanguage GetLoveLanguage(int loveLanguage)
+        {
+            LoveLanguage love = (LoveLanguage) 0;
 
+            switch (loveLanguage)
+            {
+                case 1:
+                    love = LoveLanguage.WordsOfAffirmation;
+                    break;
+                case 2:
+                    love = LoveLanguage.ActOfService;
+                    break;
+                case 3:
+                    love = LoveLanguage.ReceivingGifts;
+                    break;
+                case 4:
+                    love = LoveLanguage.QualityTime;
+                    break;
+                case 5:
+                    love = LoveLanguage.PhysicalTouch;
+                    break;
+            }
+
+            return love;
+        }
         private QuestionAnswerModel GetQuestionModel()
         {
             var choices = Enum.GetValues(typeof(Choice)).Cast<Choice>();
@@ -76,13 +104,10 @@ namespace Tholumuntu.Controllers
                 IconsiderMyself = questions.Single(x => x.Id == 7),
                 IdealDate = questions.Single(x => x.Id == 12),
                 IfeelLoveAndAppreciated = questions.Single(x => x.Id == 17),
-                //DoYouLiveIn = questions.Single(x => x.Id == 5),
-                //PersonalInterest = questions.Single(x => x.Id == 5),
                 DateDifferentBelief = questions.Single(x => x.Id == 14),
                 DateOutsideEthnicGroup = questions.Single(x => x.Id == 15),
                 DateSomeoneWithKids = questions.Single(x => x.Id == 13),
                 DescribeYourSelf = questions.Single(x => x.Id == 5),
-                //HowFriendsDescribeYou = questions.Single(x => x.Id == 5),
                 WordDescribeYouBest = questions.Single(x => x.Id == 18),
                 WordDescribeYouBest2 = questions.Single(x => x.Id == 19),
                 WordDescribeYouBest3 = questions.Single(x => x.Id == 20),
@@ -103,23 +128,81 @@ namespace Tholumuntu.Controllers
 
             return model;
         }
-        public ActionResult SaveAnswers(Dictionary<string, string> answers)
+
+        private void SaveChanges(List<AnswersJsonConverter> answers, string image, string bytearray, AnswerModel data)
         {
-            var userId = 1023;//Convert.ToInt32(Session["UserId"]);
-            var check = _answerRepository.List(userId);
-
-            if (check.Count == 0)
-                AddAnswersToDatabase(answers, userId);
-            else
+            var userId = Convert.ToInt32(Session["UserId"]);
+            try
             {
-                _answerRepository.RemoveAll(check.ToList());
-                AddAnswersToDatabase(answers, userId);
-            }
+                var check = _answerRepository.List(userId);
 
+                if (check.Count == 0)
+                    AddAnswersToDatabase(answers, userId);
+                else
+                {
+                    _answerRepository.RemoveAll(check.ToList());
+                    AddAnswersToDatabase(answers, userId);
+                }
+
+                var profile = _profileService.GetProfileByUserId(userId);
+                var user = _userService.GetUserById(userId);
+                user.Street = data.City;
+                user.State = data.State;
+                user.Age = CalculateAge.GetAge(Convert.ToDateTime(data.DateOfBirth));
+                user.DateOfBirth = Convert.ToDateTime(data.DateOfBirth);
+
+                var byteAraay = GetImageByteArray(image, bytearray);
+
+                profile.DescribeYourself = data.DescribeYourSelf;
+                profile.LoveLanguage = (LoveLanguage)Convert.ToInt32(data.LoveLanguage);
+                profile.FavoriteQuote = data.FavoriteQuote;
+                profile.FriendsDescribeYou = data.HowFriendsDescribeYou;
+                profile.PersonalInterest = data.PersonalInterest;
+                profile.Gender = data.Gender;
+                profile.Horoscope = data.Horoscope;
+                profile.ChoiceBetweenMoneyLoveHappiness = (Choice)Convert.ToInt32(data.Choice);
+
+                if (byteAraay != null)
+                    profile.ProfilePicture = byteAraay;
+
+                _profileService.UpdateUserProfile(profile);
+                _userService.Update(user);
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public ActionResult SaveAnswers(List<AnswersJsonConverter> answers, string image, string bytearray, AnswerModel data)
+        {
+            SaveChanges(answers,image,bytearray,data);
             return Json(new {success = true, JsonRequestBehavior.AllowGet});
         }
+        private byte[] GetImageByteArray(string imgType, string profile)
+        {
+            byte[] image = null;
+            string imgString;
 
-        private void AddAnswersToDatabase(Dictionary<string, string> answers, int userId)
+            switch (imgType)
+            {
+                case "image/jpeg":
+                    imgString = profile.Substring(23);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+                case "image/png":
+                    imgString = profile.Substring(22);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+                case "image/gif":
+                    imgString = profile.Substring(22);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+            }
+
+            return image;
+        }
+        private void AddAnswersToDatabase(List<AnswersJsonConverter> answers, int userId)
         {
             var listOfAnswers = new List<UserAnswer>();
 
@@ -142,12 +225,12 @@ namespace Tholumuntu.Controllers
 
             _answerRepository.Add(listOfAnswers);
         }
-
         public ActionResult UpdateAnswers()
         {
-            var userId = 1023;//Convert.ToInt32(Session["UserId"]);
+            var userId = Convert.ToInt32(Session["UserId"]);
             var model = GetQuestionModel();
-
+            var user = _userService.GetUserById(userId);
+            var profile = _profileService.GetProfileByUserId(userId);
             var userAnswers = _answerRepository.List(userId);
 
             model.QuestionModel.Answer.Ethnicity = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.Ethnicity.Id)?.Answer;
@@ -170,8 +253,23 @@ namespace Tholumuntu.Controllers
             model.QuestionModel.Answer.WordDescribeYouBest = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest.Id)?.Answer;
             model.QuestionModel.Answer.WordDescribeYouBest2 = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest2.Id)?.Answer;
             model.QuestionModel.Answer.WordDescribeYouBest3 = userAnswers.SingleOrDefault(x => x.QuestionId == model.QuestionModel.WordDescribeYouBest3.Id)?.Answer;
-            
+           
+            model.QuestionModel.Answer.State = user.State;
+            model.QuestionModel.Answer.FavoriteQuote = profile.FavoriteQuote;
+            model.QuestionModel.Answer.PersonalInterest = profile.PersonalInterest;
+            model.QuestionModel.Answer.DescribeYourSelf = profile.DescribeYourself;
+            model.QuestionModel.Answer.HowFriendsDescribeYou = profile.FriendsDescribeYou;
+            model.QuestionModel.Answer.Horoscope = profile.Horoscope;
+            model.QuestionModel.Answer.LoveLanguage = profile.LoveLanguage.ToString();
+            model.QuestionModel.Answer.DateOfBirth = user.DateOfBirth.ToShortDateString();
+
             return View(model);
+        }
+        [HttpPost]
+        public ActionResult UpdateAnswers(List<AnswersJsonConverter> answers, string image, string bytearray, AnswerModel data)
+        {
+            SaveChanges(answers, image, bytearray, data);
+            return Json(new { success = true, JsonRequestBehavior.AllowGet });
         }
     }
 }

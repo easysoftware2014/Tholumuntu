@@ -15,6 +15,8 @@ namespace Tholaumuntu.DataAcces.Domain
         public string Street { get; set; }
         public string State { get; set; }   
         public bool EmailVerified { get; set; }
+        public string Age { get; set; }
+
 
     }
 }

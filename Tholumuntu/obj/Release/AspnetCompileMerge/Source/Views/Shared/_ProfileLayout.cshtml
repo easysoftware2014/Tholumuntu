@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../Content/style3.css">
     @*<link href="~/Content/wizard/css/style.css" rel="stylesheet" />
-    <link href="~/Content/wizard/css/style.css.map"/>*@
+        <link href="~/Content/wizard/css/style.css.map"/>*@
     <link rel="stylesheet" href="../../Content/bootstrap.min.css">
     <style type="text/css">
         .non-active {
@@ -21,7 +21,7 @@
         }
 
         .imageContainer > img:hover {
-            height: 300px;
+            height: 310px;
             width: 300px;
         }
     </style>
@@ -41,14 +41,16 @@
                 </button>
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: radial-gradient(red, white, pink); margin-top: -20px">
-                <div class="imageContainer">
-                    <img src="@ViewBag.ImgData" height="300" width="300" />
+                <div class="imageContainer" style="height: 275px">
+                    <a href=""> <img src="@ViewBag.ImgData" height="300" width="300" /></a>
                     @*<div class="img" id="user_prof_pic" style="background-image: url(../../Images/pic_1.gif);"></div>*@
                     <br />
-                    <h5 id="username" style="margin-top: 8px; margin-bottom: -10px;font-family: courier,arial,helvetica;" class="text-capitalize">user full name</h5>
+                    <input type="button" class="btn btn-block btn-outline-light" id="showUploadModal" value="Edit" />
+                    <br />
+                    @*<h5 id="username" style="margin-top: 8px; margin-bottom: -10px;" class="text-capitalize">user full name</h5>*@
                 </div>
             </div>
-            <ul class="list-unstyled components mb-5">
+            <ul class="list-unstyled components mb-5" style="margin-top: 35px;">
                 <li class="active">
                     <a href="/profile"><span class="fa fa-user-plus mr-3"></span> Profile</a>
                 </li>
@@ -94,6 +96,9 @@
         $(document).ready(function () {
             $("#lnkFindLove").click(function () {
                 $("#fromProfileModal").modal('show');
+            });
+            $("#showUploadModal").click(function () {
+                $("#fileUploadModal").modal('show');
             });
 
         });

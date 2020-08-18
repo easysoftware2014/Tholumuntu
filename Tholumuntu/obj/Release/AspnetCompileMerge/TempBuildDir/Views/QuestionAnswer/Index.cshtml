@@ -1,5 +1,4 @@
-﻿@model dynamic
-
+﻿@model Tholumuntu.Models.QuestionAnswerModel
 @{
     ViewBag.Title = "Questionnaire";
     Layout = "~/Views/Shared/_WizardLayout.cshtml";
@@ -10,382 +9,512 @@
         font-weight: bolder;
     }
 </style>
-
-<div class="row">
+<script src="../../Scripts/jquery.min.js"></script>
+@*<div class="row">
     <div class="col-sm-12">
-        <h2 style="margin-left: 5px;text-align: left">Questionnaire</h2>
+        <h2 style="margin-left: 5px;text-align: left">Profile setup</h2><br />
+        <h8 style="font-family: comic sans ms;">
+            Set up your profile so we can help you find your perfect match. <br />
+            Your honesty and openness will help us help you find you a perfect partner.
+        </h8>
     </div>
-</div>
+</div>*@
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <h2 style="margin-left: 5px;text-align: left">Profile setup</h2><br />
+            <h7 style="font-family: comic sans ms; text-align: center">
+                This quiz lets your suitors know who you are and what you look for in a potential lover.
+            </h7>
+        </div>
+    </div>
+</div><br />
 <form action="" id="wizard">
-    <!-- SECTION 1 -->
-    <h4></h4>
-    <section>
-        @*<h3>Personality check</h3>*@
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label">Occupation</label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio1" value="yes">
-                    <label class="form-check-label" for="inlineRadio1">I have a full job</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio2" value="yes">
-                    <label class="form-check-label" for="inlineRadio2">I have a part-time job</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio3" value="yes">
-                    <label class="form-check-label" for="inlineRadio3">Hustler</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="occupation" id="inlineRadio4" value="yes">
-                    <label class="form-check-label" for="inlineRadio4">Unemployed but looking</label>
-                </div>
+<!-- SECTION 1 -->
+<h4></h4>
+<section>
+    @*<h3>Personality check</h3>*@
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.Occupation.Id)
+            <label class="label">@Model.QuestionModel.Occupation.Text</label><br/><br/>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="occupation" id="fullTime" value="fulltime">
+                <label class="form-check-label" for="fullTime">I have a full time job</label>
             </div>
-            <div class="form-holder">
-                <label class="label">I prefer...</label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="prefer" id="netflix" value="netflix">
-                    <label class="form-check-label" for="netflix">Netflix and Chill</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="prefer" id="going_out" value="goingOut">
-                    <label class="form-check-label" for="going_out">Going out with my partner</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="prefer" id="variety" value="variety">
-                    <label class="form-check-label" for="variety">Variety</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="prefer" id="routine" value="routine">
-                    <label class="form-check-label" for="routine">Routine</label>
-                </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="occupation" id="parttime" value="part-time">
+                <label class="form-check-label" for="parttime">I have a part-time job</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="occupation" id="hustler" value="hustler">
+                <label class="form-check-label" for="hustler">Hustler</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="occupation" id="unemployed" value="unemployed">
+                <label class="form-check-label" for="unemployed">Unemployed but looking</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label"> Do you smoke</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="smoke" id="smoke" value="yes">
-                    <label class="form-check-label" for="smoke">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="smoke" id="no_smoke" value="no">
-                    <label class="form-check-label" for="no_smoke">No</label>
-                </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.Iprefer.Id)
+            <label class="label">@Model.QuestionModel.Iprefer.Text</label><br/><br/>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="prefer" id="netflix" value="netflix">
+                <label class="form-check-label" for="netflix">Netflix and Chill</label>
             </div>
-            <div class="form-holder">
-                <label class="label"> I am</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="iam" id="organized" value="organized">
-                    <label class="form-check-label" for="organized">Organized</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="iam" id="spontaneous" value="spontaneous">
-                    <label class="form-check-label" for="spontaneous">Spontaneous</label>
-                </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="prefer" id="going_out" value="goingOut">
+                <label class="form-check-label" for="going_out">Going out with my partner</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="prefer" id="variety" value="variety">
+                <label class="form-check-label" for="variety">Variety</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="prefer" id="routine" value="routine">
+                <label class="form-check-label" for="routine">Routine</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label"> I consider myself an..</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="consider" id="introvert" value="introvert">
-                    <label class="form-check-label" for="introvert">Introvert</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="consider" id="extrovert" value="extrovert">
-                    <label class="form-check-label" for="extrovert">Extrovert</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="consider" id="ambivert" value="ambivert">
-                    <label class="form-check-label" for="ambivert">Ambivert</label>
-                </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.Smoke.Id)
+            <label class="label">@Model.QuestionModel.Smoke.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoke" id="smoke" value="yes">
+                <label class="form-check-label" for="smoke">Yes</label>
             </div>
-            <div class="form-holder">
-                <label class="label"> I am guilty of...</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="guilty" id="overthinking" value="overthinking">
-                    <label class="form-check-label" for="overthinking">Overthinking</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="guilty" id="rashdecision" value="rashdecision">
-                    <label class="form-check-label" for="rashdecision">Making rash decisions</label>
-                </div>
-            </div>
-            <br />
-        </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label"> Ethnicity</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="black" value="yes">
-                    <label class="form-check-label" for="black">Black</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="caucasian" value="yes">
-                    <label class="form-check-label" for="caucasian">Caucasian</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="asia" value="yes">
-                    <label class="form-check-label" for="asia">Asian</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="indian" value="yes">
-                    <label class="form-check-label" for="indian">Indian</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="colored" value="yes">
-                    <label class="form-check-label" for="colored">Colored or mixed race</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnicity" id="other" value="yes">
-                    <label class="form-check-label" for="other">Other</label>
-                </div>
-            </div>
-            <div class="form-holder">
-                <label class="label"> What is your religion or belief</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="belief" id="christian" value="yes">
-                    <label class="form-check-label" for="christian">Christian</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="belief" id="muslim" value="yes">
-                    <label class="form-check-label" for="muslim">Muslim</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="belief" id="hindi" value="yes">
-                    <label class="form-check-label" for="hindi">Hindi</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="belief" id="other_religion" value="yes">
-                    <label class="form-check-label" for="other_religion">Other</label>
-                </div>
-            </div>
-            <br />
-        </div>
-    </section>
-
-    <!-- SECTION 2 -->
-    <h4></h4>
-    <section>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label">What is your personal preference</label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="personal_preference" id="smart" value="smart">
-                    <label class="form-check-label" for="smart">Smart</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="personal_preference" id="beautiful" value="beautiful">
-                    <label class="form-check-label" for="beautiful">Beautiful</label>
-                </div>
-            </div>
-            <div class="form-holder">
-                <label class="label">What do you value the most</label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="value_most" id="love" value="love">
-                    <label class="form-check-label" for="love">Love</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="value_most" id="respect" value="respect">
-                    <label class="form-check-label" for="respect">Respect</label>
-                </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoke" id="no_smoke" value="no">
+                <label class="form-check-label" for="no_smoke">No</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label">What is your ideal date?</label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="idealdate" id="participate" value="yes">
-                    <label class="form-check-label" for="participate">Participating in a shared outdoor activity</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="idealdate" id="ideal_netflix" value="yes">
-                    <label class="form-check-label" for="ideal_netflix">Netflix, dine and chill</label>
-                </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.Iam.Id)
+            <label class="label">@Model.QuestionModel.Iam.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="iam" id="organized" value="organized">
+                <label class="form-check-label" for="organized">Organized</label>
             </div>
-            <div class="form-holder">
-                <label class="label">Would you date someone with a kid or kids from a previous relationship? </label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="relationship" id="have_kids" value="yes">
-                    <label class="form-check-label" for="have_kids">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="relationship" id="no_kids" value="no">
-                    <label class="form-check-label" for="no_kids">No</label>
-                </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="iam" id="spontaneous" value="spontaneous">
+                <label class="form-check-label" for="spontaneous">Spontaneous</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label">Would you date someone with different beliefs? </label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="different_belief" id="belief_yes" value="yes">
-                    <label class="form-check-label" for="belief_yes">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="different_belief" id="belief_no" value="no">
-                    <label class="form-check-label" for="belief_no">No</label>
-                </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.IconsiderMyself.Id)
+            <label class="label">@Model.QuestionModel.IconsiderMyself.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="consider" id="introvert" value="introvert">
+                <label class="form-check-label" for="introvert">Introvert</label>
             </div>
-            <div class="form-holder">
-                <label class="label">Would you date outside your ethnic group? </label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_yes" value="yes">
-                    <label class="form-check-label" for="ethnic_yes">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_no" value="no">
-                    <label class="form-check-label" for="ethnic_no">No</label>
-                </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="consider" id="extrovert" value="extrovert">
+                <label class="form-check-label" for="extrovert">Extrovert</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="consider" id="ambivert" value="ambivert">
+                <label class="form-check-label" for="ambivert">Ambivert</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-holder">
-                <label class="label">I feel loved and appreciated when... </label><br /><br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="feel_loved" id="dothings" value="yes">
-                    <label class="form-check-label" for="dothings">People do things to help me</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="feel_loved" id="receive_gift" value="no">
-                    <label class="form-check-label" for="receive_gift">When i receive gifts from someone</label>
-                </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.IamGuiltyOf.Id)
+            <label class="label">@Model.QuestionModel.IamGuiltyOf.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="guilty" id="overthinking" value="overthinking">
+                <label class="form-check-label" for="overthinking">Overthinking</label>
             </div>
-            <div class="form-holder">
-                <label class="label"> Which word describes you best?</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="confident" value="yes">
-                    <label class="form-check-label" for="confident">Confident</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="shy" value="yes">
-                    <label class="form-check-label" for="shy">Shy</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="respectful" value="yes">
-                    <label class="form-check-label" for="respectful">Respectful</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="understanding" value="yes">
-                    <label class="form-check-label" for="understanding">Understanding</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="daredevil" value="yes">
-                    <label class="form-check-label" for="daredevil">Daredevil</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="word" id="cautious" value="yes">
-                    <label class="form-check-label" for="cautious">Cautious</label>
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-
-            <div class="form-holder">
-                <label class="label"> Are you artistic?</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="artistic" id="artYes" value="yes">
-                    <label class="form-check-label" for="artYes">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="artistic" id="artNo" value="no">
-                    <label class="form-check-label" for="artNo">No</label>
-                </div>
-            </div>
-            <div class="form-holder">
-                <label class="label"> Do you believe in fate?</label>
-                <br />
-                <br />
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="artistic" id="fateYes" value="yes">
-                    <label class="form-check-label" for="fateYes">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="artistic" id="fateNo" value="no">
-                    <label class="form-check-label" for="fateNo">No</label>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- SECTION 3 -->
-    <h4></h4>
-    <section>
-        <div class="row">
-            <div class="col-sm-6">
-                <label class="label"> Please share your personal interests</label>
-                <br />
-                <div class="form-group">
-                    <br />
-                    <textarea rows="4" cols="30" id="personal_interests"></textarea>
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <label class="label"> How would you describe yourself to a person who has never met you</label>
-                <br />
-                <div class="form-group">
-                    <br />
-                    <textarea rows="4" cols="30" id="describe_yourself"></textarea>
-                </div>
-
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="guilty" id="rashdecision" value="rashdecision">
+                <label class="form-check-label" for="rashdecision">Making rash decisions</label>
             </div>
         </div>
         <br />
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="label"> How would your friends describe you?</label>
-                    <br />
-                    <br />
-                    <textarea rows="4" cols="30" id="describe_friends"></textarea>
-                </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.Ethnicity.Id)
+            <label class="label">@Model.QuestionModel.Ethnicity.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="black" value="black">
+                <label class="form-check-label" for="black">Black</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="caucasian" value="white">
+                <label class="form-check-label" for="caucasian">White</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="asia" value="asian">
+                <label class="form-check-label" for="asia">Asian</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="indian" value="indian">
+                <label class="form-check-label" for="indian">Indian</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="colored" value="colored">
+                <label class="form-check-label" for="colored">Colored or mixed race</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnicity" id="other" value="other">
+                <label class="form-check-label" for="other">Other</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="label"> Whats your favorite quote?</label>
-                    <br />
-                    <br />
-                    <textarea rows="4" cols="30" id="favorite_quote"></textarea>
-                </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.WhatIsYourReligion.Id)
+            <label class="label">@Model.QuestionModel.WhatIsYourReligion.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="belief" id="christian" value="christian">
+                <label class="form-check-label" for="christian">Christian</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="belief" id="muslim" value="muslim">
+                <label class="form-check-label" for="muslim">Muslim</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="belief" id="hindi" value="hindi">
+                <label class="form-check-label" for="hindi">Hindi</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="belief" id="other_religion" value="other">
+                <label class="form-check-label" for="other_religion">Other</label>
             </div>
         </div>
         <br />
-    </section>
-    <!-- SECTION 4 -->
-    <h4></h4>
-    <section>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Please add your profile picture</label>
-                    <br />
-                    <br />
-                    <input type="file" name="file" id="file" accept=".jpg,.jpeg,.png" capture="camera" />
-                </div>
+    </div>
+</section>
+
+<!-- SECTION 2 -->
+<h4></h4>
+<section>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.PersonalPreference.Id)
+            <label class="label">@Model.QuestionModel.PersonalPreference.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="personal_preference" id="smart" value="smart">
+                <label class="form-check-label" for="smart">Smart</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="personal_preference" id="beautiful" value="beautiful">
+                <label class="form-check-label" for="beautiful">Beautiful</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="personal_preference" id="handsome" value="handsome">
+                <label class="form-check-label" for="handsome">Handsome</label>
             </div>
         </div>
-    </section>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.ValueTheMost.Id)
+            <label class="label">@Model.QuestionModel.ValueTheMost.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="value_most" id="love" value="love">
+                <label class="form-check-label" for="love">Love</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="value_most" id="respect" value="respect">
+                <label class="form-check-label" for="respect">Respect</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.IdealDate.Id)
+            <label class="label">@Model.QuestionModel.IdealDate.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="idealdate" id="participate" value="participate">
+                <label class="form-check-label" for="participate">Participating in a shared outdoor activity</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="idealdate" id="ideal_netflix" value="netflix">
+                <label class="form-check-label" for="ideal_netflix">Netflix, dine and chill</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.DateSomeoneWithKids.Id)
+            <label class="label">@Model.QuestionModel.DateSomeoneWithKids.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="relationship" id="have_kids" value="yes">
+                <label class="form-check-label" for="have_kids">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="relationship" id="no_kids" value="no">
+                <label class="form-check-label" for="no_kids">No</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.DateDifferentBelief.Id)
+            <label class="label">@Model.QuestionModel.DateDifferentBelief.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="different_belief" id="belief_yes" value="yes">
+                <label class="form-check-label" for="belief_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="different_belief" id="belief_no" value="no">
+                <label class="form-check-label" for="belief_no">No</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.DateOutsideEthnicGroup.Id)
+            <label class="label">@Model.QuestionModel.DateOutsideEthnicGroup.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_yes" value="yes">
+                <label class="form-check-label" for="ethnic_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ethnic_group" id="ethnic_no" value="no">
+                <label class="form-check-label" for="ethnic_no">No</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.IfeelLoveAndAppreciated.Id)
+            <label class="label">@Model.QuestionModel.IfeelLoveAndAppreciated.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="feel_loved" id="dothings" value="dothings">
+                <label class="form-check-label" for="dothings">People do things to help me</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="feel_loved" id="receive_gift" value="receivegift">
+                <label class="form-check-label" for="receive_gift">When i receive gifts from someone</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.WordDescribeYouBest.Id)
+            <label class="label">@Model.QuestionModel.WordDescribeYouBest.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word" id="confident" value="confident">
+                <label class="form-check-label" for="confident">Confident</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word" id="shy" value="shy">
+                <label class="form-check-label" for="shy">Shy</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.WordDescribeYouBest2.Id)
+            <label class="label">@Model.QuestionModel.WordDescribeYouBest2.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word1" id="respectful" value="yes">
+                <label class="form-check-label" for="respectful">Respectful</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word1" id="understanding" value="yes">
+                <label class="form-check-label" for="understanding">Understanding</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.WordDescribeYouBest3.Id)
+            <label class="label">@Model.QuestionModel.WordDescribeYouBest3.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word2" id="daredevil" value="yes">
+                <label class="form-check-label" for="daredevil">Daredevil</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="word2" id="cautious" value="yes">
+                <label class="form-check-label" for="cautious">Cautious</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.AreYouArtistic.Id)
+            <label class="label">@Model.QuestionModel.AreYouArtistic.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="artistic" id="artYes" value="yes">
+                <label class="form-check-label" for="artYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="artistic" id="artNo" value="no">
+                <label class="form-check-label" for="artNo">No</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            @Html.HiddenFor(m => m.QuestionModel.DoYouBelieveInFate.Id)
+            <label class="label">@Model.QuestionModel.DoYouBelieveInFate.Text</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="fate" id="fateYes" value="yes">
+                <label class="form-check-label" for="fateYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="fate" id="fateNo" value="no">
+                <label class="form-check-label" for="fateNo">No</label>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- SECTION 3 -->
+<h4></h4>
+<section>
+    <div class="row">
+        <div class="col-sm-6">
+            <label class="label"> Please share your personal interests</label>
+            <br />
+            <div class="form-group">
+                <br />
+                <textarea rows="4" cols="30" id="personal_interests"></textarea>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label class="label"> How would you describe yourself to a person who has never met you</label>
+            <br />
+            <div class="form-group">
+                <br />
+                <textarea rows="4" cols="30" id="describe_yourself"></textarea>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="label"> How would your friends describe you?</label>
+                <br />
+                <br />
+                <textarea rows="4" cols="30" id="describe_friends"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="label"> Whats your favorite quote?</label>
+                <br />
+                <br />
+                <textarea rows="4" cols="30" id="favorite_quote"></textarea>
+            </div>
+        </div>
+    </div>
+    <br />
+</section>
+<!-- SECTION 4 -->
+<h4></h4>
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="choice">If you could choose between the following, what would you choose</label>
+                <br/>
+                <br/>
+                @Html.DropDownListFor(x => x.ChoiceBetweenMoneyLoveHappiness, Model.ChoiceItemList, "Select...", new {@id = "choice", @class = "form-control custom-select", @required = "required"})
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <br/>
+                <h2 class="mb-4">Horoscope</h2>
+            </div>
+            <div class="form-group">
+                <br/>
+                @Html.DropDownListFor(x => x.Horoscope, Model.HoroscopeItemList, "Select...", new {@id = "drpHoroscope", @class = "form-control custom-select", @required = "required"})
+
+                @*<select class="form-group custom-select" id="drpHoroscope">
+                            <option selected="selected">Select ...</option>
+                            <option value="1">Aries</option>
+                            <option value="2">Aquarius</option>
+                            <option value="3">Cancer</option>
+                            <option value="4">Leo</option>
+                            <option value="5">Libra</option>
+                            <option value="6">Gemini</option>
+                            <option value="7">Taurus</option>
+                            <option value="8">Virgo</option>
+                            <option value="9">Scorpio</option>
+                            <option value="10">Capricorn</option>
+                            <option value="11">Pisces</option>
+                        </select>*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <br/>
+                <h2 class="mb-4">Love Language <a href="#" data-toggle="modal" data-target="#read_more"><i class="fa fa-info-circle" id="love_language_info"></i></a> </h2>
+            </div>
+            <div class="form-group">
+                <label for="love_language">
+                    Please choose your love Language or click <a href="https://www.5lovelanguages.com/quizzes/" target="_blank">Here</a> to find yours
+                </label><br/>
+                <br/>
+                @Html.DropDownListFor(x => x.LoveLanguage, Model.LoveLanguageList, "Select...", new {@id = "love_language", @class = "form-control custom-select", @required = "required"})
+
+            </div>
+        </div>
+    </div>
+</section>
+<h4></h4>
+<section>
+    <div class="form-row">
+        <div class="form-holder">
+            <label class="label">Address</label>
+            <br /><br />
+            <div class="col-lg-4">
+                <input class="form-control" required="required" type="text" id="txtCity" placeholder="City">
+            </div>
+            <div class="col-lg-5">
+                <input class="form-control" required="required" type="text" id="txtState" placeholder="State">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            <label class="label">Gender</label><br /><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div>
+        <div class="form-holder">
+            <label class="label">Date of birth</label>
+            <br />
+            <br />
+            <input type="date" name="dateOfBirth" id="dob" class="form-control"/>
+        </div>
+        
+    </div>
+    <div class="form-row">
+        <div class="form-holder">
+            <label class="label">Please add your profile picture</label>
+            <br />
+            <br />
+            <input type="file" name="file" id="file" onchange="encodeImageFileAsURL(this)" accept=".jpg,.jpeg,.png" capture="camera" />
+        </div>
+    </div>
+
+</section>
 </form>
+<script src="../../Scripts/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        localStorage["fileType"] = file.type;
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            localStorage["imgByteArray"] = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+</script>

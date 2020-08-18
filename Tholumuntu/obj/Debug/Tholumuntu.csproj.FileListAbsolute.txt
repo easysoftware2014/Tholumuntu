@@ -123,3 +123,263 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Microsoft
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddingQuestionAndUserAnswerTables.resources
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.pdb
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.ProfileAmendment.resources
+C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.UpdateProfileEntity.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll.config
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholumuntu.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csc.exe
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csc.exe.config
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csc.rsp
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csi.exe
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csi.exe.config
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\csi.rsp
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.AppContext.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Console.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Compression.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Claims.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.ValueTuple.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\vbc.exe
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\vbc.exe.config
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\vbc.rsp
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\VBCSCompiler.exe
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Antlr3.Runtime.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\EntityFramework.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\EntityFramework.SqlServer.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Newtonsoft.Json.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Owin.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Buffers.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Memory.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Net.Http.Formatting.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Numerics.Vectors.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Helpers.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.WebHost.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Mvc.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Optimization.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Razor.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Razor.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.DataAcces.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Repository.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\WebGrease.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.DataAcces.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Repository.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\EntityFramework.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\EntityFramework.SqlServer.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Buffers.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Memory.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Numerics.Vectors.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Helpers.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Mvc.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Optimization.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Razor.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Razor.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Newtonsoft.Json.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\Antlr3.Runtime.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Net.Http.Formatting.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\bin\System.Web.Http.WebHost.xml
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csprojAssemblyReference.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.InitialCreate.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addPersonalityTypeColumnToProfile.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddProfile.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addQuizHoroscopeAndLoveLanguage.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.refactoringUserAndUserProfileDomain.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addEmailVerified.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.changingProfileQuizObjectToId.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddingQuestionAndUserAnswerTables.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.ProfileAmendment.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.UpdateProfileEntity.resources
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.GenerateResource.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.CopyComplete
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll.config
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholumuntu.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholumuntu.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csc.exe
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csc.exe.config
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csc.rsp
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csi.exe
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csi.exe.config
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\csi.rsp
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.Managed.Core.targets
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.AppContext.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Collections.Immutable.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Console.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Compression.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.FileSystem.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.IO.Pipes.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Reflection.Metadata.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.AccessControl.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Claims.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Security.Principal.Windows.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.ValueTuple.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XmlDocument.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XPath.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\vbc.exe
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\vbc.exe.config
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\vbc.rsp
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\VBCSCompiler.exe
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\roslyn\VBCSCompiler.exe.config
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Antlr3.Runtime.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\EntityFramework.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\EntityFramework.SqlServer.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Web.Infrastructure.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Newtonsoft.Json.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Owin.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Buffers.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Diagnostics.DiagnosticSource.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Memory.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Net.Http.Formatting.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Numerics.Vectors.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Helpers.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Http.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Http.WebHost.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Mvc.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Optimization.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Razor.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Deployment.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Razor.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\WebGrease.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Tholaumuntu.Services.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\EntityFramework.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\EntityFramework.SqlServer.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Microsoft.Owin.Security.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Buffers.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Diagnostics.DiagnosticSource.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Memory.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Numerics.Vectors.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Helpers.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Mvc.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Optimization.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Razor.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Deployment.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.WebPages.Razor.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Newtonsoft.Json.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Antlr3.Runtime.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Net.Http.Formatting.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Http.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\System.Web.Http.WebHost.xml
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csprojAssemblyReference.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.InitialCreate.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addPersonalityTypeColumnToProfile.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddProfile.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addQuizHoroscopeAndLoveLanguage.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.refactoringUserAndUserProfileDomain.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.addEmailVerified.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.changingProfileQuizObjectToId.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.AddingQuestionAndUserAnswerTables.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.ProfileAmendment.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.Migrations.UpdateProfileEntity.resources
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.GenerateResource.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.CoreCompileInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.csproj.CopyComplete
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\obj\Debug\Tholumuntu.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Mail.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholumuntu\bin\Mail.xml

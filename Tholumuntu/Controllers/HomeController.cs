@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Common;
@@ -69,7 +70,7 @@ namespace Tholumuntu.Controllers
         {
             return Encryption.Salt(password);
         }
-        public ActionResult Register(string firstName, string surname, string email, string password, string contact)
+        public ActionResult Register(string firstName, string surname, string email, string password, string contact, string age)
         {
 
             if (!IsEmailUnique(email))
@@ -93,11 +94,13 @@ namespace Tholumuntu.Controllers
                 EntityStatus = Domain.EntityStatus.InActive,
                 EmailVerified = false
             };
+            var convertAge = CalculateAge.GetAge(Convert.ToDateTime(age));
 
             if (_userRepository != null)
             {
                 try
                 {
+                    user.Age = convertAge;
                     var id = _userRepository.AddUser(user);
 
                     var profile = new Domain.UserProfile
@@ -106,7 +109,7 @@ namespace Tholumuntu.Controllers
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now
                     };
-                    
+
                     _profileRepository.AddUserProfile(profile);
 
                     if (id > 0)
@@ -114,7 +117,7 @@ namespace Tholumuntu.Controllers
                         Session["UserId"] = user.Id;
                         SendEmail.SendUserEmail(user.Email, user.Password);
 
-                        return Json(new {data = true, JsonRequestBehavior.AllowGet});
+                        return Json(new { data = true, JsonRequestBehavior.AllowGet });
                     }
 
                     return Json(new { data = false, JsonRequestBehavior.AllowGet });
@@ -153,10 +156,10 @@ namespace Tholumuntu.Controllers
                     Session["UserId"] = user.Id;
                     model = new UserModel(user);
 
-                    return Json(new {data = model, JsonRequestBehavior.AllowGet});
+                    return Json(new { data = model, JsonRequestBehavior.AllowGet });
                 }
-               
-                return Json(new {data = model});
+
+                return Json(new { data = model });
             }
             catch (DbException e)
             {
@@ -170,7 +173,7 @@ namespace Tholumuntu.Controllers
         {
             try
             {
-                return Json(new { },JsonRequestBehavior.AllowGet);
+                return Json(new { }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {
@@ -193,20 +196,110 @@ namespace Tholumuntu.Controllers
 
                     var isSuccessful = _userRepository.Update(user);
 
-                    if(isSuccessful)
+                    if (isSuccessful)
                         Session["UserId"] = user.Id;
 
                     return RedirectToAction("Index", "QuestionAnswer");
                 }
                 else
                     return RedirectToAction("Index");
-                
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw;
             }
+
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(string email)
+        {
+            try
+            {
+                var user = _userRepository.GetUserByEmail(email);
+                var model = new UserModel();
+
+                if (user != null)
+                {
+                    Session["UserId"] = user.Id;
+                    model = new UserModel(user);
+                    var tempPass = Encryption.Encrypt(user.Email + user.Name);
+
+                    user.Password = tempPass;
+                    var hasUpdated = _userRepository.Update(user);
+
+                    if (hasUpdated)
+                        SendEmail.SendForgotPasswordEmail(user.Email, user.Name, tempPass);
+
+                    return Json(new { EmailSent = true, JsonRequestBehavior.AllowGet });
+                }
+
+                return Json(new { EmailSent = false, JsonRequestBehavior.AllowGet });
+            }
+            catch (DbException ex)
+            {
+                throw;
+            }
+        }
+        [HttpGet]
+        public ActionResult ResetPassword(string tempUrl, string email)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(tempUrl) && !string.IsNullOrEmpty(email))
+                {
+                    var user = _userRepository.GetUserByEmail(email);
+                    Session["email"] = email;
+
+                    if(user.Id > 0)
+                    {
+                       return View();                       
+                    }
+
+                    return View();
+                }
+
+                return View();
+            }
+            catch (DbException ex)
+            {
+
+
+                return null;
+            }
+
+        }
+        [HttpPost]
+        public ActionResult ResetPassword(string password)
+        {
+            try
+            {
+                var email = Session["email"].ToString();
+                var user = _userRepository.GetUserByEmail(email);
+
+                if(user.Id > 0)
+                {
+                    var encrypted = MaskPassword(password);
+                    var salt = GetSalt(password);
+
+                    user.Password = encrypted + salt;
+                    user.Salt = salt;
+
+                    _userRepository.Update(user);
+
+                    return Json(new {data =  true, JsonRequestBehavior.AllowGet } );
+
+                }
+
+            }
+            catch (DbException ex)
+            {
+                
+                return Json(new { data = false, JsonRequestBehavior.AllowGet });
+            }
+
+            return View("");
 
         }
     }

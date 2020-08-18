@@ -258,25 +258,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\E566035\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\apsawulisi\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.Services\\Tholaumuntu.Services.csproj",
+      "projectUniqueName": "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.Services\\Tholaumuntu.Services.csproj",
       "projectName": "Tholaumuntu.Services",
-      "projectPath": "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.Services\\Tholaumuntu.Services.csproj",
-      "packagesPath": "C:\\Users\\E566035\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.Services\\obj\\",
+      "projectPath": "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.Services\\Tholaumuntu.Services.csproj",
+      "packagesPath": "C:\\Users\\apsawulisi\\.nuget\\packages\\",
+      "outputPath": "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\E566035\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\apsawulisi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -290,11 +288,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.DataAcces\\Tholaumuntu.DataAcces.csproj": {
-              "projectPath": "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.DataAcces\\Tholaumuntu.DataAcces.csproj"
+            "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.DataAcces\\Tholaumuntu.DataAcces.csproj": {
+              "projectPath": "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.DataAcces\\Tholaumuntu.DataAcces.csproj"
             },
-            "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.Repository\\Tholaumuntu.Repository.csproj": {
-              "projectPath": "C:\\Users\\E566035\\Documents\\Sawulisi\\Projects\\Tholumuntu\\Tholaumuntu.Repository\\Tholaumuntu.Repository.csproj"
+            "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.Repository\\Tholaumuntu.Repository.csproj": {
+              "projectPath": "C:\\My Projects\\Tholumuntu\\Tholumuntu\\Tholaumuntu.Repository\\Tholaumuntu.Repository.csproj"
             }
           }
         }
@@ -325,7 +323,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

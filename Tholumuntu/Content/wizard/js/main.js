@@ -44,21 +44,6 @@ $(function () {
         },
         onFinished: function (event, currentIndex) {
 
-            let occupation = $("input[name='occupation']:checked").val();
-            let occupationId = $("#QuestionModel_Occupation_Id").val();
-
-            let prefer = $("input[name='prefer']:checked").val();
-            let preferId = $("#QuestionModel_Iprefer_Id").val();
-
-            let smoke = $("input[name='smoke']:checked").val();
-            let smokeId = $("#QuestionModel_Smoke_Id").val();
-
-            let iam = $("input[name='iam']:checked").val();
-            let iamId = $("#QuestionModel_Iam_Id").val();
-
-            let consider = $("input[name='consider']:checked").val();
-            let considerId = $("#QuestionModel_IconsiderMyself_Id").val();
-
             let ethnicity = $("input[name='ethnicity']:checked").val();
             let ethnicityId = $("#QuestionModel_Ethnicity_Id").val();
             createDictionary(ethnicityId, ethnicity);
@@ -99,11 +84,11 @@ $(function () {
             let word1Id = $("#QuestionModel_WordDescribeYouBest_Id").val();
             createDictionary(word1Id, word1);
 
-            let word2 = $("input[name='word2']:checked").val();
+            let word2 = $("input[name='word1']:checked").val();
             let word2Id = $("#QuestionModel_WordDescribeYouBest2_Id").val();
             createDictionary(word2Id, word2);
 
-            let word3 = $("input[name='word3']:checked").val();
+            let word3 = $("input[name='word2']:checked").val();
             let word3Id = $("#QuestionModel_WordDescribeYouBest3_Id").val();
             createDictionary(word3Id, word3);
 
@@ -117,30 +102,98 @@ $(function () {
 
             let guiltyOf = $("input[name='guilty']:checked").val();
             let guiltyId = $("#QuestionModel_IamGuiltyOf_Id").val();
-            
             createDictionary(guiltyId, guiltyOf);
-            createDictionary(considerId, consider);
-            createDictionary(iamId, iam);
-            createDictionary(smokeId, smoke);
-            createDictionary(preferId, prefer);
-            createDictionary(guiltyId, guiltyOf);
+
+            let occupation = $("input[name='occupation']:checked").val();
+            let occupationId = $("#QuestionModel_Occupation_Id").val();
             createDictionary(occupationId, occupation);
 
-            $.ajax({
-                type: "POST",
-                url: "questionanswer/saveanswers",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(dict),
-                dataType: "json",
-                cache: false,
-                success: function (data) {
-                    event.preventDefault();
-                    alert("Profile Submitted for verification");
-                },
-                error: function (error) {
-                    alert(error);
-                }
-            });
+            let prefer = $("input[name='prefer']:checked").val();
+            let preferId = $("#QuestionModel_Iprefer_Id").val();
+            createDictionary(preferId, prefer);
+            
+            let smoke = $("input[name='smoke']:checked").val();
+            let smokeId = $("#QuestionModel_Smoke_Id").val();
+            createDictionary(smokeId, smoke);
+
+            let iam = $("input[name='iam']:checked").val();
+            let iamId = $("#QuestionModel_Iam_Id").val();
+            createDictionary(iamId, iam);
+
+            let consider = $("input[name='consider']:checked").val();
+            let considerId = $("#QuestionModel_IconsiderMyself_Id").val();
+            createDictionary(considerId, consider);
+
+            console.log(JSON.stringify(dict));
+            var isUpdate = localStorage["IsUpdate"];
+            
+            var city = $("#txtCity").val();
+            var state = $("#txtState").val();
+            var personalInterest = $("#personal_interests").val();
+            var describe_yourself = $("#describe_yourself").val();
+            var describe_friends = $("#describe_friends").val();
+            var favorite_quote = $("#favorite_quote").val();
+            var choice = $("#choice").val();
+            var horoscope = $("#drpHoroscope").val();
+            var love_language = $("#love_language").val();
+            var dateOfBirth = $("#dob").val();
+            var gender = $("input[name='gender']:checked").val(); 
+
+            var data = {
+                "city": city,
+                "state": state,
+                "personalInterest": personalInterest,
+                "describeYourself": describe_yourself,
+                "howFriendsDescribeYou": describe_friends,
+                "favoriteQuote": favorite_quote,
+                "choice": choice,
+                "horoscope": horoscope,
+                "loveLanguage": love_language,
+                "gender": gender,
+                "dateOfBirth": dateOfBirth
+            };
+
+            var byteArray = localStorage["imgByteArray"];
+            var imageType = localStorage["fileType"];
+
+            if (isUpdate) {
+                $.ajax({
+                    type: "POST",
+                    url: "updateanswers",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ "answers": dict, "image": imageType, "bytearray": byteArray, "data" : data }),
+                    dataType: "json",
+                    success: function (data) {
+                        event.preventDefault();
+                        dict = [];
+                        localStorage.clear();
+                        alert("Profile Submitted for verification");
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "questionanswer/saveanswers",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ "answers": dict, "image": imageType, "bytearray": byteArray, "data": data }),
+                    dataType: "json",
+                    cache: false,
+                    success: function (data) {
+                        event.preventDefault();
+                        dict = [];
+                        localStorage.clear();
+                        alert("Profile Submitted for verification");
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            }
+
+            
         }
     });
     function createDictionary(key, value) {
@@ -220,25 +273,37 @@ $(function () {
     setAnswers("iam", localStorage["iam"]);
 
     if (!isEmpty(localStorage["guilty"]))
-    setAnswers("guilty", localStorage["guilty"]);
+        setAnswers("guilty", localStorage["guilty"]);
+
+    if (!isEmpty(localStorage["Gender"]))
+        setAnswers("gender", localStorage["Gender"]);
 
     if (!isEmpty(localStorage["consider"]))
     setAnswers("consider", localStorage["consider"]);
 
+    if (!isEmpty(localStorage["State"]))
+        $("#txtState").val(localStorage["State"]);
+    
+    if (!isEmpty(localStorage["PersonalInterest"]))
+        $("#personal_interests").val(localStorage["PersonalInterest"]);
 
+    if (!isEmpty(localStorage["FavoriteQuote"]))
+        $("#favorite_quote").val(localStorage["FavoriteQuote"]);
 
+    if (!isEmpty(localStorage["DescribeYourSelf"]))
+        $("#describe_yourself").val(localStorage["DescribeYourSelf"]);
 
+    if (!isEmpty(localStorage["HowFriendsDescribeYou"]))
+        $("#describe_friends").val(localStorage["HowFriendsDescribeYou"]);
 
+    if (!isEmpty(localStorage["Horoscope"]))
+        $("#drpHoroscope").val(localStorage["Horoscope"]);
 
+    if (!isEmpty(localStorage["LoveLanguage"]))
+        $("#love_language").val(localStorage["LoveLanguage"]);
 
-
-
-
-
-
-
-
-
+    if (!isEmpty(localStorage["DateOfBirth"]))
+        $("#dob").val(localStorage["DateOfBirth"]);
 
 
     function setAnswers(name, value) {

@@ -66,5 +66,12 @@ namespace Tholumuntu.Models
         public string HowFriendsDescribeYou { get; set; }
         public string FavoriteQuote { get; set; }
         public string DoYouBelieveInFate { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Choice { get; set; }
+        public string LoveLanguage { get; set; }
+        public string Gender { get; set; }
+        public string Horoscope { get; set; }
+        public string DateOfBirth { get; set; }
     }
 }

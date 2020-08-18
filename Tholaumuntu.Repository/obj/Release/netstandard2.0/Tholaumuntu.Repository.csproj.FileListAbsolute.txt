@@ -9,3 +9,15 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\o
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.deps.json
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csprojAssemblyReference.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.AssemblyInfoInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.AssemblyInfo.cs
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csproj.CoreCompileInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Release\netstandard2.0\Tholaumuntu.Repository.pdb

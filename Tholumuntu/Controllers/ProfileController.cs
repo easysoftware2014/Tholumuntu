@@ -18,6 +18,8 @@ namespace Tholumuntu.Controllers
         private readonly UserProfileService _profileService;
         private readonly UserService _userService;
         private readonly PersonalQuizService _personalQuizService;
+        private readonly UserAnswerService _answerService;
+
         private static readonly string Path = HostingEnvironment.MapPath(@"~/Images/ProfilePictures");
 
         public int Id { get; set; }
@@ -26,6 +28,7 @@ namespace Tholumuntu.Controllers
             _profileService = new UserProfileService();
             _userService = new UserService();
             _personalQuizService = new PersonalQuizService();
+            _answerService = new UserAnswerService();
         }
         // GET: Profile
         public ActionResult Index()
@@ -68,7 +71,8 @@ namespace Tholumuntu.Controllers
                 {
                     LoveLanguageList = loveLanguageList,
                     ChoiceItemList = choiceItems,
-                    HoroscopeItemList = horoscopeList
+                    HoroscopeItemList = horoscopeList,
+                    User = user
                 };
 
                 var currentUser = _userService.GetUserById(id);
@@ -85,12 +89,36 @@ namespace Tholumuntu.Controllers
 
                 if (userProfile != null)
                 {
+                    var answers = _answerService.List(user.Id);
+
+                    model.Race = "Not yet set";
+                    model.Religion = "Not yet set";
+
+                    if (answers.Count > 0)
+                    {
+                        var race = answers.Single(x => x.QuestionId == 9);
+                        var religion = answers.Single(x => x.QuestionId == 10);
+
+                        model.Race = race != null ? race.Answer.ToUpper() : "Not yet set";
+                        model.Religion = religion != null ? religion.Answer.ToUpper() : "Not yet set";
+                    }
+
                     model.SelectedDropdownValueForLove = GetSelectedValueForLove(userProfile.LoveLanguage);
                     model.GetFullName(currentUser);
                     Session["FullName"] = model.FullName;
+                    model.PersonalInterest = GetValueOrNotSet(userProfile.PersonalInterest);
+                    model.FavoriteQuote = GetValueOrNotSet(userProfile.FavoriteQuote);
+                    model.DescribeYourself = GetValueOrNotSet(userProfile.DescribeYourself);
+                    model.FriendsDescribeYou = GetValueOrNotSet(userProfile.FriendsDescribeYou);
+                    model.Gender = GetValueOrNotSet(userProfile.Gender);
+                    model.User.Age = GetValueOrNotSet(user.Age);
 
-                    var returnImage = new FileContentResult(userProfile.ProfilePicture, "image/jpeg");
-                    CreateTemporaryFolderToStoreImage(returnImage);
+                    if (userProfile.ProfilePicture != null)
+                    {
+                        var returnImage = new FileContentResult(userProfile.ProfilePicture, "image/jpeg");
+                        CreateTemporaryFolderToStoreImage(returnImage);
+                    }
+                    
                 }
 
                 if (quiz != null)
@@ -106,6 +134,10 @@ namespace Tholumuntu.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+        private string GetValueOrNotSet(string value)
+        {
+            return !string.IsNullOrEmpty(value) ? value : "Not yet set";
         }
 
         private void CreateTemporaryFolderToStoreImage(FileContentResult returnImage)
@@ -203,31 +235,41 @@ namespace Tholumuntu.Controllers
         {
             return View(" ");
         }
+
+        [HttpPost]
+        public ActionResult UpdateProfileImage(string profileArray, string imgType)
+        {
+            if (!string.IsNullOrEmpty(imgType) && !string.IsNullOrEmpty(profileArray))
+            {
+                var profile = _profileService.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
+
+                if (profile != null)
+                {
+                    var image = GetImageByteArray(imgType, profileArray);
+
+                    profile.ProfilePicture = image;
+
+                    if (profile.ProfilePicture != null)
+                    {
+                        var imgBase64Data = Convert.ToBase64String(profile.ProfilePicture);
+                        var imgDataUrl = $"data:image/png;base64,{imgBase64Data}";
+
+                        ViewBag.ImgData = imgDataUrl;
+                        Session["ImgDataUrl"] = imgDataUrl;
+                    }
+
+                    _profileService.UpdateUserProfile(profile);
+                }
+            }
+            return Json(new {success = true, JsonRequestBehavior.AllowGet});
+        }
         [HttpPost]
         public ActionResult UpdateProfile(string name, string surname, string number,
                                           string city, string state, string gender, string _profile, string imgType)
         {
             try
             {
-                var imgString = string.Empty;
-                byte[] image = null;
-
-                switch (imgType)
-                {
-                    case "image/jpeg":
-                        imgString = _profile.Substring(23);
-                        image = Convert.FromBase64String(imgString);
-                        break;
-                    case "image/png":
-                        imgString = _profile.Substring(22);
-                        image = Convert.FromBase64String(imgString);
-                        break;
-                    case "image/gif":
-                        imgString = _profile.Substring(22);
-                        image = Convert.FromBase64String(imgString);
-                        break;
-                }
-
+                var image = GetImageByteArray(imgType, _profile);
                 var user = _userService.GetUserById(Convert.ToInt32(Session["UserId"]));
                 var profile = _profileService.GetProfileByUserId(Convert.ToInt32(Session["UserId"]));
 
@@ -271,6 +313,29 @@ namespace Tholumuntu.Controllers
             }
         }
 
+        private byte[] GetImageByteArray(string imgType, string profile)
+        {
+            byte[] image = null;
+            string imgString;
+
+            switch (imgType)
+            {
+                case "image/jpeg":
+                    imgString = profile.Substring(23);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+                case "image/png":
+                    imgString = profile.Substring(22);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+                case "image/gif":
+                    imgString = profile.Substring(22);
+                    image = Convert.FromBase64String(imgString);
+                    break;
+            }
+
+            return image;
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddPersonalQuizToProfile(UserProfileModel model)

@@ -11,3 +11,31 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Services\obj
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csproj.CopyComplete
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.deps.json
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csprojAssemblyReference.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.AssemblyInfoInputs.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.AssemblyInfo.cs
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csproj.CopyComplete
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.deps.json
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Services.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\bin\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csprojAssemblyReference.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.AssemblyInfoInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.AssemblyInfo.cs
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csproj.CoreCompileInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.csproj.CopyComplete
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Services\obj\Debug\netstandard2.0\Tholaumuntu.Services.pdb

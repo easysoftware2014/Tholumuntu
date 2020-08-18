@@ -9,3 +9,27 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\o
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.deps.json
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csprojAssemblyReference.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.AssemblyInfoInputs.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.AssemblyInfo.cs
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\Users\Lenovo I7 Gaming PC\Documents\From External\from documents\Projects\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.deps.json
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.Repository.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\bin\Debug\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csprojAssemblyReference.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.AssemblyInfoInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.AssemblyInfo.cs
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csproj.CoreCompileInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.csproj.CopyComplete
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.Repository\obj\Debug\netstandard2.0\Tholaumuntu.Repository.pdb

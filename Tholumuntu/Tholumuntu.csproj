@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Mail, Version=3.0.20174.2011, Culture=neutral, PublicKeyToken=6dc438ab78a525b3, processorArchitecture=MSIL">
+      <HintPath>packages\Mail.dll.3.0.20174.2011\lib\net45\Mail.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -183,6 +186,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\FindLoveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\QuestionAnswerController.cs" />
     <Compile Include="Controllers\SweetController.cs" />
@@ -190,6 +194,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AnswersJsonConverter.cs" />
+    <Compile Include="Helpers\CalculateAge.cs" />
     <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
     <Compile Include="Helpers\ImageConverter.cs" />
@@ -227,8 +233,17 @@
     <Compile Include="Migrations\202005291304298_AddingQuestionAndUserAnswerTables.designer.cs">
       <DependentUpon>202005291304298_AddingQuestionAndUserAnswerTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006081845399_ProfileAmendment.cs" />
+    <Compile Include="Migrations\202006081845399_ProfileAmendment.designer.cs">
+      <DependentUpon>202006081845399_ProfileAmendment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006091427486_UpdateProfileEntity.cs" />
+    <Compile Include="Migrations\202006091427486_UpdateProfileEntity.designer.cs">
+      <DependentUpon>202006091427486_UpdateProfileEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\MatchesModel.cs" />
     <Compile Include="Models\PersonalQuizModel.cs" />
     <Compile Include="Models\QuestionAnswerModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
@@ -454,6 +469,8 @@
     <Content Include="Views\Shared\_WizardLayout.cshtml" />
     <Content Include="Views\QuestionAnswer\Index.cshtml" />
     <Content Include="Views\QuestionAnswer\UpdateAnswers.cshtml" />
+    <Content Include="Views\Matches\Index.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -512,6 +529,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005291304298_AddingQuestionAndUserAnswerTables.resx">
       <DependentUpon>202005291304298_AddingQuestionAndUserAnswerTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006081845399_ProfileAmendment.resx">
+      <DependentUpon>202006081845399_ProfileAmendment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006091427486_UpdateProfileEntity.resx">
+      <DependentUpon>202006091427486_UpdateProfileEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

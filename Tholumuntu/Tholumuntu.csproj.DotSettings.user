@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=IMAGES_005CBIG_005F1_002EJPG/@EntryIndexedValue">Images\big_1.jpg</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=VIEWS_005CSHARED_005CIMAGES_005CPIC2_002EJPG/@EntryIndexedValue">Views\Shared\images\pic2.jpg</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=SCRIPTS_005CJQUERY_002ESIGNALR_002D2_002E2_002E0_002EMIN_002EJS/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=VIEWS_005CSHARED_005CCSS/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=IMAGES_005CBIG_005F1_002EJPG/@EntryIndexedValue">Images\big_1.jpg</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=SCRIPTS_005CJQUERY_002ESIGNALR_002D2_002E2_002E0_002EMIN_002EJS/@EntryIndexedValue">Scripts\jquery.signalR-2.2.0.min.js</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CSHARED_005CCSS/@EntryIndexedValue">Views\Shared\css</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CSHARED_005CIMAGES_005CPIC2_002EJPG/@EntryIndexedValue">Views\Shared\images\pic2.jpg</s:String></wpf:ResourceDictionary>

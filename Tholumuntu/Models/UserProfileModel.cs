@@ -23,11 +23,15 @@ namespace Tholumuntu.Models
         public IList<SelectListItem> ChoiceItemList { get; set; }
         public IList<SelectListItem> HoroscopeItemList { get; set; }
         public Image Image { get; set; }
+        public string ProfileImage { get; set; }
         public string FullName { get; set; }
         public string PersonalInterest { get; set; }
-        public string DescribeYourSelf { get; set; }
-        public string HowFriendsDescribeYou { get; set; }
+        public string DescribeYourself { get; set; }
+        public string FriendsDescribeYou { get; set; }
         public string FavoriteQuote { get; set; }
+        public string Religion { get; set; }
+        public string Race { get; set; }
+        public string Language { get; set; }
 
         public UserProfileModel()
         {
@@ -41,8 +45,11 @@ namespace Tholumuntu.Models
             Horoscope = model.Horoscope;
             ProfilePicture = model.ProfilePicture;
             Gender = model.Gender;
+            User = model.User;
+            ProfileImage = model.Image;
+            PersonalInterest = model.PersonalInterest;
             //Quiz = model.Quiz;
-            
+
         }
 
         public void SetAddress(Address address)

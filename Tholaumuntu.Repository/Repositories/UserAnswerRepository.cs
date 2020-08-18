@@ -35,7 +35,7 @@ namespace Tholaumuntu.Repository.Repositories
 
         public IList<UserAnswer> List(int userId)
         {
-            return _tholaUmuntuContext.UserAnswers.ToList();
+            return _tholaUmuntuContext.UserAnswers.Where(x => x.UserId == userId).ToList();
         }
 
         public UserAnswer GetAnswerByQuestionId(int questionId)

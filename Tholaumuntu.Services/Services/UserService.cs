@@ -37,6 +37,16 @@ namespace Tholaumuntu.Services.Services
         {
             _userRepository.Update(user);
         }
+
+        public User GetUserByEmailAndPassword(string email, string password, bool isForgot)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

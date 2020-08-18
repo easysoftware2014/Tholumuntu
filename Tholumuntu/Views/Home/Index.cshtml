@@ -5,7 +5,23 @@
     var emailCached = ViewBag.EmailCache != null ? ViewBag.EmailCache as List<string> : new List<string>();
 }
 
+<div class="modal fade" id="messageSentModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center; font-family: courier,arial,helvetica;margin-left: 100px">Message</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Email sent your provided email address, please check your email.</h3>
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
 
+    </div>
+</div>
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
@@ -69,7 +85,7 @@
         </div>
         <div class="col-md-12">
             <br />
-            <h2 style="text-align: center; font-family: courier, arial, helvetica;">We're saying, Character matters most</h2>
+            <h2 style="text-align: center; font-family: courier, arial, helvetica;">We are saying, Character matters most</h2>
             <br />
 
             <p class="" style="display: none" id="forgot_email_sent">Email sent, please check your email</p>
@@ -81,7 +97,7 @@
                 <button class="btn btn-success my-4 btn-block" id="btnSignIn" type="button">Sign in</button>
                 <i class="fa-frown-o" aria-hidden="true"></i> <a class="fa-link" href="#" id="btnForgotPassword" data-toggle="modal" data-target="#forgotPasswordModal">Forgot password</a>
                 <br />
-                don't have account yet? <a class="fa-link" href="#" id="btnRegister">Register</a>
+                Create an account <a class="fa-link" href="#" id="btnRegister">Register</a>
             </form>
 
             <!-- Default form register -->
@@ -99,7 +115,9 @@
                         <input type="text" id="defaultRegisterFormLastName" required="required" class="form-control" placeholder="Last name">
                     </div>
                 </div>
-
+                <!--Date of birth -->
+                <input type="date" class="form-control mb-4" placeholder="Date of birth" id="dateOfBirth" required="required" />
+                <!--Date of birth -->
                 <!-- E-mail -->
                 <input type="email" id="defaultRegisterFormEmail" required="required" class="form-control mb-4" placeholder="E-mail">
                 <small id="defaultRegisterFormEmailError" class="form-text text-muted mb-4" style="display: none; color: red">
@@ -157,7 +175,6 @@
 
             if (true) {
                 var email = $("#txtForgotEmail").val();
-
                 var uploadData = { "email": email };
 
                 $.ajax({
@@ -170,18 +187,18 @@
                     success: function (emailSent) {
 
                         event.preventDefault();
-                        console.log("Data: ", data);
 
-                        if (emailSent === "true") {
-                            clearControls();
+                        if (emailSent) {
+                            clearControls(); 
                             $("#forgotPasswordModal").hide();
-                            //location.href = "/profile";
+                           alert("Email sent successfully, please check your email.");
+                          
                         }
                         else
                             alert("problem sending email");
                     },
-                    error: function () {
-                        alert("email or password incorrect, please try again.");
+                    error: function (error) {
+                        alert(error);
                     }
                 });
             }
@@ -212,7 +229,7 @@
             if (isValid) {
                 var name = $("#defaultRegisterFormFirstName").val();
                 var surname = $("#defaultRegisterFormLastName").val();
-
+                var dateOfBirth = $("#dateOfBirth").val();
                 var password = $("#defaultRegisterFormPassword").val();
                 var contactNumber = $("#defaultRegisterPhonePassword").val();
 
@@ -223,7 +240,8 @@
                         "surname": surname,
                         "email": email,
                         "password": password,
-                        "contact": contactNumber
+                        "contact": contactNumber,
+                        "age": dateOfBirth
                     };
 
                     $.ajax({

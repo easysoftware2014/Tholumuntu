@@ -3,6 +3,10 @@ using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Authentication;
+using Limilabs.Client.SMTP;
+using Limilabs.Mail;
+using Limilabs.Mail.Fluent;
 
 namespace Tholumuntu.Helpers
 {
@@ -149,6 +153,49 @@ namespace Tholumuntu.Helpers
             template = template.Replace("{FOOTERIMAGE}", footerImage);
 
             return template;
+        }
+
+        internal static bool SendForgotPasswordEmail(string email, string name, string tempPass)
+        {
+            var pass = ConfigurationManager.AppSettings["EmailPassword"];
+            var toEmailAddress = email;//ConfigurationManager.AppSettings["sender"];
+            var sender = ConfigurationManager.AppSettings["sender"];
+            var subject = "Password Reset";
+            var webUrl = ConfigurationManager.AppSettings["website_url"];
+                        
+            using (var smtpClient = new SmtpClient())
+            {
+                var credentials = new NetworkCredential(sender, pass);
+
+                using (var message = new MailMessage())
+                {
+                    var fromAddress = new MailAddress(sender);
+
+                    smtpClient.Host = "me4.redcactus.co.za";
+                    smtpClient.Port = 587;
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtpClient.EnableSsl = true;
+                    smtpClient.Credentials = credentials;
+
+                    message.From = fromAddress;
+                    message.Subject = subject;
+                    message.IsBodyHtml = true;
+                    message.Body = $"Dear {name}, <br/><br/> <b>{subject}</b> Request. Please click on this <a href='{webUrl}home/resetpassword?tempUrl={tempPass}&email={email}'> link</a> to reset your password";
+                    message.To.Add(toEmailAddress);
+
+                    try
+                    {
+                        smtpClient.Send(message);
+
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write(ex.Message);
+                        return false;
+                    }
+                }
+            }
         }
     }
 }

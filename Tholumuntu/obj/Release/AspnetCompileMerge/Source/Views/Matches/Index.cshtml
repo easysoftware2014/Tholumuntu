@@ -1,0 +1,148 @@
+﻿@using Tholaumuntu.DataAcces.Domain
+@model List<Tholumuntu.Models.UserProfileModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+    var user = (User) ViewBag.User;
+    var fullName = user.Name + " " + user.Surname;
+}
+<script src="../../Scripts/jquery.min.js"></script>
+<br />
+<h3 class="span">Possible Matches</h3>
+<style type="text/css">
+    .table-padding-left {
+        margin-left: 20px;
+        margin-top: -5px;
+    }
+    .span {
+        color: rosybrown;
+    }
+    .page-card {
+        padding: 30px;
+        box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .22);
+        background-color: #fff;
+        border-radius: 10px 10px 10px 10px;
+        height: 100%;
+    }
+
+    .normaltext {
+        font-family: Tahoma, helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        color: #676161;
+    }
+
+    .medhead {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 24px;
+        color: #676161;
+        line-height: 34px;
+    }
+
+    .photo-container {
+        float: left;
+        background-color: #fff;
+        height: 158px;
+        margin: 0 0 0 7px;
+    }
+
+    .matchdiz {
+        float: left;
+        width: 204px;
+        margin-left: 14px;
+        font-family: Tahoma, Helvetica, sans-serif;
+        font-size: 15px;
+        line-height: 21px;
+    }
+
+    .dis-height {
+        overflow: hidden;
+        height: 114px;
+    }
+
+    .threedots {
+        position: absolute;
+        margin: -25px 0 0 170px;
+        width: 33px;
+        background-color: #fff;
+    }
+
+    .photo-cont {
+        float: left;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    /* Create three equal columns that sits next to each other */
+    .column {
+        flex: 33.33%;
+        padding: 5px;
+    }
+    .prof-image {
+        width: 70px;
+        height: 20%;
+    }
+</style>
+
+<div class="row profile">
+    <div class="col-md-12">
+        <br />
+        <div class="page-card">
+            @for (var i = 0; i < Model.Count; i++)
+            {
+                if (i < Model.Count)
+                {
+                    <div class="row">
+                        <div class="column">
+                            <div class="photo-cont" style="text-align: center">
+                                <img src="@Model[i].ProfileImage" class="prof-image"/>
+                            </div>
+                            <div class="matchdiz">
+                                <div class="dis-height">
+                                    <strong>
+                                        <a href="" class="normaltext">@Model[i].User.Name</a>
+                                    </strong>(@Model[i].User.Age)
+                                    <br />
+                                    @Model[i].User.State
+                                    <br />
+                                    <span class="span">@Model[i].PersonalInterest</span>
+                                </div>
+                                <div class="threedots"></div>
+                            </div>
+                        </div>
+                        @if (i != Model.Count - 1)
+                        {
+                            <div class="column">
+                                <div class="photo-cont" style="text-align: center">
+                                    <img src="@Model[i+1].ProfileImage" class="prof-image"/>
+                                </div>
+                                <div class="matchdiz">
+                                    <div class="dis-height">
+                                        <strong>
+                                            <a href="" class="normaltext">@Model[i + 1].User.Name</a>
+                                        </strong>(@Model[i + 1].User.Age)
+                                        <br />
+                                        @Model[i + 1].User.State
+                                        <br />
+                                        <span class="span"> @Model[i + 1].PersonalInterest</span>
+                                    </div>
+                                    <div class="threedots"></div>
+                                </div>
+                            </div>
+                        }
+                        
+                    </div>
+                }
+                i++;
+            }
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#username").text("@fullName");
+</script>

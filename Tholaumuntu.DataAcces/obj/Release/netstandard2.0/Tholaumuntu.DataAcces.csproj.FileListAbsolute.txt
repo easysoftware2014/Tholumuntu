@@ -6,3 +6,12 @@ C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\ob
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.AssemblyInfo.cs
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.dll
 C:\Users\E566035\Documents\Sawulisi\Projects\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.deps.json
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\bin\Release\netstandard2.0\Tholaumuntu.DataAcces.pdb
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.csprojAssemblyReference.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.AssemblyInfoInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.AssemblyInfo.cs
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.csproj.CoreCompileInputs.cache
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.dll
+C:\My Projects\Tholumuntu\Tholumuntu\Tholaumuntu.DataAcces\obj\Release\netstandard2.0\Tholaumuntu.DataAcces.pdb
